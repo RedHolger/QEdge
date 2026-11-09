@@ -1,0 +1,80 @@
+# Stage 01 llm-inference outside-source install
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:20:30Z
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+cmake --build --preset release
+[ 50%] Built target llm_core
+[ 60%] Built target llm_metal
+[ 70%] Built target llm_infer
+[ 80%] Built target run_tests
+[ 85%] Building CXX object CMakeFiles/llm_qnn_bench.dir/src/main_qnn.cpp.o
+[ 90%] Linking CXX executable llm_qnn_bench
+[ 90%] Built target llm_qnn_bench
+[100%] Built target run_qnn_tests
+ctest --preset release --output-on-failure
+Test project /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+    Start 1: llm_kv_cache
+1/2 Test #1: llm_kv_cache .....................   Passed    0.00 sec
+    Start 2: qnn_stub_cpu
+2/2 Test #2: qnn_stub_cpu .....................   Passed    0.00 sec
+
+100% tests passed out of 2
+
+Label Time Summary:
+cpu         =   0.01 sec*proc (2 tests)
+qnn-stub    =   0.00 sec*proc (1 test)
+stage01     =   0.01 sec*proc (2 tests)
+
+Total Test time (real) =   0.01 sec
+# build/test exit: 0
+-- Install configuration: "Release"
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/lib/libllm_core.a
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/lib/libllm_metal.a
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/bin/llm_infer
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/bin/llm_qnn_bench
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/benchmark
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/benchmark/benchmark.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/benchmark/power_report.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/core
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/core/config.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/core/tensor.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/backend.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/metal_factory.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/cpu_backend.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/qnn_stub_backend.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/qnn_types.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/metal_backend.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/kv_cache
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/kv_cache/policy.h
+-- Installing: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/kv_cache/kv_cache.h
+# install exit: 0
+# installed tree:
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/bin/llm_infer
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/bin/llm_qnn_bench
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/backend.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/cpu_backend.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/metal_backend.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/metal_factory.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/qnn_stub_backend.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/backend/qnn_types.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/benchmark/benchmark.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/benchmark/power_report.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/core/config.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/core/tensor.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/kv_cache/kv_cache.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/include/kv_cache/policy.h
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/lib/libllm_core.a
+/private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-llm-install.BIiV6v/prefix/lib/libllm_metal.a
+# installed llm_infer exit: 0
+# installed llm_qnn_bench exit: 0
+# verification exit: 0
+# exit: 0

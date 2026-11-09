@@ -1,0 +1,12 @@
+ACCEPTED empty SUPPORTED decision
+ACCEPTED contradicted child with SUPPORTED parent
+ACCEPTED missing required predicate
+ACCEPTED mismatched child item_id
+ACCEPTED invalid created_at
+ACCEPTED invalid nested retrieved_at
+ACCEPTED null supported observation in nested claim
+REJECTED null supported observation in standalone claim: evidence_claim: observed_value: None should not be valid under {'type': 'null'}
+ACCEPTED synthetic record marked measured
+ACCEPTED measured NPU with unverified device
+ACCEPTED NaN observed value
+baseline gaps complete

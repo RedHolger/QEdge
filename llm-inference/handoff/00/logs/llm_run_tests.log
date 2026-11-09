@@ -1,0 +1,38 @@
+
+KV Cache Unit Tests
+═══════════════════
+
+Test: Basic Store & Retrieve
+  PASS: size after 1 store
+  PASS: retrieve token 0 layer 0
+  PASS: key value correct
+  PASS: value value correct
+  PASS: retrieve nonexistent
+  PASS: wrong layer miss
+  PASS: clear resets size
+
+Test: FIFO Eviction
+  PASS: size capped at capacity
+  PASS: evictions occurred
+  PASS: token 0 evicted (FIFO)
+  PASS: token 5 present (FIFO)
+  PASS: token 5 value correct
+
+Test: LRU Eviction
+  PASS: evictions occurred
+  PASS: token 0 (least used after access) evicted
+  PASS: token 1 (most accessed) present
+
+Test: KeyDiff Eviction
+  PASS: evictions occurred
+  PASS: cache size at capacity
+  PASS: newest token (5) present
+
+Test: QnnStub Integration (Hexagon-Mimic)
+  PASS: QnnStub implements all ops and profiles calls
+  PASS: QnnStub PowerReport fields are all positive
+  PASS: QnnStub output matches CPUBackend within 1e-4
+
+─────────────────────────────────
+  Passed: 21 / 21
+  Failed: 0

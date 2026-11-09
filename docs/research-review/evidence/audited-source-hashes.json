@@ -1,0 +1,186 @@
+[
+  {
+    "path": "llm-inference/src/backend/backend.cpp",
+    "sha256": "9bf5a7628411755026246f2747fa3d2c4fcf64b86d1b33a326ce75c9d0fcd9a8"
+  },
+  {
+    "path": "llm-inference/src/backend/cpu_backend.cpp",
+    "sha256": "bd76d8106b791838683da3b8b78acc86842943f8b2599fd61939b443951d418a"
+  },
+  {
+    "path": "llm-inference/src/backend/metal_backend.mm",
+    "sha256": "3703b6055008faea3a7aed8956b9b8350b34947554e9ac14dc5ef604b0753708"
+  },
+  {
+    "path": "llm-inference/src/backend/qnn_stub_backend.cpp",
+    "sha256": "8f33cda9aa80bcf972e85061bef1ac3647a69793f1969f7a78cf421fc36c4425"
+  },
+  {
+    "path": "llm-inference/src/benchmark/benchmark.cpp",
+    "sha256": "a3663b40e07ea0c9fd231f2589bf284f03a4c1e25ae130f4511e45e2853215c0"
+  },
+  {
+    "path": "llm-inference/src/benchmark/power_report.cpp",
+    "sha256": "8011fc119e0d407e9c4f4011212e23892fe19707abcb025095979eb45e10c585"
+  },
+  {
+    "path": "llm-inference/src/core/config.cpp",
+    "sha256": "4f8001cf41a8c53912051ed19ddc2d8a2d5f4ebebef8d59119b2c4ebfeb3975e"
+  },
+  {
+    "path": "llm-inference/src/core/tensor.cpp",
+    "sha256": "10a3408ed5406b3de34a268ae1ac8aa02ee2c077abf50ab636e1ead727f12f8c"
+  },
+  {
+    "path": "llm-inference/src/kv_cache/kv_cache.cpp",
+    "sha256": "83a8d0b3a89ee89c0e7e7f7bdc47aa1c6a439555c6304a324de7c6c7cf1668d3"
+  },
+  {
+    "path": "llm-inference/src/kv_cache/policy.cpp",
+    "sha256": "32ee9cdb96d8ffcd648404721cadd900dd1e885349e2f539cce0b93be09a10a1"
+  },
+  {
+    "path": "llm-inference/src/main.cpp",
+    "sha256": "0132303a8eb19e886584bd0735705892db52d8d7c64a2bd671d3bef65b3d7881"
+  },
+  {
+    "path": "llm-inference/src/main_qnn.cpp",
+    "sha256": "fa18974255f30e795ebb70d70cd21f2e7c1b4d10fc38ec84e3d34b7a04261c47"
+  },
+  {
+    "path": "llm-inference/include/backend/backend.h",
+    "sha256": "3b55718015dba6b6e335341318808b2f31703a6b9f4b504cb2f008ca17332126"
+  },
+  {
+    "path": "llm-inference/include/backend/cpu_backend.h",
+    "sha256": "264a32859172f1ce04d10a8fa46dcaf767da6d8bdb3696e7eca60c39dddea7d1"
+  },
+  {
+    "path": "llm-inference/include/backend/metal_backend.h",
+    "sha256": "06e9dbb3217627e058803f54da96f2491541a44940e906131b1526c0f2112e8b"
+  },
+  {
+    "path": "llm-inference/include/backend/metal_factory.h",
+    "sha256": "66cd351112588f29da3dbf12164f53f6a43d3e778dafca0c2c833cd09cf9e5aa"
+  },
+  {
+    "path": "llm-inference/include/backend/qnn_stub_backend.h",
+    "sha256": "7ebb0adba6bc8772b09c812c26367843223118411845f03d9000eede17569347"
+  },
+  {
+    "path": "llm-inference/include/backend/qnn_types.h",
+    "sha256": "bfa51b6f6250b67287a33faaee1745099d34438f8d826309fb3099b30e5b1b2e"
+  },
+  {
+    "path": "llm-inference/include/benchmark/benchmark.h",
+    "sha256": "d000303ecd6fbf437dbb2eb88a12e33498010a0bd9cc40cd3b7479139e880eac"
+  },
+  {
+    "path": "llm-inference/include/benchmark/power_report.h",
+    "sha256": "47bdb072ffbf4d832b1e4a4e019e33f5960a2473dc72f9bd856b567759887392"
+  },
+  {
+    "path": "llm-inference/include/core/config.h",
+    "sha256": "ee99935f0104c0572592ee07614bfbd45246d210263001885b2298b27a44f610"
+  },
+  {
+    "path": "llm-inference/include/core/tensor.h",
+    "sha256": "eb8aa47cc75521d99163de16f223bd124cd5a3feb68723973e61cc2aeb509377"
+  },
+  {
+    "path": "llm-inference/include/kv_cache/kv_cache.h",
+    "sha256": "1495fefd5525cfd0affa0839928e7d0f10e7451833555232674a9431c30ed66e"
+  },
+  {
+    "path": "llm-inference/include/kv_cache/policy.h",
+    "sha256": "99a97aaad995737d474875c4ad7915038565ddb0de697951c6259dd3a24bbfd0"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/__init__.py",
+    "sha256": "7d5d9d6f5a210210826e70c620a25c1f00e13c7089e892b24040213f49d41e5e"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/bench.py",
+    "sha256": "3eb9c9ad6803f80aa9e46ad6ead2c2f694673e0dcdb25fbe38d28f2181cb050e"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/cli.py",
+    "sha256": "ff2b1813fa7146ea1f71ff90007f8cc54c9c8dba987357951734e7d2623384e3"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/eval.py",
+    "sha256": "86281640229c626a37c7551e224cc3f0657d93ef36bd5f486c391eafc17785ec"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/generator.py",
+    "sha256": "7ed6e459ebb5b5b2ce56f35cf6fb895a65f8440e1e7626e7d94e316a4ec967d7"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/paths.py",
+    "sha256": "4482e61652e306f9619b1b39d030bd1f4d876599028ee345754c09da98e8ad64"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/profiler.py",
+    "sha256": "234619b215716e111c3614ebb202e646772248de23a0118cc35278c31d587f54"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/retriever.py",
+    "sha256": "c913db2651c35f1e9bcdd93eedc100506026e6a219d265c8661f0f6793a6eea0"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/store.py",
+    "sha256": "9fa3e362ae17681669ce9128271beb8aae1c2e55540a40edb7aac280b62ffa3b"
+  },
+  {
+    "path": "edge-rag-demo/src/edge_rag/verifier.py",
+    "sha256": "24a0d9956bfeaf193153732d74bf9e43d435138fd19b78da1031b858df8cc3a2"
+  },
+  {
+    "path": "qedge-common/src/qedge_common/__init__.py",
+    "sha256": "c25c3e13087f71fccec20310269b47c81bfa064720e4c612e2bda89941ea0f96"
+  },
+  {
+    "path": "qedge-common/src/qedge_common/cli.py",
+    "sha256": "03aed48a651c617caecb6b708872561b5b5ed1561e0154152f0f722825abf26e"
+  },
+  {
+    "path": "qedge-common/src/qedge_common/eval.py",
+    "sha256": "e2c5aaf5ac331a1a80be7ca4eb3ed75107b1ae6f8d3983077ba64eb92d287c77"
+  },
+  {
+    "path": "qedge-common/src/qedge_common/schema.py",
+    "sha256": "7c362706e0d8113e0e3ca2ff318673b1e0d98b7aa743cdc6d39a437f66964327"
+  },
+  {
+    "path": "qedge-common/schemas/README.md",
+    "sha256": "2a738ef55e443a77d200734711832956114526de450d76d0fb3857551b2844e5"
+  },
+  {
+    "path": "qedge-common/schemas/benchmark_result.schema.json",
+    "sha256": "f125a9427fecce43560381fa876f7eb3a9bcd2f6f9817125d071ecd2c68a0e83"
+  },
+  {
+    "path": "qedge-common/schemas/decision.schema.json",
+    "sha256": "01adae7cf29d51717874f1095f124bbcb9fd3914f2d898966a233a96b2444c4c"
+  },
+  {
+    "path": "qedge-common/schemas/evidence_claim.schema.json",
+    "sha256": "0328af90f4682626b175c81381d4fc17587be095900839dd3243127b07f3297b"
+  },
+  {
+    "path": "qedge-common/schemas/hardware_status.schema.json",
+    "sha256": "214fe25d6e56b47eb7578ba83f67e3416bd1281372fae852ad53dcc1b41c8e81"
+  },
+  {
+    "path": "qedge-common/schemas/product.schema.json",
+    "sha256": "9531dac17fdaa656a8fdb5b2a8e488abe6e390f33027afb257c0ad54a3673e60"
+  },
+  {
+    "path": "qedge-common/schemas/retrieval_request.schema.json",
+    "sha256": "af8b75864c4625ae09e7b5054e964886ed6dc620dafed3a5fc2ab06bd065be37"
+  },
+  {
+    "path": "qedge-common/schemas/retrieval_result.schema.json",
+    "sha256": "dfbe6602685fc3ff61c65d642208b3956078f94151bdfe258c4a1ca890e62158"
+  }
+]

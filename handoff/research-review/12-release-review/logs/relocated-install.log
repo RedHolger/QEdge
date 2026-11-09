@@ -1,0 +1,33 @@
+Building wheel...
+Successfully built /var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-release-00s5vji9/wheels/qedge_common-0.1.0-py3-none-any.whl
+Building wheel...
+Successfully built /var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-release-00s5vji9/wheels/edge_rag_demo-0.2.0-py3-none-any.whl
+Using CPython 3.11.15 interpreter at: /opt/homebrew/opt/python@3.11/bin/python3.11
+Creating virtual environment at: /var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-release-00s5vji9/env
+Activate with: source /var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-release-00s5vji9/env/bin/activate
+Using Python 3.11.15 environment at: env
+Resolved 8 packages in 6ms
+Prepared 2 packages in 8ms
+Installed 8 packages in 7ms
+ + attrs==26.1.0
+ + edge-rag-demo==0.2.0 (from file:///var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-release-00s5vji9/wheels/edge_rag_demo-0.2.0-py3-none-any.whl)
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + qedge-common==0.1.0 (from file:///var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-release-00s5vji9/wheels/qedge_common-0.1.0-py3-none-any.whl)
+ + referencing==0.37.0
+ + rpds-py==2026.9.1
+ + typing-extensions==4.16.0
+Using Python 3.11.15 environment at: env
+Checked 8 packages in 0.53ms
+All installed packages are compatible
+{
+  "relocated_source_build": "PASS",
+  "source_removed_before_execution": true,
+  "isolated_python": true,
+  "network_denied_at_socket_connect": true,
+  "installed_commands": [
+    "demo",
+    "benchmark",
+    "evaluate"
+  ]
+}

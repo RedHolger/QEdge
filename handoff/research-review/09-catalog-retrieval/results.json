@@ -1,0 +1,528 @@
+{
+  "schema_version": "1",
+  "stage": "09-catalog-retrieval",
+  "evaluation_scope": "30-query human-reviewed pilot & 120-query evaluation plan",
+  "catalog_version": "abo-v2-pilot-500",
+  "index_version": "a0cc05ffa89f8f148da8718649a919e8d54b4bf601ec2f8c14188fad5fcc6cca",
+  "pilot_judgment_coverage": {
+    "historical_pool": {
+      "total_pairs": 685,
+      "judged_pairs": 30,
+      "unjudged_pairs": 655,
+      "coverage_pct": 4.38
+    },
+    "fresh_pool": {
+      "total_pairs": 1032,
+      "judged_pairs": 23,
+      "unjudged_pairs": 1009,
+      "coverage_pct": 2.23
+    },
+    "union_pool": {
+      "total_pairs": 1172,
+      "judged_pairs": 30,
+      "unjudged_pairs": 1142,
+      "coverage_pct": 2.56
+    },
+    "newly_retrieved_pairs_count": 487,
+    "total_queries": 30,
+    "queries_with_known_positive_count": 20,
+    "queries_without_known_positive_count": 10,
+    "queries_without_known_positive": [
+      "pilot-02",
+      "pilot-08",
+      "pilot-12",
+      "pilot-13",
+      "pilot-14",
+      "pilot-18",
+      "pilot-20",
+      "pilot-25",
+      "pilot-27",
+      "pilot-30"
+    ],
+    "known_positives_by_query": {
+      "pilot-01": [
+        {
+          "item_id": "B000K6GK0I",
+          "grade": 3
+        }
+      ],
+      "pilot-03": [
+        {
+          "item_id": "B07DBHF136",
+          "grade": 1
+        }
+      ],
+      "pilot-04": [
+        {
+          "item_id": "B00M92O7HE",
+          "grade": 1
+        }
+      ],
+      "pilot-05": [
+        {
+          "item_id": "B07DBHCKJ5",
+          "grade": 3
+        }
+      ],
+      "pilot-06": [
+        {
+          "item_id": "B01N3MBCKT",
+          "grade": 2
+        }
+      ],
+      "pilot-07": [
+        {
+          "item_id": "B07B4YVDLQ",
+          "grade": 1
+        }
+      ],
+      "pilot-09": [
+        {
+          "item_id": "B07HPQFNC9",
+          "grade": 3
+        }
+      ],
+      "pilot-10": [
+        {
+          "item_id": "B072Y5MZQH",
+          "grade": 3
+        }
+      ],
+      "pilot-11": [
+        {
+          "item_id": "B0725Z2499",
+          "grade": 2
+        }
+      ],
+      "pilot-15": [
+        {
+          "item_id": "B07B3XXD3P",
+          "grade": 1
+        }
+      ],
+      "pilot-16": [
+        {
+          "item_id": "B07JLSNZ1K",
+          "grade": 1
+        }
+      ],
+      "pilot-17": [
+        {
+          "item_id": "B07B4M364Y",
+          "grade": 3
+        }
+      ],
+      "pilot-19": [
+        {
+          "item_id": "B0735SK5LP",
+          "grade": 1
+        }
+      ],
+      "pilot-21": [
+        {
+          "item_id": "B07HNJFGH4",
+          "grade": 3
+        }
+      ],
+      "pilot-22": [
+        {
+          "item_id": "B07JPG7K3N",
+          "grade": 2
+        }
+      ],
+      "pilot-23": [
+        {
+          "item_id": "B071ZJ6CK3",
+          "grade": 1
+        }
+      ],
+      "pilot-24": [
+        {
+          "item_id": "B07JLZC571",
+          "grade": 1
+        }
+      ],
+      "pilot-26": [
+        {
+          "item_id": "B07HZ1LZS1",
+          "grade": 3
+        }
+      ],
+      "pilot-28": [
+        {
+          "item_id": "B07JY4HM7S",
+          "grade": 2
+        }
+      ],
+      "pilot-29": [
+        {
+          "item_id": "B07HSMYNYF",
+          "grade": 1
+        }
+      ]
+    },
+    "unjudged_negative_separation_notice": "Only 23 of 1,032 fresh pairs (and 30 of 1,172 union pairs) are judged. Unjudged candidates at top ranks are not verified negatives; full precision and negative confirmation require completing the active review queue."
+  },
+  "known_positive_rank_diagnostics": {
+    "bm25": {
+      "denominator_known_positive_queries": 20,
+      "hits_at_5": "2/20",
+      "recall@5_known_positives": 0.1,
+      "hits_at_10": "6/20",
+      "recall@10_known_positives": 0.3,
+      "hits_at_20": "7/20",
+      "recall@20_known_positives": 0.35,
+      "mrr@10_known_positives": 0.0648
+    },
+    "text": {
+      "denominator_known_positive_queries": 20,
+      "hits_at_5": "6/20",
+      "recall@5_known_positives": 0.3,
+      "hits_at_10": "10/20",
+      "recall@10_known_positives": 0.5,
+      "hits_at_20": "10/20",
+      "recall@20_known_positives": 0.5,
+      "mrr@10_known_positives": 0.2214
+    },
+    "hybrid": {
+      "denominator_known_positive_queries": 20,
+      "hits_at_5": "5/20",
+      "recall@5_known_positives": 0.25,
+      "hits_at_10": "9/20",
+      "recall@10_known_positives": 0.45,
+      "hits_at_20": "11/20",
+      "recall@20_known_positives": 0.55,
+      "mrr@10_known_positives": 0.1905
+    }
+  },
+  "pilot_results": {
+    "bm25": {
+      "query_count": 30,
+      "supported_ranking_depth": 17,
+      "metrics": {
+        "recall@5": {
+          "mean": 0.0667,
+          "ci_95": [
+            0.0,
+            0.1667
+          ]
+        },
+        "recall@10": {
+          "mean": 0.2,
+          "ci_95": [
+            0.0667,
+            0.3667
+          ]
+        },
+        "recall@20": {
+          "mean": 0.2333,
+          "ci_95": [
+            0.1,
+            0.4
+          ]
+        },
+        "mrr@10": {
+          "mean": 0.0432,
+          "ci_95": [
+            0.012,
+            0.0875
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.0789,
+          "ci_95": [
+            0.0249,
+            0.1441
+          ]
+        }
+      },
+      "latency_ms": {
+        "mean_total": 0.3,
+        "p95_total": 0.41,
+        "mean_encode": 0.0,
+        "mean_retrieve": 0.28
+      }
+    },
+    "text": {
+      "query_count": 30,
+      "supported_ranking_depth": 20,
+      "metrics": {
+        "recall@5": {
+          "mean": 0.2,
+          "ci_95": [
+            0.0667,
+            0.3333
+          ]
+        },
+        "recall@10": {
+          "mean": 0.3333,
+          "ci_95": [
+            0.1667,
+            0.5
+          ]
+        },
+        "recall@20": {
+          "mean": 0.3333,
+          "ci_95": [
+            0.1667,
+            0.5
+          ]
+        },
+        "mrr@10": {
+          "mean": 0.1476,
+          "ci_95": [
+            0.0526,
+            0.2648
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.1896,
+          "ci_95": [
+            0.089,
+            0.3123
+          ]
+        }
+      },
+      "latency_ms": {
+        "mean_total": 291.81,
+        "p95_total": 26.66,
+        "mean_encode": 291.09,
+        "mean_retrieve": 0.71
+      }
+    },
+    "hybrid": {
+      "query_count": 30,
+      "supported_ranking_depth": 20,
+      "metrics": {
+        "recall@5": {
+          "mean": 0.1667,
+          "ci_95": [
+            0.0333,
+            0.3
+          ]
+        },
+        "recall@10": {
+          "mean": 0.3,
+          "ci_95": [
+            0.1667,
+            0.4667
+          ]
+        },
+        "recall@20": {
+          "mean": 0.3667,
+          "ci_95": [
+            0.2,
+            0.5333
+          ]
+        },
+        "mrr@10": {
+          "mean": 0.127,
+          "ci_95": [
+            0.0429,
+            0.2319
+          ]
+        },
+        "ndcg@10": {
+          "mean": 0.1671,
+          "ci_95": [
+            0.0689,
+            0.281
+          ]
+        }
+      },
+      "latency_ms": {
+        "mean_total": 23.99,
+        "p95_total": 25.1,
+        "mean_encode": 23.13,
+        "mean_retrieve": 0.65
+      }
+    }
+  },
+  "unavailable_requests_count": 30,
+  "unavailable_requests": [
+    {
+      "query_id": "pilot-01",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-02",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-03",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-04",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-05",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-06",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-07",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-08",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-09",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-10",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-11",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-12",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-13",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-14",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-15",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-16",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-17",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-18",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-19",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-20",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-21",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-22",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-23",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-24",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-25",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-26",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-27",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-28",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-29",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    },
+    {
+      "query_id": "pilot-30",
+      "method": "image",
+      "reason": "Text queries lack an image query input; visual search requires image input."
+    }
+  ],
+  "evaluation_plan_120": {
+    "dataset_name": "abo-v2-eval-120",
+    "total_queries": 120,
+    "split_policy": "family-aware (grouped by product category/family to avoid lexical/semantic leakage)",
+    "splits": {
+      "train": {
+        "query_count": 60,
+        "purpose": "Feature engineering and candidate pool generation"
+      },
+      "dev": {
+        "query_count": 20,
+        "purpose": "Hyperparameter tuning (RRF k and modality weights wm)",
+        "tuning_constraint": "Strictly develop-only; test split must remain untouched"
+      },
+      "test": {
+        "query_count": 40,
+        "purpose": "Held-out unbiased evaluation of tuned retrieval pipeline"
+      }
+    },
+    "annotation_workflow": {
+      "protocol": "Double-blinded candidate pool review across BM25, MiniLM, and OpenCLIP",
+      "scale": "4-point graded relevance (0=Irrelevant, 1=Weak, 2=Relevant, 3=Highly Relevant)",
+      "adjudication": "Disagreements resolved by senior annotator; stored in SQLite"
+    },
+    "quality_gate": {
+      "status": "BLOCKED",
+      "reason": "Human relevance judgments for queries 31-120 and the unjudged candidate pools are pending annotation. Quality gate cannot be unblocked without human labels.",
+      "unblocking_prerequisites": [
+        "Complete human review for the 1,009 unjudged pairs in the active fresh review queue.",
+        "Complete double-blind human annotations for remaining 90 queries (queries 31-120)."
+      ]
+    }
+  },
+  "overall_status": "PILOT_VERIFIED_FULL_EVAL_BLOCKED"
+}

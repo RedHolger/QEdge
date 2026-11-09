@@ -1,0 +1,9 @@
+[  9%] Built target llm_metal
+[ 54%] Built target llm_core
+[ 81%] Building CXX object CMakeFiles/run_kernel_tests.dir/tests/test_attention.cpp.o
+[ 86%] Built target run_tests
+[ 86%] Built target llm_infer
+[ 86%] Built target llm_qnn_bench
+[ 95%] Built target run_qnn_tests
+[100%] Linking CXX executable run_kernel_tests
+[100%] Built target run_kernel_tests

@@ -1,0 +1,41 @@
+[project]
+name = "edge-rag-demo"
+version = "0.2.0"
+description = "QEdge Assist — portable evidence-grounded retrieval foundation"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "qedge-common",
+]
+
+[tool.uv.sources]
+qedge-common = { path = "../qedge-common", editable = true }
+
+[project.scripts]
+edge-rag-demo = "edge_rag.cli:main"
+qedge-portfolio = "edge_rag.portfolio:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "numpy>=1.24,<3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/edge_rag"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/",
+    "tests/",
+    "README.md",
+    "pyproject.toml",
+    "uv.lock",
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"tests/fixtures/catalog.jsonl" = "edge_rag/release_data/catalog.jsonl"
+"tests/fixtures/decision_cases_80.json" = "edge_rag/release_data/decision_cases_80.json"

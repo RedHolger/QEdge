@@ -1,0 +1,11 @@
+=== Testing Stage 05 Provenance Gaps (Pre-Repair Reproduction) ===
+Probe 1 (zeros in manifest hashes): check_model_assets returned valid=True, errors=[]
+Probe 2 (unverified chat_template.jinja): check_model_assets returned valid=True, errors=[]
+Probe 2 tokenizer output: 'UNVERIFIED TEMPLATE hello'
+Probe 2 loaded unverified template: True
+
+Summary:
+  Probe 1 (zeros in manifest hashes accepted): DEFECT ACTIVE
+  Probe 2 (unverified template accepted and loaded): DEFECT ACTIVE
+
+=> REPRODUCED PROVENANCE VERIFICATION DEFECTS.

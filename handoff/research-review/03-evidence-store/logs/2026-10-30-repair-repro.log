@@ -1,0 +1,17 @@
+--- Probing Defect 1: Access Revocation and Historical Authorization ---
+DEFECT REPRODUCED: Bob can retrieve doc1 even after Alice updated with is_public=False!
+DEFECT REPRODUCED: Bob can resolve old public citation of deleted document!
+--- Probing Defect 2: Legacy Historical Versions ---
+DEFECT REPRODUCED: Legacy v1 citation failed with NotFoundError: "No history record found for citation 'cite:doc_legacy:v1:c0'"
+--- Probing Defect 3: Typed Fact Preservation ---
+Retrieved bool fact: 'True' (type=str)
+DEFECT REPRODUCED: Boolean fact was retrieved as string 'True'!
+Retrieved int fact: 42.0 (type=float)
+DEFECT REPRODUCED: Integer fact was retrieved as float 42.0 instead of int!
+--- Probing Defect 4: Citation Identity (Colon in Document ID) & Integrity ---
+Generated citation: cite:item:variant:v1:c0:bc658c64
+DEFECT REPRODUCED: Colon in doc_id caused CitationError: Malformed citation: 'cite:item:variant:v1:c0:bc658c64'. Expected format 'cite:<doc_id>:v<ver>:c<idx>[:<hash>]'
+DEFECT REPRODUCED: Citation resolved despite tampered structured fact (integrity hash only checked text)!
+--- Probing Defect 5: Catalog Provenance ---
+Loaded chunk source_revision: 'catalog:fixture'
+DEFECT REPRODUCED: source_revision was hardcoded to 'catalog:fixture' instead of catalog row value!

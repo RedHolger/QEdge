@@ -1,0 +1,4 @@
+{
+  "status": "skipped",
+  "reason": "No catalog found. Set QEDGE_CATALOG_DIR to run the fixture smoke."
+}

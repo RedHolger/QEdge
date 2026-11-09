@@ -1,0 +1,11 @@
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 8 packages in 1ms
+.venv/bin/python -m edge_rag.eval
+{
+  "stage": "01",
+  "evaluation": "retrieval-and-decision",
+  "status": "not-run",
+  "reason": "No human relevance labels or reviewed decision cases exist yet. Stage 06 adds qrels/annotation; Stage 09 adds decision evaluation.",
+  "measured": false,
+  "score": null
+}

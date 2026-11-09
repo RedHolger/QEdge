@@ -1,0 +1,30 @@
+{
+  "kind": "fixture_assistant_timing",
+  "measured": true,
+  "created_at": "2026-11-09T15:06:31.257526+00:00",
+  "hardware": "macOS-26.3.1-arm64-arm-64bit",
+  "processor": "arm64",
+  "model": null,
+  "precision": null,
+  "generation_tokens": 0,
+  "query": "dining chair with oak material under 60cm wide",
+  "query_characters": 46,
+  "trials": 10,
+  "catalog_sha256": "cd0d7ea909cf68ddc0d757c8a7a6f4007eaf622bfce8535af9da9526a6669eda",
+  "median_ms": 2.055271004792303,
+  "samples_ms": [
+    11.642832978395745,
+    2.1189590042922646,
+    2.027999988058582,
+    1.9968329870607704,
+    2.041500003542751,
+    2.072875009616837,
+    2.085541986161843,
+    2.038083999650553,
+    2.0690420060418546,
+    2.03591599711217
+  ],
+  "scope": "reused assistant, including first request; includes retrieval, verification and rendering; excludes construction and process startup",
+  "npu_status": "UNVERIFIED",
+  "retrieval_quality": "NOT MEASURED"
+}

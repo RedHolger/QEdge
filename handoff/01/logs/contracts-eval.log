@@ -1,0 +1,45 @@
+# Stage 01 shared contract evaluation
+# command: make -C qedge-common eval
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:14:54Z
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 4ms
+.venv/bin/python -m qedge_common.eval
+{
+  "stage": "01",
+  "evaluation": "shared-contracts",
+  "schemas": 7,
+  "ok": 7,
+  "results": [
+    {
+      "schema": "product",
+      "status": "ok"
+    },
+    {
+      "schema": "retrieval_request",
+      "status": "ok"
+    },
+    {
+      "schema": "retrieval_result",
+      "status": "ok"
+    },
+    {
+      "schema": "evidence_claim",
+      "status": "ok"
+    },
+    {
+      "schema": "decision",
+      "status": "ok"
+    },
+    {
+      "schema": "benchmark_result",
+      "status": "ok"
+    },
+    {
+      "schema": "hardware_status",
+      "status": "ok"
+    }
+  ],
+  "note": "No retrieval, model, or hardware evaluation has been run."
+}
+# exit: 0

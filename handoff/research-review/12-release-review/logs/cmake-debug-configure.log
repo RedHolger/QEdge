@@ -1,0 +1,19 @@
+-- The CXX compiler identification is AppleClang 21.0.0.21000101
+-- The C compiler identification is AppleClang 21.0.0.21000101
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Debug
+-- Sanitizers: ON
+-- CTest: llm_kv_cache, kernel_safety and optional qnn_stub_cpu
+-- Configuring done (1.9s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/debug

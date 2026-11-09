@@ -1,0 +1,107 @@
+# Stage 01 root bench gate
+# command: make bench
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:21:19Z
+Python 3.11.15
+/Library/Developer/CommandLineTools/usr/bin/make -C qedge-common setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 3ms
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.22ms
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference setup
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference bench
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+cmake --build --preset release --target llm_qnn_bench
+[ 14%] Built target llm_metal
+[ 85%] Built target llm_core
+[100%] Built target llm_qnn_bench
+./build/release/llm_qnn_bench
+
+  QEdge Runtime — QnnStub CPU fallback report (Stage 01)
+  This is not an NPU run. Snapdragon/QNN hardware: unverified.
+  Numbers below are synthetic CPU-stub estimates, not device power.
+
+
+[QnnStub] Running power-efficiency benchmark across all KV-cache policies...
+        FIFO tok/s=7265 hit=52.4% evicts=1166
+         LRU tok/s=7365 hit=17.5% evicts=1166
+     KeyDiff tok/s=6936 hit=52.4% evicts=1166
+       QUOKA tok/s=6489 hit=52.4% evicts=1166
+
+  QEdge Runtime — KV-cache CPU-stub report (Stage 01)
+  Synthetic power estimates only; no Snapdragon/QNN device was used.
+  Hardware status: unverified.
+
+Policy      tok/s       Peak MB     Hit%      Est.mJ      tok/mJ      
+----------------------------------------------------------------------
+FIFO        7265        0.95        52.4      0.0005      1167        
+LRU         7365        0.95        17.5      0.0009      971         
+KeyDiff     6936        0.95        52.4      0.0014      812         
+QUOKA       6489        0.95        52.4      0.0019      712         
+----------------------------------------------------------------------
+
+  CPU-stub comparison (not an NPU recommendation): FIFO has the highest synthetic tok/mJ in this run (1167).
+    This is a CPU-stub estimate; no Snapdragon/Hexagon measurement exists.
+
+  QNN interface mapping (design only; not executed):
+  ─────────────────────────────────────────────────────────
+  matmul           → QNN_OP_MAT_MUL
+  rope             → QNN_OP_ROTARY_EMBEDDING
+  softmax          → QNN_OP_SOFTMAX
+  rms_norm         → QNN_OP_LAYER_NORM
+  silu_mul         → QNN_OP_GELU
+  add              → QNN_OP_ELEMENT_WISE_ADD
+  attention        → QNN_OP_MULTI_HEAD_ATTENTION
+  fused_qk_v_attn  → QNN_OP_MULTI_HEAD_ATTENTION
+  ─────────────────────────────────────────────────────────
+
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo bench
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.09ms
+QEDGE_CATALOG_DIR=/Users/manuvashistha/Developer/qualcomm/edge-rag-demo/tests/fixtures .venv/bin/python -m edge_rag.bench
+{
+  "schema_version": "1",
+  "run_id": "fixture-smoke-1793139680",
+  "kind": "fixture-smoke",
+  "created_at": "2026-10-27T22:21:20.685516+00:00",
+  "model": null,
+  "backend": "cpu-local-bm25",
+  "hardware": {
+    "cpu": "arm",
+    "npu_status": "unverified"
+  },
+  "measured": false,
+  "metrics": {
+    "iterations": 3,
+    "median_pipeline_ms": 0.521,
+    "min_pipeline_ms": 0.5,
+    "max_pipeline_ms": 2.996,
+    "candidates": 3,
+    "documents_checked": 3
+  },
+  "provenance": {
+    "command": ".venv/bin/python -m edge_rag.bench",
+    "notes": [
+      "Fixture catalog only; not an ABO retrieval evaluation.",
+      "In-process stage timing; excludes process startup.",
+      "No Snapdragon/QNN device was used."
+    ]
+  }
+}
+# exit: 0

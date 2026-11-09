@@ -1,0 +1,82 @@
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 41 packages in 9ms
+.venv/bin/python -m unittest discover -s tests -v
+test_allow_harmless_documentation (test_acquisition.TestAcquisition.test_allow_harmless_documentation)
+Control test: harmless documentation files (README, LICENSE) are allowed alongside assets. ... ok
+test_canonical_assets_verification (test_acquisition.TestAcquisition.test_canonical_assets_verification)
+Positive test: canonical downloaded assets pass complete hash verification. ... ok
+test_check_model_assets_missing_dir (test_acquisition.TestAcquisition.test_check_model_assets_missing_dir) ... ok
+test_check_model_assets_partial (test_acquisition.TestAcquisition.test_check_model_assets_partial) ... ok
+test_estimate_download_size (test_acquisition.TestAcquisition.test_estimate_download_size) ... ok
+test_manifest_free_canonical_assets (test_acquisition.TestAcquisition.test_manifest_free_canonical_assets)
+Control test: manifest-free canonical assets are accepted only via complete trusted hashes. ... ok
+test_rejection_of_corrupt_files_and_wrong_manifest (test_acquisition.TestAcquisition.test_rejection_of_corrupt_files_and_wrong_manifest)
+Negative test for review defect 1: corrupt files and stale manifest must be rejected. ... ok
+test_rejection_of_extra_unverified_model_weights (test_acquisition.TestAcquisition.test_rejection_of_extra_unverified_model_weights)
+Negative test: unexpected extra safetensors file must be rejected as unverified loader asset. ... ok
+test_rejection_of_hash_mismatch (test_acquisition.TestAcquisition.test_rejection_of_hash_mismatch)
+Negative test: even with matching manifest, corrupt file hash must fail. ... ok
+test_rejection_of_unexpected_loader_override_assets (test_acquisition.TestAcquisition.test_rejection_of_unexpected_loader_override_assets)
+Negative test for probe 2: chat_template.jinja alongside canonical assets must be rejected. ... ok
+test_rejection_of_zeros_in_manifest_hashes (test_acquisition.TestAcquisition.test_rejection_of_zeros_in_manifest_hashes)
+Negative test for probe 1: valid assets but manifest hashes replaced with zeros. ... ok
+test_measured_run_without_model_rejected (test_benchmark_contracts.TestBenchmarkContracts.test_measured_run_without_model_rejected) ... ok
+test_missing_assets_reports_error_without_smoke_fallback (test_benchmark_contracts.TestBenchmarkContracts.test_missing_assets_reports_error_without_smoke_fallback)
+A requested real benchmark without assets must report a missing dependency (not silently emit smoke). ... Missing dependency: Model assets not available or invalid in /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/tmpjyzxf1cu:
+  - Missing required file: config.json
+  - Missing required file: generation_config.json
+  - Missing required file: merges.txt
+  - Missing required file: model.safetensors
+  - Missing required file: special_tokens_map.json
+  - Missing required file: tokenizer.json
+  - Missing required file: tokenizer_config.json
+  - Missing required file: vocab.json
+Run 'make acquire' to download pinned model assets, or pass --smoke for explicit fixture smoke.
+ok
+test_real_benchmark_record_validates (test_benchmark_contracts.TestBenchmarkContracts.test_real_benchmark_record_validates) ... ok
+test_smoke_record_validates (test_benchmark_contracts.TestBenchmarkContracts.test_smoke_record_validates) ... ok
+test_zero_output_benchmark_record_validates (test_benchmark_contracts.TestBenchmarkContracts.test_zero_output_benchmark_record_validates)
+Zero tokens generated: ttft_ms is not present in metrics. ... ok
+test_architecture_defaults (test_config.TestConfig.test_architecture_defaults) ... ok
+test_compute_file_sha256 (test_config.TestConfig.test_compute_file_sha256) ... ok
+test_format_smollm_chat_prompt (test_config.TestConfig.test_format_smollm_chat_prompt) ... ok
+test_from_checkpoint_dict (test_config.TestConfig.test_from_checkpoint_dict) ... ok
+test_pinned_metadata (test_config.TestConfig.test_pinned_metadata) ... ok
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1031 00:01:40.929000 99692 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights:  32%|███▏      | 88/272 [00:00<00:00, 872.52it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 1623.30it/s]
+test_greedy_token_parity_and_logits_agreement (test_parity_real.TestParityReal.test_greedy_token_parity_and_logits_agreement) ... ok
+test_hub_revision_propagation_without_network_downloads (test_parity_real.TestParityReal.test_hub_revision_propagation_without_network_downloads)
+Verify that when loading from Hub ID, the pinned revision is passed explicitly to both loaders. ... ok
+test_mps_greedy_parity_if_available (test_parity_real.TestParityReal.test_mps_greedy_parity_if_available) ... Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 17558.30it/s]
+ok
+test_zero_and_one_token_upstream_parity (test_parity_real.TestParityReal.test_zero_and_one_token_upstream_parity) ... ok
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights:  67%|██████▋   | 183/272 [00:00<00:00, 1779.08it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 2107.23it/s]
+test_early_eos_behavior (test_runner_unit.TestRunnerUnit.test_early_eos_behavior) ... ok
+test_explicit_seed_setting_and_factual_metadata (test_runner_unit.TestRunnerUnit.test_explicit_seed_setting_and_factual_metadata)
+Verify that passing an explicit seed sets seed policy and records it factually. ... ok
+test_factual_template_identity_and_raw_prompt_mode (test_runner_unit.TestRunnerUnit.test_factual_template_identity_and_raw_prompt_mode)
+Verify raw_prompt_mode records raw_prompt identity and skips chat template. ... ok
+test_invalid_max_tokens_rejected (test_runner_unit.TestRunnerUnit.test_invalid_max_tokens_rejected) ... ok
+test_loader_override_cannot_change_formatted_prompt_while_verified (test_runner_unit.TestRunnerUnit.test_loader_override_cannot_change_formatted_prompt_while_verified)
+Demonstrate that an extra template cannot change formatted input while provenance is verified. ... Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 5344.44it/s]
+ok
+test_measurement_phases_and_breakdown (test_runner_unit.TestRunnerUnit.test_measurement_phases_and_breakdown)
+Verify explicit phase timings and total duration accounting. ... ok
+test_non_zero_temperature_rejected (test_runner_unit.TestRunnerUnit.test_non_zero_temperature_rejected) ... ok
+test_one_token_limit_and_ttft_measurement (test_runner_unit.TestRunnerUnit.test_one_token_limit_and_ttft_measurement)
+One-token limit: TTFT measures through first-token selection. ... ok
+test_reproducibility_metadata (test_runner_unit.TestRunnerUnit.test_reproducibility_metadata) ... ok
+test_sampling_explicitly_rejected (test_runner_unit.TestRunnerUnit.test_sampling_explicitly_rejected)
+Review defect 2: sampling must be rejected in greedy baseline. ... ok
+test_state_isolation_repeated_requests (test_runner_unit.TestRunnerUnit.test_state_isolation_repeated_requests) ... ok
+test_unsupported_top_p_rejected (test_runner_unit.TestRunnerUnit.test_unsupported_top_p_rejected) ... ok
+test_unverified_local_model_rejected (test_runner_unit.TestRunnerUnit.test_unverified_local_model_rejected)
+Negative test for review defect 1: arbitrary local dir cannot inherit SmolLM identity. ... ok
+test_zero_token_limit_and_timing_definition (test_runner_unit.TestRunnerUnit.test_zero_token_limit_and_timing_definition)
+Zero-token limit: returns immediately without implying a token arrived. ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 11.501s
+
+OK

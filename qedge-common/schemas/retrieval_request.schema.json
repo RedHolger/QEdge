@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qedge.local/schemas/retrieval_request.schema.json",
+  "title": "QEdge retrieval request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "query_id",
+    "catalog_version",
+    "method"
+  ],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "query_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "text": {
+      "type": ["string", "null"],
+      "maxLength": 4096
+    },
+    "image_asset_id": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "seed_item_ids": {
+      "type": "array",
+      "maxItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+      }
+    },
+    "k": { "type": "integer", "minimum": 1, "maximum": 100, "default": 10 },
+    "catalog_version": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "method": {
+      "enum": ["bm25", "text", "image", "hybrid", "ranker", "recommend"]
+    }
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        { "required": ["text"], "properties": { "text": { "type": "string", "minLength": 1 } } },
+        { "required": ["image_asset_id"], "properties": { "image_asset_id": { "type": "string" } } },
+        { "required": ["seed_item_ids"], "properties": { "seed_item_ids": { "minItems": 1 } } }
+      ]
+    },
+    {
+      "if": { "properties": { "method": { "const": "text" } }, "required": ["method"] },
+      "then": { "required": ["text"], "properties": { "text": { "type": "string", "minLength": 1 } } }
+    },
+    {
+      "if": { "properties": { "method": { "const": "image" } }, "required": ["method"] },
+      "then": { "required": ["image_asset_id"], "properties": { "image_asset_id": { "type": "string" } } }
+    },
+    {
+      "if": { "properties": { "method": { "const": "recommend" } }, "required": ["method"] },
+      "then": {
+        "required": ["seed_item_ids"],
+        "properties": { "seed_item_ids": { "minItems": 3, "maxItems": 8 } }
+      }
+    }
+  ]
+}

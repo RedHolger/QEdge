@@ -1,0 +1,10 @@
+test_case_counts_and_splits (test_80_cases.Decision80CasesTests.test_case_counts_and_splits) ... ok
+test_development_split_decisions (test_80_cases.Decision80CasesTests.test_development_split_decisions) ... ok
+test_held_out_split_decisions (test_80_cases.Decision80CasesTests.test_held_out_split_decisions) ... ok
+test_zero_false_positive_decisions_on_adverse_cases (test_80_cases.Decision80CasesTests.test_zero_false_positive_decisions_on_adverse_cases)
+CRITICAL SAFETY REQUIREMENT: Zero positive decisions on known adverse cases. ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.082s
+
+OK

@@ -1,0 +1,8 @@
+{
+  "stage": "01",
+  "evaluation": "retrieval-and-decision",
+  "status": "not-run",
+  "reason": "No human relevance labels or reviewed decision cases exist yet. Stage 06 adds qrels/annotation; Stage 09 adds decision evaluation.",
+  "measured": false,
+  "score": null
+}

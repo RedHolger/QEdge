@@ -1,0 +1,130 @@
+{
+  "stage": "05-real-model-baseline",
+  "date_utc": "2026-10-31",
+  "verdict": "SELF_ASSESSMENT_READY_FOR_REVIEW",
+  "review_type": "handoff-self-assessment",
+  "independent_review_required": true,
+  "model": {
+    "id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "license": "Apache-2.0",
+    "architecture": {
+      "model_type": "llama",
+      "num_layers": 30,
+      "hidden_size": 576,
+      "intermediate_size": 1536,
+      "num_attention_heads": 9,
+      "num_kv_heads": 3,
+      "head_dim": 64,
+      "rope_theta": 100000.0,
+      "vocab_size": 49152,
+      "bos_token_id": 1,
+      "eos_token_id": 2,
+      "pad_token_id": 2
+    },
+    "artifact_hashes": {
+      "config.json": "8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a",
+      "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+      "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "model.safetensors": "5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c",
+      "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+      "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+      "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    },
+    "chat_template": {
+      "effective_template_digest": "872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788",
+      "template_identity": "sha256:872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788"
+    }
+  },
+  "reproducibility": {
+    "lockfile": "llm-inference/runtime/uv.lock",
+    "lockfile_sync_flag": "--frozen",
+    "python": "3.11.15",
+    "torch": "2.15.0",
+    "transformers": "5.22.1",
+    "safetensors": "0.8.0",
+    "seed_policy": "none_deterministic_greedy",
+    "seed": null
+  },
+  "suites": {
+    "runtime_tests": {
+      "total": 39,
+      "passed": 39,
+      "failed": 0,
+      "skipped": 0
+    },
+    "llm_ctest": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "edge_tests": {
+      "total": 69,
+      "passed": 68,
+      "failed": 0,
+      "skipped": 1,
+      "expected_skip": "RealCatalogIntegrationTests.test_catalog_loads"
+    },
+    "qedge_common_tests": {
+      "total": 49,
+      "passed": 49,
+      "failed": 0,
+      "skipped": 0
+    },
+    "blocker_reproduction_probe": {
+      "total": 6,
+      "reproduced_pre_repair": 6,
+      "active_post_repair": 0,
+      "resolved": 6
+    },
+    "provenance_gaps_probe": {
+      "total": 2,
+      "reproduced_pre_repair": 2,
+      "active_post_repair": 0,
+      "resolved": 2
+    },
+    "parity_and_limits_probe": {
+      "total": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "offline_mode_probe": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0
+    },
+    "historical_hashes": {
+      "total": 30,
+      "verified": 30,
+      "failed": 0
+    },
+    "v1_schema_hashes": {
+      "total": 7,
+      "verified": 7,
+      "failed": 0
+    }
+  },
+  "parity_metrics": {
+    "prompts_evaluated": 4,
+    "greedy_token_parity_rate": 1.0,
+    "cpu_float32_max_logit_diff": 0.0000515,
+    "cpu_float32_tolerance_atol": 0.0001,
+    "mps_bfloat16_max_logit_diff": 0.125,
+    "mps_bfloat16_tolerance_atol": 0.15,
+    "zero_token_limit_verified": true,
+    "one_token_limit_verified": true,
+    "early_eos_verified": true,
+    "state_isolation_verified": true,
+    "zero_token_ttft_none_verified": true,
+    "one_token_ttft_through_selection_verified": true
+  },
+  "contracts": {
+    "version": "2",
+    "validated_kinds": [
+      "runtime-generation",
+      "fixture-smoke"
+    ]
+  }
+}

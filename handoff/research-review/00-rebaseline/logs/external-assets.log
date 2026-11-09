@@ -1,0 +1,96 @@
+[model manifest]
+{
+  "minilm": {
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "files": {
+      "1_Pooling/config.json": {
+        "sha256": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+        "bytes": 190
+      },
+      "README.md": {
+        "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+        "bytes": 10502
+      },
+      "config.json": {
+        "sha256": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+        "bytes": 612
+      },
+      "config_sentence_transformers.json": {
+        "sha256": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+        "bytes": 116
+      },
+      "data_config.json": {
+        "sha256": "32edcb108fc2516b920734a862ae0692bcae1c5d45d5f8d972cb0d53434a4c54",
+        "bytes": 39265
+      },
+      "model.safetensors": {
+        "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+        "bytes": 90868376
+      },
+      "modules.json": {
+        "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+        "bytes": 349
+      },
+      "sentence_bert_config.json": {
+        "sha256": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+        "bytes": 53
+      },
+      "special_tokens_map.json": {
+        "sha256": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+        "bytes": 112
+      },
+      "tokenizer.json": {
+        "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+        "bytes": 466247
+      },
+      "tokenizer_config.json": {
+        "sha256": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+        "bytes": 350
+      },
+      "vocab.txt": {
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "bytes": 231508
+      }
+    }
+  },
+  "clip": {
+    "repository": "laion/CLIP-ViT-B-32-laion2B-s34B-b79K",
+    "revision": "1a25a446712ba5ee05982a381eed697ef9b435cf",
+    "files": {
+      "open_clip_model.safetensors": {
+        "sha256": "ac4f8c4b88af6d963118cbf40ad93176d092abbedfcb752601ae1866352656e6",
+        "bytes": 605143316
+      },
+      "open_clip_config.json": {
+        "sha256": "4302a891b495ad0966d1e7eeff102b5f34a3f1e647e57a9198933f862d5f8ba7",
+        "bytes": 604
+      },
+      "README.md": {
+        "sha256": "d0600101ba66849bd84eeae14e0b1ccd56cd962ea94aec5d60c415d9ce4e5f28",
+        "bytes": 7464
+      }
+    }
+  }
+}
+
+[model receipts]
+### /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.cache/models/minilm/model.safetensors.receipt.json
+{"bytes": 90868376, "sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db", "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/model.safetensors"}
+### /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.cache/models/clip/open_clip_model.safetensors.receipt.json
+{"bytes": 605143316, "sha256": "ac4f8c4b88af6d963118cbf40ad93176d092abbedfcb752601ae1866352656e6", "url": "https://huggingface.co/laion/CLIP-ViT-B-32-laion2B-s34B-b79K/resolve/1a25a446712ba5ee05982a381eed697ef9b435cf/open_clip_model.safetensors"}
+
+[external catalog counts]
+/Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/data/catalog/catalog_v1_pilot.jsonl rows=500 bytes=1601676 sha256=e7934edf0419dad264c22762a07ce1376b5b43062a523b01e9018aee0900a4f2
+/Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/data/catalog/abo-v2-pilot-500/catalog.jsonl rows=500 bytes=1701226 sha256=3f22a3249f83077506c2b846a81324044735b466606bd1b86cd729dbac18dc9c
+/Users/manuvashistha/Developer/Manu-Vashisth-Personal/evidence-rag/.data/catalog/abo-v2-pilot-500/catalog.jsonl rows=500 bytes=1701226 sha256=3f22a3249f83077506c2b846a81324044735b466606bd1b86cd729dbac18dc9c
+
+[external catalog first record keys]
+['attributes', 'catalog_version', 'category', 'image_asset_id', 'image_hash', 'item_id', 'license_ref', 'provenance', 'schema_version', 'source_hash', 'source_revision', 'source_url', 'text', 'title', 'variant_id']
+item_id= B000BUU45K
+provenance= {'title': 'item_name.en_US', 'category': 'product_type.LAMP', 'dataset': 'Amazon Berkeley Objects', 'license': 'CC-BY-4.0', 'dimensions': 'item_dimensions', 'material': 'material', 'color': 'color', 'brand': 'brand', 'raw_record': 'sources/listings_0.json.gz#B000BUU45K'}
+license_ref= CC-BY-4.0
+
+[ollama]
+manifest=/Users/manuvashistha/.ollama/models/manifests/registry.ollama.ai/library/gemma3/4b
+model_blob_bytes= 3338792448

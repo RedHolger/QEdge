@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qedge.local/schemas/product.schema.json",
+  "title": "QEdge catalog product",
+  "description": "A licensed catalog record shared by QEdge Runtime and QEdge Assist. Missing attribute states are preserved instead of inferred.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "item_id",
+    "variant_id",
+    "catalog_version",
+    "title",
+    "category",
+    "text",
+    "source_url",
+    "source_revision",
+    "source_hash",
+    "provenance",
+    "attributes",
+    "license_ref"
+  ],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "item_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "variant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "catalog_version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "title": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "category": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "text": { "type": "string", "minLength": 1, "maxLength": 20000 },
+    "image_asset_id": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$"
+    },
+    "image_path": {
+      "type": ["string", "null"],
+      "description": "Repository-relative path only. Absolute paths are not valid catalog data."
+    },
+    "image_sha256": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$",
+      "maxLength": 2048
+    },
+    "source_revision": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "source_hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "provenance": {
+      "type": "object",
+      "maxProperties": 64,
+      "additionalProperties": { "type": "string", "maxLength": 512 }
+    },
+    "attributes": {
+      "type": "object",
+      "maxProperties": 128,
+      "additionalProperties": { "$ref": "#/$defs/attribute" }
+    },
+    "license_ref": { "type": "string", "minLength": 1, "maxLength": 256 }
+  },
+  "$defs": {
+    "attribute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "value": {
+          "type": ["string", "boolean", "integer", "number", "null"]
+        },
+        "unit": {
+          "type": ["string", "null"],
+          "maxLength": 16
+        },
+        "status": {
+          "enum": ["present", "missing", "unknown", "conflicting"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "present" } },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["value"],
+            "properties": { "value": { "not": { "type": "null" } } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "status": { "enum": ["missing", "unknown"] } },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["value"],
+            "properties": { "value": { "type": "null" } }
+          }
+        }
+      ]
+    }
+  }
+}

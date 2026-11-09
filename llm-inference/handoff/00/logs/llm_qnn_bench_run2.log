@@ -1,0 +1,42 @@
+
+  ╔══════════════════════════════════════════════════════════════╗
+  ║   Portable C++ LLM Inference Engine                         ║
+  ║   QnnStub (Hexagon-Mimic) Power-Efficiency Benchmark        ║
+  ║   Simulating Qualcomm Snapdragon 8 Elite (45 TOPS NPU)      ║
+  ╚══════════════════════════════════════════════════════════════╝
+
+[QnnStub] Running power-efficiency benchmark across all KV-cache policies...
+        FIFO tok/s=7239 hit=52.4% evicts=1166
+         LRU tok/s=7442 hit=17.5% evicts=1166
+     KeyDiff tok/s=6939 hit=52.4% evicts=1166
+       QUOKA tok/s=6536 hit=52.4% evicts=1166
+
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║   Qualcomm Edge AI — KV-Cache Power Efficiency Report           ║
+  ║   Backend: QnnStub (Hexagon-Mimic) · Snapdragon 8 Elite        ║
+  ╚══════════════════════════════════════════════════════════════════╝
+
+Policy      tok/s       Peak MB     Hit%      Est.mJ      tok/mJ      
+----------------------------------------------------------------------
+FIFO        7239        0.95        52.4      0.0005      1100        
+LRU         7442        0.95        17.5      0.0009      950         
+KeyDiff     6939        0.95        52.4      0.0014      795         
+QUOKA       6536        0.95        52.4      0.0019      703         
+----------------------------------------------------------------------
+
+  ★ Recommended for Snapdragon NPU: FIFO (highest tok/mJ = 1100)
+    QUOKA minimises peak memory and maximises energy efficiency.
+    Ideal for Hexagon NPU SRAM constraints on Snapdragon 8 Elite.
+
+  NPU Mapping (Backend op → QAIRT/QNN op):
+  ─────────────────────────────────────────────────────────
+  matmul           → QNN_OP_MAT_MUL
+  rope             → QNN_OP_ROTARY_EMBEDDING
+  softmax          → QNN_OP_SOFTMAX
+  rms_norm         → QNN_OP_LAYER_NORM
+  silu_mul         → QNN_OP_GELU
+  add              → QNN_OP_ELEMENT_WISE_ADD
+  attention        → QNN_OP_MULTI_HEAD_ATTENTION
+  fused_qk_v_attn  → QNN_OP_MULTI_HEAD_ATTENTION
+  ─────────────────────────────────────────────────────────
+

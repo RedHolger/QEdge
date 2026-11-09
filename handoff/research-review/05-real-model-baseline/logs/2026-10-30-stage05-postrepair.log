@@ -1,0 +1,33 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1031 00:00:27.138000 99105 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+=== Checking Stage 05 Review Findings Status ===
+Checking Defect 1: Corrupt files and invalid manifest rejection...
+  RESOLVED: Corrupt assets correctly rejected with 5 error(s):
+    - Missing required file: generation_config.json
+    - Missing required file: merges.txt
+    - Missing required file: special_tokens_map.json
+
+Checking Defect 2: do_sample=True, temperature=0.7 rejection...
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 4301.20it/s]
+  RESOLVED: Sampling correctly rejected with ValueError: Sampling (do_sample=True) is not supported in this greedy-only reference runtime; pass do_sample=False.
+
+Checking Defect 3: Non-integral and non-finite settings rejection...
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 8422.36it/s]
+  RESOLVED: Non-integer max_new_tokens rejected: max_new_tokens must be an integer, got float: 4.5
+  RESOLVED: Bool max_new_tokens rejected: max_new_tokens must be an integer, got bool: True
+  RESOLVED: Infinite temperature rejected: temperature must be a finite number, got inf
+  RESOLVED: NaN temperature rejected: temperature must be a finite number, got nan
+
+Checking Defect 4: Unverified local model identity rejection...
+  RESOLVED: Unverified local model rejected with ValueError: Unsupported or unverified model assets at /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge_unverified_local_7ghdubpn: ['Missing required file: generation_config.json', 'Missing required file: merges.txt', 'Missing required file: model.safetensors', 'Missing required file: special_tokens_map.json', 'Missing required file: tokenizer.json', 'Missing required file: tokenizer_config.json', 'Missing required file: vocab.json']
+
+Checking Defect 5: Manifest hashes replaced with zeros...
+  RESOLVED: Manifest with zero hashes correctly rejected with 16 error(s):
+    - Manifest digest mismatch for config.json: manifest records '0000000000000000000000000000000000000000000000000000000000000000', actual file is '8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a'
+    - Manifest digest for config.json does not match trusted expectation: manifest records '0000000000000000000000000000000000000000000000000000000000000000', expected '8eb740e8bbe4cff95ea7b4588d17a2432deb16e8075bc5828ff7ba9be94d982a'
+
+Checking Defect 6: Unverified chat_template.jinja loader override rejection...
+  RESOLVED: Unverified template rejected by provenance check and runner: Unexpected unverified loader asset: 'chat_template.jinja'. Loader override or unverified execution-affecting file rejected.
+
+Active review defects remaining: 0/6
+ALL STAGE 05 REVIEW DEFECTS RESOLVED.

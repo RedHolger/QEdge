@@ -1,0 +1,25 @@
+══════════════════════════════════════════════════════════════
+ Qualcomm Edge RAG Demo — On-Device, No Cloud, No GPU
+══════════════════════════════════════════════════════════════
+Query: "red chair"
+
+Stage         Time (ms)   NPU Candidate
+────────────────────────────────────────
+RETRIEVE      57.0 ms     ✅ encode_text → Hexagon
+VERIFY        0.8 ms      ✅ embed_query → Hexagon
+GENERATE      0.1 ms      ❌ template fill
+Total         57.9 ms
+
+Results:
+1. Amazon Brand – Ravenna Home Tufted Armless English Roll Traditional Accent Chair, 26.8"W, Merlot Red — width: CONTRADICTED (68cm) · material: SUPPORTED (oak)
+2. Amazon Brand – Rivet Edgewest Low Back Modern Loveseat, 65"W, Rouge Red — width: CONTRADICTED (165cm) · material: CONTRADICTED (metal)
+3. Amazon Brand – Stone & Beam Modern Sweeping Arm Accent Chair, 28"W, Merlot — width: CONTRADICTED (71cm) · material: CONTRADICTED (stone)
+
+NPU-offloadable: 100% of pipeline wall time
+On Snapdragon 8 Elite (45 TOPS): estimated total < 3 ms
+
+══════════════════════════════════════════════════════════════
+ Evidence rag: SQLite backend · 3 documents verified
+ Retrieval: abo-v2-pilot-500 · FAISS + BM25 + RRF
+ Inference: KV-cache policy = QUOKA · est. 726 tok/mJ
+══════════════════════════════════════════════════════════════

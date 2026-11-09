@@ -1,0 +1,21 @@
+{
+  "schema_version": "2",
+  "cpu": "fixture-host",
+  "metal": {
+    "available": false,
+    "used": false
+  },
+  "snapdragon": {
+    "available": false,
+    "model": null
+  },
+  "qnn": {
+    "sdk_available": false,
+    "device_verified": false
+  },
+  "npu_status": "unverified",
+  "last_updated": "2026-10-27T00:00:00Z",
+  "notes": [
+    "No Snapdragon/QNN device was available for this contract example."
+  ]
+}

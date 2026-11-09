@@ -1,0 +1,5 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1031 00:01:58.360000 99852 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+=== Testing Offline Execution (Simulating Network Block) ===
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 7073.60it/s]
+PASS: Offline generation succeeded without network access: 'To add 5 and 5,'

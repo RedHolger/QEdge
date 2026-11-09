@@ -1,0 +1,33 @@
+════════════════════════════════════════════════════════════════
+ QEdge Assist — Local Assistant (Stage 10)
+════════════════════════════════════════════════════════════════
+Request ID: req-24525a55c330
+Mode:       FIND
+Query:      "dining chair with oak material under 60cm wide"
+Item ID:    fixture-chair-oak
+
+Verdict:    SUPPORTED → RECOMMEND
+Reason:     All mandatory requirements verified and supported by stored evidence
+
+Stage         Time (ms)   
+────────────────────────────────────────
+PARSE         9.7         
+RETRIEVE      0.8         
+VERIFY        2.0         
+GENERATE      0.0         
+TOTAL         12.5        
+
+Verified Claims:
+  • width = 48.0cm [SUPPORTED] → width: 48.0 cm (source: item_dimensions) [cite:fixture-chair-oak-01:v1:c0:3d3b124e]
+  • material = oak [SUPPORTED] → material: oak (source: material) [cite:fixture-chair-oak-01:v1:c1:e7c005bb]; taxonomy: material matches 'oak'
+
+Resolved Citations:
+  • cite:fixture-chair-oak-01:v1:c0:3d3b124e [VERIFIED]
+  • cite:fixture-chair-oak-01:v1:c1:e7c005bb [VERIFIED]
+
+Response:
+Recommended: Fixture Oak Dining Chair. Verified evidence: [width=48.0cm (width: 48.0 cm (source: item_dimensions) [cite:fixture-chair-oak-01:v1:c0:3d3b124e]); material=oak (material: oak (source: material) [cite:fixture-chair-oak-01:v1:c1:e7c005bb]; taxonomy: material matches 'oak')].
+
+Hardware status: NPU unverified — CPU baseline execution; no Hexagon NPU offload.
+Governance: strictly deterministic predicate resolution; untrusted catalog data bounded.
+════════════════════════════════════════════════════════════════

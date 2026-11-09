@@ -1,0 +1,34 @@
+{
+  "schema_version": "2",
+  "run_id": "fixture-smoke-contract",
+  "kind": "fixture-smoke",
+  "created_at": "2026-10-29T23:45:09.664037+00:00",
+  "model": null,
+  "backend": "cpu",
+  "hardware": {
+    "cpu": "arm",
+    "npu_status": "unverified"
+  },
+  "measured": false,
+  "metrics": {
+    "iterations": 1,
+    "median_pipeline_ms": 0.0
+  },
+  "outputs": {
+    "text": null,
+    "token_ids": null,
+    "token_trace": null
+  },
+  "cache": {
+    "policy": "fixture-no-cache",
+    "capacity_tokens": 0
+  },
+  "provenance": {
+    "command": ".venv/bin/python -m qedge_common.records",
+    "notes": [
+      "Fixture-only producer; not a performance or model measurement.",
+      "No cache hit rate is reported for a non-cache fixture."
+    ],
+    "log_path": null
+  }
+}

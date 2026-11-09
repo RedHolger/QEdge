@@ -1,0 +1,40 @@
+
+  QEdge Runtime — C++ kernel lab (Stage 01)
+  Synthetic cache and attention microbenchmark; no model is loaded.
+  QNN fallback is a CPU stub; Snapdragon/NPU status: unverified.
+
+── KV Cache Demo ──────────────────────────────────────────────
+  FIFO: size=32 hits=24/60 hit_rate=40% evictions=48
+  LRU: size=32 hits=24/60 hit_rate=40% evictions=48
+  KeyDiff: size=32 hits=28/60 hit_rate=46.6667% evictions=48
+  QUOKA: size=32 hits=24/60 hit_rate=40% evictions=48
+
+── Attention Kernel Demo ──────────────────────────────────────
+  Backend: CPU (Accelerate/BLAS)
+  Attention output shape: [8, 4, 64]
+  First head, first token (first 8 dims): 0.0435 0.1129 -0.4183 -0.2739 -0.0417 0.3469 -0.0153 -0.0714 
+
+
++--------------------------------------------------------------------------------+
+|      KERNEL LAB: synthetic KV-cache microbenchmark (not model inference)      |
++--------------------------------------------------------------------------------+
+  Model: 8L, 2048 hidden, 32 heads, 64 head_dim
+  NOTE: synthetic random tensors and cache bookkeeping; not model throughput.
+  Cache: 512 slots, Tokens: 64
+
+Backend                                 Policy        Avg Token (ms)  Tok/s           Hit Rate      Evicts      Peak Mem (MB) 
+------------------------------------------------------------------------------------------------------------------------------
+CPU (Accelerate/BLAS)                   FIFO          3.012           332.0           1.000         0           2             
+CPU (Accelerate/BLAS)                   LRU           2.998           333.6           1.000         0           2             
+CPU (Accelerate/BLAS)                   KeyDiff       2.987           334.7           1.000         0           2             
+CPU (Accelerate/BLAS)                   QUOKA         3.000           333.3           1.000         0           2             
+Metal (MPS/GPU; attention CPU fallback) FIFO          2.996           333.7           1.000         0           2             
+Metal (MPS/GPU; attention CPU fallback) LRU           3.036           329.3           1.000         0           2             
+Metal (MPS/GPU; attention CPU fallback) KeyDiff       3.136           318.8           1.000         0           2             
+Metal (MPS/GPU; attention CPU fallback) QUOKA         3.032           329.8           1.000         0           2             
+----------------------------------------------------------------------------------------------------------
+
+Synthetic comparison (not a model benchmark):
+  Best hit rate:  FIFO (CPU (Accelerate/BLAS)) — 100.000%
+  Best speed:     KeyDiff (CPU (Accelerate/BLAS)) — 334.7 tok/s
+

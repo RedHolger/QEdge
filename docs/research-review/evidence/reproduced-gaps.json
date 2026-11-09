@@ -1,0 +1,77 @@
+{
+  "parser": {
+    "red chair": {},
+    "chair under 60": {
+      "width_lte_cm": 60.0
+    },
+    "not oak chair": {
+      "material": "oak"
+    },
+    "chair under 60cm": {
+      "width_lte_cm": 60.0
+    }
+  },
+  "red_chair_verifications": [
+    {
+      "item_id": "fixture-chair-unknown",
+      "title": "Fixture Chair With Missing Dimensions",
+      "verifications": {
+        "width": [
+          "UNKNOWN",
+          null
+        ],
+        "material": [
+          "UNKNOWN",
+          null
+        ]
+      },
+      "formatted": "width: UNKNOWN \u00b7 material: UNKNOWN"
+    },
+    {
+      "item_id": "fixture-chair-wide",
+      "title": "Fixture Wide Aluminum Chair",
+      "verifications": {
+        "width": [
+          "CONTRADICTED",
+          "75cm"
+        ],
+        "material": [
+          "CONTRADICTED",
+          "aluminum"
+        ]
+      },
+      "formatted": "width: CONTRADICTED (75cm) \u00b7 material: CONTRADICTED (aluminum)"
+    },
+    {
+      "item_id": "fixture-chair-oak",
+      "title": "Fixture Oak Dining Chair",
+      "verifications": {
+        "width": [
+          "SUPPORTED",
+          "48cm"
+        ],
+        "material": [
+          "SUPPORTED",
+          "oak"
+        ]
+      },
+      "formatted": "width: SUPPORTED (48cm) \u00b7 material: SUPPORTED (oak)"
+    }
+  ],
+  "bob_reads_alice": [
+    {
+      "chunk_idx": 0,
+      "text": "private original",
+      "citation": "private-doc:0"
+    }
+  ],
+  "bob_overwrites_alice": [
+    {
+      "chunk_idx": 0,
+      "text": "unauthorized replacement",
+      "citation": "private-doc:0"
+    }
+  ],
+  "empty_supported_decision_schema_accepted": true,
+  "unverified_measured_hardware_schema_accepted": true
+}

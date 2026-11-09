@@ -1,0 +1,34 @@
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache, kernel_safety and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+cmake --build --preset release
+[ 45%] Built target llm_core
+[ 54%] Built target llm_metal
+[ 63%] Built target llm_infer
+[ 72%] Built target run_tests
+[ 81%] Built target run_kernel_tests
+[ 90%] Built target llm_qnn_bench
+[100%] Built target run_qnn_tests
+ctest --preset release --output-on-failure
+Test project /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+    Start 1: llm_kv_cache
+1/3 Test #1: llm_kv_cache .....................   Passed    0.01 sec
+    Start 2: kernel_safety
+2/3 Test #2: kernel_safety ....................   Passed    0.01 sec
+    Start 3: qnn_stub_cpu
+3/3 Test #3: qnn_stub_cpu .....................   Passed    0.01 sec
+
+100% tests passed out of 3
+
+Label Time Summary:
+cpu         =   0.03 sec*proc (3 tests)
+kernel      =   0.01 sec*proc (1 test)
+qnn-stub    =   0.01 sec*proc (1 test)
+stage01     =   0.03 sec*proc (3 tests)
+
+Total Test time (real) =   0.03 sec

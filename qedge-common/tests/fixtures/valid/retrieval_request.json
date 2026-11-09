@@ -1,0 +1,10 @@
+{
+  "schema_version": "1",
+  "query_id": "query-fixture-1",
+  "text": "wooden dining chair under 60cm",
+  "image_asset_id": null,
+  "seed_item_ids": [],
+  "k": 5,
+  "catalog_version": "fixture-v1",
+  "method": "hybrid"
+}

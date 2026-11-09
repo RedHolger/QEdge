@@ -1,0 +1,65 @@
+
+Kernel Safety Unit Tests
+════════════════════════════════════════
+
+Test: MHA with multiple query and KV tokens
+  PASS: MHA output shape
+  PASS: MHA independent reference
+
+Test: MQA with four query heads sharing one KV head
+  PASS: MQA output shape
+  PASS: MQA independent reference
+
+Test: GQA 3:1, 4:1 and 7:1 head mapping
+  PASS: GQA 3:1 output shape
+  PASS: GQA 3:1 independent reference
+  PASS: GQA 4:1 output shape
+  PASS: GQA 4:1 independent reference
+  PASS: GQA 7:1 output shape
+  PASS: GQA 7:1 independent reference
+
+Test: causal and broadcast masks
+  PASS: rank-3 broadcast causal mask reference
+  PASS: rank-2 broadcast mask reference
+  PASS: per-head mask reference
+
+Test: fully masked rows produce defined zero output
+  PASS: fully masked reference
+  PASS: fully masked row is exactly zero
+  PASS: all rows fully masked stay finite
+  PASS: all rows fully masked are zero
+
+Test: invalid attention shapes and dtypes throw in Release
+  PASS: rank-2 q rejected
+  PASS: non-F32 q rejected
+  PASS: q-head divisibility rejected
+  PASS: k/v head mismatch rejected
+  PASS: k/v sequence mismatch rejected
+  PASS: head-dim mismatch rejected
+  PASS: zero dimension rejected
+  PASS: bad rank-2 mask shape rejected
+  PASS: bad rank-3 mask head count rejected
+  PASS: non-F32 mask rejected
+
+Test: RoPE positions and bases
+  PASS: RoPE split-half base 10000 output shape
+  PASS: RoPE split-half base 10000 independent reference
+  PASS: RoPE split-half base 100000 output shape
+  PASS: RoPE split-half base 100000 independent reference
+  PASS: RoPE split-half base 1000000 output shape
+  PASS: RoPE split-half base 1000000 independent reference
+  PASS: RoPE interleaved reference
+  PASS: RoPE contiguous convenience positions
+  PASS: RoPE rank-2 reference
+
+Test: invalid RoPE inputs throw in Release
+  PASS: RoPE odd head_dim rejected
+  PASS: RoPE position count rejected
+  PASS: RoPE dimension mismatch rejected
+  PASS: RoPE nonpositive base rejected
+  PASS: RoPE rank-1 rejected
+  PASS: RoPE non-F32 rejected
+
+────────────────────────────────────────
+  Passed: 42 / 42
+  Failed: 0

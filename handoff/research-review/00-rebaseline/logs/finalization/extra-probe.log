@@ -1,0 +1,60 @@
+{
+  "generic_wood_material_verification": [
+    "SUPPORTED",
+    "oak"
+  ],
+  "parsed_requirements": {
+    "chair under 24 inches": {
+      "width_lte_cm": 60.96
+    },
+    "chair under 60": {
+      "width_lte_cm": 60.0
+    },
+    "not oak chair": {
+      "material": "oak"
+    },
+    "red chair": {}
+  },
+  "retrieved_chunk_shape": [
+    {
+      "chunk_idx": 0,
+      "citation": "fixture-chair-oak-01:0",
+      "text": "width: 48.0 cm (source: item_dimensions)"
+    },
+    {
+      "chunk_idx": 1,
+      "citation": "fixture-chair-oak-01:1",
+      "text": "material: oak (source: material)"
+    },
+    {
+      "chunk_idx": 2,
+      "citation": "fixture-chair-oak-01:2",
+      "text": "color: natural (source: color)"
+    },
+    {
+      "chunk_idx": 3,
+      "citation": "fixture-chair-oak-01:3",
+      "text": "brand: FixtureCo (source: brand)"
+    }
+  ],
+  "verification_against_oak_fixture": {
+    "chair under 60": {
+      "formatted": "width: SUPPORTED (48cm)",
+      "status": {
+        "width": [
+          "SUPPORTED",
+          "48cm"
+        ]
+      }
+    },
+    "not oak chair": {
+      "formatted": "material: SUPPORTED (oak)",
+      "status": {
+        "material": [
+          "SUPPORTED",
+          "oak"
+        ]
+      }
+    }
+  }
+}

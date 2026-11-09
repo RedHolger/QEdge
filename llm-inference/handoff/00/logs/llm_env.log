@@ -1,0 +1,39 @@
+Tue Oct 27 21:03:33 GMT 2026
+ProductName:		macOS
+ProductVersion:		26.3.1
+ProductVersionExtra:	(a)
+BuildVersion:		25D771280a
+Darwin Manus-MacBook-Air-2.local 25.3.0 Darwin Kernel Version 25.3.0: Wed Jan 28 20:56:34 PST 2026; root:xnu-12377.91.3~2/RELEASE_ARM64_T8112 arm64
+Apple M2
+17179869184
+8
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   182Gi    19Gi    91%    3.1M  198M    2%   /System/Volumes/Data
+Python 3.14.7
+uv 0.9.18 (0cee76417 2025-12-16)
+cmake version 4.4.2
+Apple clang version 21.0.0 (clang-2100.1.1.101)
+Target: arm64-apple-darwin25.3.0
+--- Xcode tools ---
+/Library/Developer/CommandLineTools
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+--- GPU ---
+Graphics/Displays:
+
+    Apple M2:
+
+      Chipset Model: Apple M2
+      Type: GPU
+      Bus: Built-In
+      Total Number of Cores: 8
+      Vendor: Apple (0x106b)
+      Metal Support: Metal 4
+      Displays:
+        Color LCD:
+--- model weights ---
+total 0
+drwxr-xr-x@  2 manuvashistha  staff   64 26 Jul 09:45 .
+drwxr-xr-x@ 14 manuvashistha  staff  448 27 Oct 19:45 ..
+--- QNN/QAIRT/AI Hub environment ---
+--- QNN/QAIRT/AI Hub files (maxdepth 3) ---
+--- end ---

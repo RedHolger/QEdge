@@ -1,0 +1,105 @@
+# Stage 01 root test gate
+# command: make test
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:16:56Z
+Python 3.11.15
+/Library/Developer/CommandLineTools/usr/bin/make -C qedge-common setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 3ms
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.23ms
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference setup
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+python3.11 scripts/check_no_absolute_paths.py
+scanned 79 source/test files under /Users/manuvashistha/Developer/qualcomm
+machine-specific user paths: 0
+/Library/Developer/CommandLineTools/usr/bin/make -C qedge-common test
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 0.29ms
+.venv/bin/python -m unittest discover -s tests -v
+test_all_examples_validate (test_schemas.SchemaTests.test_all_examples_validate) ... ok
+test_all_schemas_are_valid_draft_2020_12 (test_schemas.SchemaTests.test_all_schemas_are_valid_draft_2020_12) ... ok
+test_example_paths_exist (test_schemas.SchemaTests.test_example_paths_exist) ... ok
+test_examples_are_independent_copies (test_schemas.SchemaTests.test_examples_are_independent_copies) ... ok
+test_hardware_status_requires_qnn_block (test_schemas.SchemaTests.test_hardware_status_requires_qnn_block) ... ok
+test_measured_benchmark_must_be_boolean (test_schemas.SchemaTests.test_measured_benchmark_must_be_boolean) ... ok
+test_present_attribute_cannot_be_null (test_schemas.SchemaTests.test_present_attribute_cannot_be_null) ... ok
+test_retrieval_request_requires_a_modality (test_schemas.SchemaTests.test_retrieval_request_requires_a_modality) ... ok
+test_schema_files_do_not_contain_machine_paths (test_schemas.SchemaTests.test_schema_files_do_not_contain_machine_paths) ... ok
+test_supported_decision_must_recommend (test_schemas.SchemaTests.test_supported_decision_must_recommend) ... ok
+test_unknown_decision_status_is_rejected (test_schemas.SchemaTests.test_unknown_decision_status_is_rejected) ... ok
+test_unknown_evidence_status_is_rejected (test_schemas.SchemaTests.test_unknown_evidence_status_is_rejected) ... ok
+test_unknown_fields_are_rejected (test_schemas.SchemaTests.test_unknown_fields_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.033s
+
+OK
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo test
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.09ms
+.venv/bin/python -m unittest discover -s tests -v
+test_footer_has_no_hardcoded_energy_or_hit_rate (test_pipeline.PipelineTests.test_footer_has_no_hardcoded_energy_or_hit_rate) ... ok
+test_missing_catalog_fails_with_an_actionable_error (test_pipeline.PipelineTests.test_missing_catalog_fails_with_an_actionable_error) ... ok
+test_no_npu_offload_or_snapdragon_projection_is_printed (test_pipeline.PipelineTests.test_no_npu_offload_or_snapdragon_projection_is_printed) ... ok
+test_pipeline_returns_empty_for_unmatched_query (test_pipeline.PipelineTests.test_pipeline_returns_empty_for_unmatched_query) ... ok
+test_pipeline_returns_fixture_results (test_pipeline.PipelineTests.test_pipeline_returns_fixture_results) ... ok
+test_product_fixture_uses_shared_contract_field_names (test_pipeline.PipelineTests.test_product_fixture_uses_shared_contract_field_names) ... ok
+test_profiler_records_all_stages (test_pipeline.PipelineTests.test_profiler_records_all_stages) ... ok
+test_sqlite_evidence_store_is_local (test_pipeline.PipelineTests.test_sqlite_evidence_store_is_local) ... ok
+test_verify_contradicted_when_attribute_outside_range (test_pipeline.PipelineTests.test_verify_contradicted_when_attribute_outside_range) ... ok
+test_verify_supported_when_attribute_matches (test_pipeline.PipelineTests.test_verify_supported_when_attribute_matches) ... ok
+test_verify_unknown_when_attribute_missing (test_pipeline.PipelineTests.test_verify_unknown_when_attribute_missing) ... ok
+test_catalog_loads (test_pipeline.RealCatalogIntegrationTests.test_catalog_loads) ... skipped 'set QEDGE_RUN_CATALOG_INTEGRATION=1 with QEDGE_CATALOG_DIR to test the licensed catalog'
+test_local_environment_is_not_a_symlink (test_portability.PortabilityTests.test_local_environment_is_not_a_symlink) ... ok
+test_no_legacy_external_package_imports (test_portability.PortabilityTests.test_no_legacy_external_package_imports) ... ok
+test_no_machine_specific_user_paths (test_portability.PortabilityTests.test_no_machine_specific_user_paths) ... ok
+test_only_expected_skip_is_declared (test_portability.PortabilityTests.test_only_expected_skip_is_declared) ... ok
+test_profiler_does_not_claim_npu_execution (test_profiler.ProfilerTests.test_profiler_does_not_claim_npu_execution) ... ok
+test_profiler_records_measurements (test_profiler.ProfilerTests.test_profiler_records_measurements) ... ok
+test_stage_metadata_is_descriptive_only (test_profiler.ProfilerTests.test_stage_metadata_is_descriptive_only) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.048s
+
+OK (skipped=1)
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference test
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+cmake --build --preset release
+[ 50%] Built target llm_core
+[ 60%] Built target llm_metal
+[ 70%] Built target llm_infer
+[ 80%] Built target run_tests
+[ 90%] Built target llm_qnn_bench
+[100%] Built target run_qnn_tests
+ctest --preset release --output-on-failure
+Test project /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+    Start 1: llm_kv_cache
+1/2 Test #1: llm_kv_cache .....................   Passed    0.00 sec
+    Start 2: qnn_stub_cpu
+2/2 Test #2: qnn_stub_cpu .....................   Passed    0.00 sec
+
+100% tests passed out of 2
+
+Label Time Summary:
+cpu         =   0.01 sec*proc (2 tests)
+qnn-stub    =   0.00 sec*proc (1 test)
+stage01     =   0.01 sec*proc (2 tests)
+
+Total Test time (real) =   0.01 sec
+# exit: 0

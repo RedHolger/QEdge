@@ -1,0 +1,7 @@
+{
+  "review_date": "2026-10-29",
+  "source": "Executive Blueprint for Qualcomm On-Device AI_ Global Research Synthesis, Forensic Audit of the QEdge Portfolio, and Production-Grade Silicon-Runtime ArchitectureGlobal Synthesis of Qualcomm AI Research Across International Engineering Hub.docx",
+  "sha256": "e382d02c11a41fc271bb24731e08d5e5cf2284ce34abc712314f68b63cd7b629",
+  "extraction": "OOXML body paragraphs, including w:t and m:t text; table paragraphs retained in document order. Paragraph numbers are extraction IDs, not page numbers. Layout not reviewed; source DOCX unchanged.",
+  "paragraph_count": 4075
+}

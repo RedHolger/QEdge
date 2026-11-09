@@ -1,0 +1,14 @@
+=== Reproducing Stage 04 Round 2 Review Blockers ===
+Reproduction 1: Brand semantics and observation fidelity...
+  [brand Fixture] status=SUPPORTED, action=RECOMMEND, observed_value='Fixture'
+  [not brand Fixture] status=CONTRADICTED, action=DO_NOT_RECOMMEND
+  FAIL (Defect reproduced): 'brand Fixture' accepted substring match on 'FixtureCo'!
+  FAIL (Defect reproduced): observed_value replaced with required_value 'Fixture'!
+  FAIL (Defect reproduced): 'not brand Fixture' falsely contradicted 'FixtureCo'!
+Reproduction 2: Structured evidence status ignored...
+  [width < 50cm on status=unknown] status=SUPPORTED, action=RECOMMEND
+  FAIL (Defect reproduced): Non-present fact (status=unknown) supported width requirement!
+  [width < 50cm on status=missing] status=SUPPORTED, action=RECOMMEND
+  FAIL (Defect reproduced): Non-present fact (status=missing) supported width requirement!
+
+Total blockers reproduced: 2/2

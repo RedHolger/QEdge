@@ -1,0 +1,387 @@
+{
+  "timestamp_start": "2026-11-05T20:30:21.283578+00:00",
+  "timestamp_end": "2026-11-05T20:30:21.471592+00:00",
+  "stage": "10-integration-evaluation",
+  "verdict": "ACCEPTED (self-review; pending independent review)",
+  "hardware_status": {
+    "npu_status": "unverified",
+    "execution_device": "CPU baseline",
+    "measured_energy": "not measured",
+    "notes": "No Qualcomm Snapdragon device or QNN HTP offload claimed; CPU execution baseline only."
+  },
+  "retrieval_quality_status": {
+    "software_repairs": "ACCEPTED (105/105 tests passed, 49/49 schema tests passed)",
+    "human_evaluation_gate": "BLOCKED",
+    "pilot_diagnostics_coverage": "30 queries, 20 positives (strictly segregated from validated retrieval quality)",
+    "review_queue_pending": 1009,
+    "notes": "Human retrieval-quality gate remains BLOCKED pending annotation of the 1,009 active review queue candidates and completion of the 120-query evaluation."
+  },
+  "secondary_model_status": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "status": "DEFERRED / BLOCKED",
+    "notes": "Preserved deferred status per execution contract."
+  },
+  "ten_scenarios_evaluation": {
+    "total_scenarios": 10,
+    "passed_scenarios": 10,
+    "all_passed": true,
+    "scenarios": [
+      {
+        "scenario_id": "scen-01",
+        "category": "supported",
+        "query": "dining chair with oak material under 60cm wide",
+        "item_id": "fixture-chair-oak",
+        "expected_action": "RECOMMEND",
+        "actual_action": "RECOMMEND",
+        "expected_status": "SUPPORTED",
+        "actual_status": "SUPPORTED",
+        "passed": true,
+        "citations_verified": true,
+        "timing_ms": {
+          "parse_ms": 10.035,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.922,
+          "generate_ms": 0.004,
+          "total_ms": 10.977
+        },
+        "notes": "Exact attribute match (width 48cm <= 60cm, oak == oak) yields RECOMMEND"
+      },
+      {
+        "scenario_id": "scen-02",
+        "category": "contradicted",
+        "query": "dining chair with oak material under 60cm wide",
+        "item_id": "fixture-chair-wide",
+        "expected_action": "DO_NOT_RECOMMEND",
+        "actual_action": "DO_NOT_RECOMMEND",
+        "expected_status": "CONTRADICTED",
+        "actual_status": "CONTRADICTED",
+        "passed": true,
+        "timing_ms": {
+          "parse_ms": 0.256,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.636,
+          "generate_ms": 0.003,
+          "total_ms": 0.906
+        },
+        "notes": "Direct contradiction (width 75cm > 60cm, aluminum != oak) blocks recommendation"
+      },
+      {
+        "scenario_id": "scen-03",
+        "category": "missing_fact",
+        "query": "chair width <= 60cm",
+        "item_id": "fixture-chair-unknown",
+        "expected_action": "ABSTAIN",
+        "actual_action": "ABSTAIN",
+        "expected_status": "UNKNOWN",
+        "actual_status": "UNKNOWN",
+        "passed": true,
+        "timing_ms": {
+          "parse_ms": 0.128,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.402,
+          "generate_ms": 0.002,
+          "total_ms": 0.545
+        },
+        "notes": "Missing source attribute status in SQLite produces UNKNOWN -> ABSTAIN"
+      },
+      {
+        "scenario_id": "scen-04",
+        "category": "ambiguous_units",
+        "query": "dining chair under 60",
+        "item_id": "fixture-chair-oak",
+        "expected_action": "ABSTAIN",
+        "actual_action": "ABSTAIN",
+        "passed": true,
+        "ambiguities": [
+          "unspecified dimension or unit for bare number: 'under 60'"
+        ],
+        "timing_ms": {
+          "parse_ms": 0.129,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.257,
+          "generate_ms": 0.005,
+          "total_ms": 0.398
+        },
+        "notes": "Query number lacking unit flagged as ambiguity; refuses to guess cm vs inches"
+      },
+      {
+        "scenario_id": "scen-05",
+        "category": "negation",
+        "query": "dining chair width under 80cm and not aluminum",
+        "item_id": "fixture-chair-wide",
+        "expected_action": "DO_NOT_RECOMMEND",
+        "actual_action": "DO_NOT_RECOMMEND",
+        "expected_status": "CONTRADICTED",
+        "actual_status": "CONTRADICTED",
+        "passed": true,
+        "timing_ms": {
+          "parse_ms": 0.262,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.554,
+          "generate_ms": 0.002,
+          "total_ms": 0.825
+        },
+        "notes": "Negation constraint (!= aluminum) violated by aluminum candidate"
+      },
+      {
+        "scenario_id": "scen-06",
+        "category": "unsupported_requirement",
+        "query": "dining chair with built-in quantum charger",
+        "item_id": "fixture-chair-oak",
+        "expected_action": "ABSTAIN",
+        "actual_action": "ABSTAIN",
+        "passed": true,
+        "unparsed_clauses": [
+          "built-in quantum charger"
+        ],
+        "timing_ms": {
+          "parse_ms": 0.388,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.244,
+          "generate_ms": 0.002,
+          "total_ms": 0.641
+        },
+        "notes": "Unsupported requirement preserved as unparsed clause; forces ABSTAIN"
+      },
+      {
+        "scenario_id": "scen-07",
+        "category": "source_conflict_update",
+        "query": "chair width <= 60cm",
+        "item_id": "doc-upd / doc-conflict",
+        "expected_action": "conflict: ABSTAIN, v1: DO_NOT_RECOMMEND, v2: RECOMMEND",
+        "actual_action": "conflict: ABSTAIN, v1: DO_NOT_RECOMMEND, v2: RECOMMEND",
+        "passed": true,
+        "v1_citation": "cite:doc-upd:v1:c0:609d64ec",
+        "v2_citation": "cite:doc-upd:v2:c0:d6d795d4",
+        "historical_v1_resolved_value": 75.0,
+        "timing_ms": {
+          "parse_ms": 0.145,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.496,
+          "generate_ms": 0.003,
+          "total_ms": 0.655
+        },
+        "notes": "Conflicting facts cause ABSTAIN; document update changes active verdict to RECOMMEND while historical citation resolves original 75cm"
+      },
+      {
+        "scenario_id": "scen-08",
+        "category": "no_result",
+        "query": "quantum flux capacitor 9999",
+        "item_id": null,
+        "expected_action": "ABSTAIN",
+        "actual_action": "ABSTAIN",
+        "expected_status": "ABSTAIN",
+        "actual_status": "ABSTAIN",
+        "candidates_retrieved": 0,
+        "passed": true,
+        "timing_ms": {
+          "parse_ms": 0.169,
+          "retrieve_ms": 0.254,
+          "verify_ms": 0.255,
+          "generate_ms": 0.0,
+          "total_ms": 0.694
+        },
+        "notes": "Zero retrieved candidates produces explicit ABSTAIN with item_id=None"
+      },
+      {
+        "scenario_id": "scen-09",
+        "category": "optional_image_query",
+        "query": "--image oak_chair.jpg",
+        "item_id": null,
+        "expected_action": "ABSTAIN",
+        "actual_action": "ABSTAIN",
+        "passed": true,
+        "reason": "Image assets unavailable; visual specification inference refused",
+        "timing_ms": {
+          "parse_ms": 0.0,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.0,
+          "generate_ms": 0.0,
+          "total_ms": 0.011
+        },
+        "notes": "Image query refusal-path coverage; visual specification inference refused without verified ground truth; actual image execution separately skipped."
+      },
+      {
+        "scenario_id": "scen-10",
+        "category": "generation_unavailable_failure",
+        "query": "dining chair with oak material under 60cm wide",
+        "item_id": "fixture-chair-wide",
+        "expected_action": "DO_NOT_RECOMMEND",
+        "actual_action": "DO_NOT_RECOMMEND",
+        "generation_fallback_reason": "contract_violation: model attempted to recommend non-recommended candidate",
+        "passed": true,
+        "timing_ms": {
+          "parse_ms": 0.276,
+          "retrieve_ms": 0.0,
+          "verify_ms": 0.593,
+          "generate_ms": 0.138,
+          "total_ms": 1.014
+        },
+        "notes": "Adversarial generation attempting to recommend a contradicted item was blocked by Contract Guard; fell back to deterministic response"
+      }
+    ]
+  },
+  "decision_80_cases_evaluation": {
+    "benchmark_provenance": "authored-regression-suite-v1; internal development benchmark; previously exercised regression cases",
+    "dataset_status_note": "All 80 decision cases are previously exercised internal regression cases (Stage 04 baseline). Untouched held-out claim removed; independent generalization evaluation remains pending.",
+    "splits": {
+      "development": {
+        "total_cases": 40,
+        "correct_cases": 40,
+        "accuracy": 1.0,
+        "abstention_count": 17,
+        "abstention_rate": 0.425,
+        "coverage_count": 23,
+        "coverage_rate": 0.575,
+        "false_supported_numerator": 0,
+        "false_supported_denominator": 29,
+        "false_supported_rate": 0.0,
+        "false_supported_95ci": {
+          "proportion": 0.0,
+          "lower": 0.0,
+          "upper": 0.11697,
+          "confidence": 0.95
+        },
+        "confusion_matrix": {
+          "RECOMMEND": {
+            "RECOMMEND": 11,
+            "DO_NOT_RECOMMEND": 0,
+            "ABSTAIN": 0
+          },
+          "DO_NOT_RECOMMEND": {
+            "RECOMMEND": 0,
+            "DO_NOT_RECOMMEND": 12,
+            "ABSTAIN": 0
+          },
+          "ABSTAIN": {
+            "RECOMMEND": 0,
+            "DO_NOT_RECOMMEND": 0,
+            "ABSTAIN": 17
+          }
+        }
+      },
+      "held_out": {
+        "total_cases": 40,
+        "correct_cases": 40,
+        "accuracy": 1.0,
+        "abstention_count": 17,
+        "abstention_rate": 0.425,
+        "coverage_count": 23,
+        "coverage_rate": 0.575,
+        "false_supported_numerator": 0,
+        "false_supported_denominator": 29,
+        "false_supported_rate": 0.0,
+        "false_supported_95ci": {
+          "proportion": 0.0,
+          "lower": 0.0,
+          "upper": 0.11697,
+          "confidence": 0.95
+        },
+        "confusion_matrix": {
+          "RECOMMEND": {
+            "RECOMMEND": 11,
+            "DO_NOT_RECOMMEND": 0,
+            "ABSTAIN": 0
+          },
+          "DO_NOT_RECOMMEND": {
+            "RECOMMEND": 0,
+            "DO_NOT_RECOMMEND": 12,
+            "ABSTAIN": 0
+          },
+          "ABSTAIN": {
+            "RECOMMEND": 0,
+            "DO_NOT_RECOMMEND": 0,
+            "ABSTAIN": 17
+          }
+        }
+      },
+      "overall": {
+        "total_cases": 80,
+        "correct_cases": 80,
+        "accuracy": 1.0,
+        "abstention_count": 34,
+        "abstention_rate": 0.425,
+        "coverage_count": 46,
+        "coverage_rate": 0.575,
+        "false_supported_numerator": 0,
+        "false_supported_denominator": 58,
+        "false_supported_rate": 0.0,
+        "false_supported_95ci": {
+          "proportion": 0.0,
+          "lower": 0.0,
+          "upper": 0.062118,
+          "confidence": 0.95
+        },
+        "confusion_matrix": {
+          "RECOMMEND": {
+            "RECOMMEND": 22,
+            "DO_NOT_RECOMMEND": 0,
+            "ABSTAIN": 0
+          },
+          "DO_NOT_RECOMMEND": {
+            "RECOMMEND": 0,
+            "DO_NOT_RECOMMEND": 24,
+            "ABSTAIN": 0
+          },
+          "ABSTAIN": {
+            "RECOMMEND": 0,
+            "DO_NOT_RECOMMEND": 0,
+            "ABSTAIN": 34
+          }
+        }
+      }
+    },
+    "timing_ms": {
+      "parse_ms": {
+        "mean": 0.145,
+        "min": 0.0,
+        "p50": 0.144,
+        "p95": 0.224,
+        "max": 0.246
+      },
+      "retrieve_ms": {
+        "mean": 0.0,
+        "min": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "verify_ms": {
+        "mean": 0.39,
+        "min": 0.0,
+        "p50": 0.397,
+        "p95": 0.561,
+        "max": 0.64
+      },
+      "generate_ms": {
+        "mean": 0.002,
+        "min": 0.0,
+        "p50": 0.002,
+        "p95": 0.002,
+        "max": 0.003
+      },
+      "total_ms": {
+        "mean": 0.543,
+        "min": 0.006,
+        "p50": 0.534,
+        "p95": 0.794,
+        "max": 0.892
+      }
+    },
+    "failure_taxonomy": {
+      "AMBIGUOUS_UNIT": 10,
+      "UNPARSED_CLAUSE": 0,
+      "MISSING_SOURCE_EVIDENCE": 22,
+      "ADVERSE_CONTRADICTION": 24,
+      "UNRESOLVED_REQUIREMENTS": 2,
+      "CITATION_VERIFICATION_FAILURE": 0
+    }
+  },
+  "tenant_isolation_evaluation": {
+    "isolation_verified": true,
+    "user_a_read_granted": true,
+    "user_b_read_denied": true,
+    "user_b_citation_resolution_denied": true,
+    "user_b_find_candidates_filtered": true
+  }
+}

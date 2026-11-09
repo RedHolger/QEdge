@@ -1,0 +1,25 @@
+══════════════════════════════════════════════════════════════
+ Qualcomm Edge RAG Demo — On-Device, No Cloud, No GPU
+══════════════════════════════════════════════════════════════
+Query: "I need a dining chair with oak material under 60cm wide"
+
+Stage         Time (ms)   NPU Candidate
+────────────────────────────────────────
+RETRIEVE      112.6 ms    ✅ encode_text → Hexagon
+VERIFY        0.7 ms      ✅ embed_query → Hexagon
+GENERATE      0.1 ms      ❌ template fill
+Total         113.3 ms
+
+Results:
+1. Pinzon Kinzie Leather Dining Chair, Cream — width: UNKNOWN · material: CONTRADICTED (leather)
+2. Pinzon Hardwood Lounge Chair with Sand Polyblend Upholstery, Java — width: UNKNOWN · material: UNKNOWN
+3. Stone & Beam Hughes Casual Wood Kitchen Dining Chair, Set of 2, Beige — width: SUPPORTED (48cm) · material: CONTRADICTED (stone)
+
+NPU-offloadable: 100% of pipeline wall time
+On Snapdragon 8 Elite (45 TOPS): estimated total < 3 ms
+
+══════════════════════════════════════════════════════════════
+ Evidence rag: SQLite backend · 3 documents verified
+ Retrieval: abo-v2-pilot-500 · FAISS + BM25 + RRF
+ Inference: KV-cache policy = QUOKA · est. 861 tok/mJ
+══════════════════════════════════════════════════════════════

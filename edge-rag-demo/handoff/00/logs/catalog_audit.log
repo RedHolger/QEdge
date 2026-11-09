@@ -1,0 +1,31 @@
+Tue Oct 27 21:02:10 GMT 2026
+catalog: /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/data/catalog/abo-v2-pilot-500
+     500 /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/data/catalog/abo-v2-pilot-500/catalog.jsonl
+rows 500
+unique_item_id 500
+unique_variant_id 500
+family_id_present False
+license_ref {'CC-BY-4.0': 500}
+attribute_width_present 371
+attribute_height_present 371
+attribute_length_present 371
+attribute_material_present 342
+attribute_color_present 403
+attribute_brand_present 500
+manifest_item_count 500
+manifest_status COMPLETE
+catalog_sha256 3f22a3249f83077506c2b846a81324044735b466606bd1b86cd729dbac18dc9c
+--- license file ---
+419896aea50c15d6e40c5b4baf4bd346f78223b9a354c7357ad00262afdc08ec  /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/data/catalog/abo-v2-pilot-500/sources/LICENSE-CC-BY-4.0.txt
+--- registry license lines ---
+2:Description: Amazon Berkeley Objects (ABO) is a collection of 147,702 product listings with multilingual metadata and 398,212 unique catalog images. 8,222 listings come with turntable photography (also referred as "spin" or "360º-View" images), as sequences of 24 or 72 images, for a total of 586,584 images in 8,209 unique sequences. For 7,953 products, the collection also provides high-quality 3d models, as glTF 2.0 files. (NB - The license for all assets was updated from CC BY-NC to the more permissive CC BY in 2023, older announcements, artefacts or publications might not reflect this change)
+14:License: Creative Commons Attribution 4.0 (CC BY 4.0) https://creativecommons.org/licenses/by/4.0/
+--- source README license lines ---
+8:## License
+10:This work is licensed under the Creative Commons Attribution 4.0 International
+11:Public License. To obtain a copy of the full license, see LICENSE-CC-BY-4.0.txt,
+12:visit [CreativeCommons.org](https://creativecommons.org/licenses/by/4.0/)
+18:    license, and indicate if changes were made. You may do so in any reasonable
+23:    measures that legally restrict others from doing anything the license
+51:  * `LICENSE-CC-BY-4.0.txt` - The License file. You must read, agree and comply
+52:    to the License before using the Amazon Berkeley Objects data.

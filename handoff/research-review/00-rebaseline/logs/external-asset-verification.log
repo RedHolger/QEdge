@@ -1,0 +1,9 @@
+[MiniLM]
+path=/Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.cache/models/minilm/model.safetensors
+sha256=53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+expected=53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db
+
+[CLIP]
+path=/Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.cache/models/clip/open_clip_model.safetensors
+sha256=ac4f8c4b88af6d963118cbf40ad93176d092abbedfcb752601ae1866352656e6
+expected=ac4f8c4b88af6d963118cbf40ad93176d092abbedfcb752601ae1866352656e6

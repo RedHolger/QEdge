@@ -1,0 +1,115 @@
+{
+  "stage": "12-release-review",
+  "date": "2026-11-09",
+  "verdict": "ACCEPTED_BOUNDED_LOCAL_CPU_PORTFOLIO",
+  "review_type": "implementation verification by implementing agent; no independent release review claimed",
+  "checks": [
+    {
+      "name": "dimension_contract",
+      "command": "PYTHONPATH=llm-inference/runtime/src llm-inference/runtime/.venv/bin/python -m unittest discover -s llm-inference/runtime/tests -p test_provenance_dimensions.py",
+      "exit_code": 0,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "log": "logs/dimensions.log"
+    },
+    {
+      "name": "runtime",
+      "command": "PYTHONPATH=llm-inference/runtime/src llm-inference/runtime/.venv/bin/python -m unittest discover -s llm-inference/runtime/tests",
+      "exit_code": 0,
+      "passed": 137,
+      "failed": 0,
+      "skipped": 0,
+      "log": "logs/runtime-tests.log"
+    },
+    {
+      "name": "assistant_integrated",
+      "command": "QEDGE_RUN_CATALOG_INTEGRATION=1 PYTHONPATH=qedge-common/src:edge-rag-demo/src edge-rag-demo/.venv/bin/python -m unittest discover -s edge-rag-demo/tests",
+      "exit_code": 0,
+      "passed": 135,
+      "failed": 0,
+      "skipped": 0,
+      "log": "logs/edge-tests.log"
+    },
+    {
+      "name": "shared_contracts",
+      "command": "PYTHONPATH=qedge-common/src edge-rag-demo/.venv/bin/python -m unittest discover -s qedge-common/tests",
+      "exit_code": 0,
+      "passed": 49,
+      "failed": 0,
+      "skipped": 0,
+      "log": "logs/common-tests.log"
+    },
+    {
+      "name": "release_ctest",
+      "command": "cd llm-inference && cmake --preset release && cmake --build --preset release -j 2 && ctest --preset release",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "logs/ctest-release.log"
+    },
+    {
+      "name": "sanitizer_ctest",
+      "command": "cd llm-inference && cmake --preset debug && cmake --build --preset debug -j 2 && ctest --preset debug",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "logs/ctest-debug.log"
+    }
+  ],
+  "installation": {
+    "bootstrap_exit_code": 0,
+    "relocated_source_build_exit_code": 0,
+    "fresh_environment": true,
+    "source_trees_removed_before_execution": true,
+    "isolated_python": true,
+    "socket_connect_denied": true,
+    "commands": [
+      "demo",
+      "benchmark",
+      "evaluate"
+    ],
+    "log": "logs/relocated-install.log",
+    "scope": "qedge-common and edge-rag-demo wheels; optional runtime wheel built, runtime dependencies tested in existing environment"
+  },
+  "sanitized_executables": {
+    "llm_infer": 0,
+    "llm_qnn_bench": 0,
+    "sanitizer_markers_found": false
+  },
+  "historical_hashes": {
+    "verified": 30,
+    "failed": 0
+  },
+  "v1_schema_hashes": {
+    "verified": 7,
+    "failed": 0
+  },
+  "regression_evaluation": {
+    "cases": 80,
+    "correct": 80,
+    "scenario_paths": 10,
+    "image_execution": "SKIPPED; refusal only"
+  },
+  "gates": {
+    "hardware_execution": "BLOCKED",
+    "device_performance": "BLOCKED",
+    "npu": "UNVERIFIED",
+    "human_retrieval_quality": "BLOCKED; 1009 fresh judgments plus remaining 120-query evaluation",
+    "independent_generalization": "PENDING",
+    "second_model": "DEFERRED",
+    "external_publication": "NOT PERFORMED"
+  },
+  "limitations": [
+    "No independent reviewer for Stage 11/12 implementation changes.",
+    "Optional heavyweight runtime not installed into a fully isolated dependency environment in this release; existing-environment regression and wheel build passed.",
+    "Pre-existing llm-inference/tests/test_kv_cache.cpp:195 trailing whitespace causes full dirty git diff --check exit 2.",
+    "Runtime suite emitted a ResourceWarning for /dev/null while exiting 0; no sanitizer/process failure observed."
+  ],
+  "installed_cli_error_paths": {
+    "passed": 4,
+    "log": "logs/installed-error-paths.json"
+  }
+}

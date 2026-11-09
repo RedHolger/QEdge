@@ -1,0 +1,36 @@
+[ 13%] Building CXX object CMakeFiles/llm_core.dir/src/core/tensor.cpp.o
+[ 13%] Building CXX object CMakeFiles/llm_metal.dir/src/backend/metal_backend.mm.o
+[ 18%] Building CXX object CMakeFiles/llm_core.dir/src/kv_cache/kv_cache.cpp.o
+[ 18%] Building CXX object CMakeFiles/llm_core.dir/src/core/config.cpp.o
+[ 22%] Building CXX object CMakeFiles/llm_core.dir/src/kv_cache/policy.cpp.o
+[ 27%] Building CXX object CMakeFiles/llm_core.dir/src/backend/backend.cpp.o
+[ 31%] Building CXX object CMakeFiles/llm_core.dir/src/backend/cpu_backend.cpp.o
+[ 36%] Building CXX object CMakeFiles/llm_core.dir/src/benchmark/benchmark.cpp.o
+[ 40%] Building CXX object CMakeFiles/llm_core.dir/src/backend/qnn_stub_backend.cpp.o
+[ 45%] Building CXX object CMakeFiles/llm_core.dir/src/benchmark/power_report.cpp.o
+/Users/manuvashistha/Developer/qualcomm/llm-inference/src/backend/cpu_backend.cpp:76:3: warning: 'cblas_sgemm' is deprecated: first deprecated in macOS 13.3 - An updated CBLAS interface supporting ILP64 is available.  Please compile with -DACCELERATE_NEW_LAPACK to access the new headers and -DACCELERATE_LAPACK_ILP64 for ILP64 support. [-Wdeprecated-declarations]
+   76 |   cblas_sgemm(CblasRowMajor,
+      |   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/vecLib.framework/Headers/cblas.h:610:6: note: 'cblas_sgemm' has been explicitly marked deprecated here
+  610 | void cblas_sgemm(const enum CBLAS_ORDER __Order,
+      |      ^
+[ 50%] Linking CXX static library libllm_metal.a
+[ 50%] Built target llm_metal
+1 warning generated.
+[ 54%] Linking CXX static library libllm_core.a
+[ 54%] Built target llm_core
+[ 72%] Building CXX object CMakeFiles/llm_qnn_bench.dir/src/main_qnn.cpp.o
+[ 72%] Building CXX object CMakeFiles/llm_infer.dir/src/main.cpp.o
+[ 72%] Building CXX object CMakeFiles/run_tests.dir/tests/test_kv_cache.cpp.o
+[ 72%] Building CXX object CMakeFiles/run_kernel_tests.dir/tests/test_attention.cpp.o
+[ 77%] Linking CXX executable llm_qnn_bench
+[ 77%] Built target llm_qnn_bench
+[ 81%] Building CXX object CMakeFiles/run_qnn_tests.dir/tests/test_qnn_stub.cpp.o
+[ 86%] Linking CXX executable llm_infer
+[ 90%] Linking CXX executable run_tests
+[ 95%] Linking CXX executable run_kernel_tests
+[ 95%] Built target run_tests
+[ 95%] Built target run_kernel_tests
+[ 95%] Built target llm_infer
+[100%] Linking CXX executable run_qnn_tests
+[100%] Built target run_qnn_tests

@@ -1,0 +1,25 @@
+══════════════════════════════════════════════════════════════
+ Qualcomm Edge RAG Demo — On-Device, No Cloud, No GPU
+══════════════════════════════════════════════════════════════
+Query: "wooden dining chair under 80cm"
+
+Stage         Time (ms)   NPU Candidate
+────────────────────────────────────────
+RETRIEVE      75.3 ms     ✅ encode_text → Hexagon
+VERIFY        0.6 ms      ✅ embed_query → Hexagon
+GENERATE      0.1 ms      ❌ template fill
+Total         76.1 ms
+
+Results:
+1. Amazon Brand – Rivet Ian Modern Wood Dining Kitchen Chairs, 33 Inch Height, Set of 2, Grey — width: SUPPORTED (61cm)
+2. Pinzon Kinzie Leather Dining Chair, Cream — width: UNKNOWN
+3. Ashley Furniture Signature Design - Leahlyn Dining Upholstered Side Chair - Pierced Splat Back - Set of 2 - Medium Brown — width: SUPPORTED (46cm)
+
+NPU-offloadable: 100% of pipeline wall time
+On Snapdragon 8 Elite (45 TOPS): estimated total < 3 ms
+
+══════════════════════════════════════════════════════════════
+ Evidence rag: SQLite backend · 3 documents verified
+ Retrieval: abo-v2-pilot-500 · FAISS + BM25 + RRF
+ Inference: KV-cache policy = QUOKA · est. 723 tok/mJ
+══════════════════════════════════════════════════════════════

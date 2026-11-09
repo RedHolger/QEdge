@@ -1,0 +1,7 @@
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Debug
+-- Sanitizers: ON
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/qedge-research-asan-rr00-20261029

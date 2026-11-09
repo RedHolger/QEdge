@@ -1,0 +1,35 @@
+# Stage 01 edge fixture demo
+# command: make -C edge-rag-demo demo
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:21:38Z
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.12ms
+QEDGE_CATALOG_DIR=/Users/manuvashistha/Developer/qualcomm/edge-rag-demo/tests/fixtures .venv/bin/edge-rag-demo "wooden dining chair under 60cm"
+══════════════════════════════════════════════════════════════
+ QEdge Assist — Stage 01 foundation demo
+══════════════════════════════════════════════════════════════
+Query: "wooden dining chair under 60cm"
+
+Stage         Time (ms)   Target
+────────────────────────────────────────
+RETRIEVE      0.1         retrieval (CPU in Stage 01)
+VERIFY        0.3         deterministic evidence checks (CPU)
+GENERATE      0.1         template fill (CPU)
+Total         0.5
+
+Results:
+1. Fixture Oak Dining Chair — width: SUPPORTED (48cm)
+2. Fixture Wide Aluminum Chair — width: CONTRADICTED (75cm)
+3. Fixture Chair With Missing Dimensions — width: UNKNOWN
+
+Generated response:
+Based on verified evidence: Fixture Oak Dining Chair. Verification: [width (48cm): SUPPORTED]. Stage 01 template only; the Stage 07 decision policy and recommendation are not implemented.
+
+NPU status: unverified — no Snapdragon/QNN device or AI Hub run; no offload percentage is reported.
+
+══════════════════════════════════════════════════════════════
+ Evidence store: local SQLite · 3 document(s) checked
+ Retrieval: fixture-v1 · local BM25 (Stage 01 baseline; not neural)
+ QNN CPU-stub (synthetic): QUOKA 717 tok/mJ (synthetic CPU-stub estimate; not measured; not NPU) · QNN/NPU status: unverified
+══════════════════════════════════════════════════════════════
+# exit: 0

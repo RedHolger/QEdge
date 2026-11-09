@@ -1,0 +1,6 @@
+[ 10%] Built target llm_metal
+[ 60%] Built target llm_core
+[ 80%] Built target llm_qnn_bench
+[ 80%] Built target run_tests
+[ 90%] Built target run_qnn_tests
+[100%] Built target llm_infer

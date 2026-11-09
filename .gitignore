@@ -1,0 +1,27 @@
+.DS_Store
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+
+.release/
+
+# Local acquisitions and generated artifacts
+models/
+indexes/
+edge-rag-demo/catalog/
+edge-rag-demo/data/
+.env
+.env.*
+*.pem
+*.key
+*.safetensors
+*.gguf
+*.onnx
+*.bin

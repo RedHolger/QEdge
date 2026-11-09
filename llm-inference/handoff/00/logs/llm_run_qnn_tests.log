@@ -1,0 +1,25 @@
+
+QNN Stub Unit Tests
+═══════════════════
+
+Test: QnnStub implements all ops
+  PASS: all 8 ops succeed without exception
+  PASS: profile has entries after ops
+  PASS: matmul op recorded
+  PASS: softmax op recorded
+
+Test: PowerReport fields are positive
+  PASS: total_wall_us > 0
+  PASS: total_estimated_flops > 0
+  PASS: total_bytes_moved > 0
+  PASS: estimated_mj > 0
+  PASS: tokens_per_mj > 0
+
+Test: QnnStub matches CPUBackend output (matmul + softmax)
+  PASS: matmul output matches CPU within 1e-4
+  PASS: softmax output matches CPU within 1e-4
+  PASS: attention output matches CPU within 1e-4
+
+─────────────────────────────────────
+  Passed: 12 / 12
+  Failed: 0

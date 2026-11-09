@@ -1,0 +1,10 @@
+audited_files: 46
+changed_since_baseline: 8
+CHANGED llm-inference/src/backend/cpu_backend.cpp
+CHANGED llm-inference/src/backend/metal_backend.mm
+CHANGED llm-inference/src/backend/qnn_stub_backend.cpp
+CHANGED llm-inference/src/benchmark/benchmark.cpp
+CHANGED llm-inference/include/backend/backend.h
+CHANGED llm-inference/include/backend/cpu_backend.h
+CHANGED llm-inference/include/backend/metal_backend.h
+CHANGED llm-inference/include/backend/qnn_stub_backend.h

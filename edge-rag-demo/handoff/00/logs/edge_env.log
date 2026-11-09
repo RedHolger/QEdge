@@ -1,0 +1,7 @@
+executable: /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.venv/bin/python3
+prefix: /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.venv
+python: 3.11.15 (main, Mar  3 2026, 00:52:57) [Clang 21.0.0 (clang-2100.0.123.102)]
+edge_rag: /Users/manuvashistha/Developer/qualcomm/edge-rag-demo/src/edge_rag/__init__.py
+numpy: 2.4.6 /Users/manuvashistha/Developer/Manu-Vashisth-Personal/discoveryeval/.venv/lib/python3.11/site-packages/numpy/__init__.py
+torch: 2.8.0
+cwd: /Users/manuvashistha/Developer/qualcomm/edge-rag-demo

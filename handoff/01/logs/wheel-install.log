@@ -1,0 +1,72 @@
+# Stage 01 wheel build and outside-source install
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:21:32Z
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 0.22ms
+env -u VIRTUAL_ENV uv build
+Building source distribution...
+Building wheel from source distribution...
+Successfully built dist/qedge_common-0.1.0.tar.gz
+Successfully built dist/qedge_common-0.1.0-py3-none-any.whl
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.12ms
+env -u VIRTUAL_ENV uv build
+Building source distribution...
+Building wheel from source distribution...
+Successfully built dist/edge_rag_demo-0.2.0.tar.gz
+Successfully built dist/edge_rag_demo-0.2.0-py3-none-any.whl
+# builds: qedge-common=0 edge-rag-demo=0
+Using CPython 3.11.15 interpreter at: /opt/homebrew/opt/python@3.11/bin/python3.11
+Creating virtual environment at: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/common-venv
+Activate with: source /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/common-venv/bin/activate
+Using Python 3.11.15 environment at: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/common-venv
+Resolved 7 packages in 11ms
+Prepared 1 package in 5ms
+Installed 7 packages in 4ms
+ + attrs==26.1.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + qedge-common==0.1.0 (from file:///Users/manuvashistha/Developer/qualcomm/qedge-common/dist/qedge_common-0.1.0-py3-none-any.whl)
+ + referencing==0.37.0
+ + rpds-py==2026.9.1
+ + typing-extensions==4.16.0
+prefix: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/common-venv
+schemas: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/common-venv/lib/python3.11/site-packages/qedge_common/schemas
+valid product: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/product.json
+Using CPython 3.11.15 interpreter at: /opt/homebrew/opt/python@3.11/bin/python3.11
+Creating virtual environment at: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/edge-venv
+Activate with: source /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/edge-venv/bin/activate
+Using Python 3.11.15 environment at: /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge-wheel-install.m3owYP/edge-venv
+Resolved 1 package in 0.70ms
+Prepared 1 package in 3ms
+Installed 1 package in 2ms
+ + edge-rag-demo==0.2.0 (from file:///Users/manuvashistha/Developer/qualcomm/edge-rag-demo/dist/edge_rag_demo-0.2.0-py3-none-any.whl)
+══════════════════════════════════════════════════════════════
+ QEdge Assist — Stage 01 foundation demo
+══════════════════════════════════════════════════════════════
+Query: "wooden dining chair under 60cm"
+
+Stage         Time (ms)   Target
+────────────────────────────────────────
+RETRIEVE      0.1         retrieval (CPU in Stage 01)
+VERIFY        0.3         deterministic evidence checks (CPU)
+GENERATE      0.1         template fill (CPU)
+Total         0.5
+
+Results:
+1. Fixture Oak Dining Chair — width: SUPPORTED (48cm)
+2. Fixture Wide Aluminum Chair — width: CONTRADICTED (75cm)
+3. Fixture Chair With Missing Dimensions — width: UNKNOWN
+
+Generated response:
+Based on verified evidence: Fixture Oak Dining Chair. Verification: [width (48cm): SUPPORTED]. Stage 01 template only; the Stage 07 decision policy and recommendation are not implemented.
+
+NPU status: unverified — no Snapdragon/QNN device or AI Hub run; no offload percentage is reported.
+
+══════════════════════════════════════════════════════════════
+ Evidence store: local SQLite · 3 document(s) checked
+ Retrieval: fixture-v1 · local BM25 (Stage 01 baseline; not neural)
+ Inference: runtime metrics unavailable (not measured) · QNN/NPU status: unverified
+══════════════════════════════════════════════════════════════
+# verification: qedge=0 edge=0
+# exit: 0

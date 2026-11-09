@@ -1,0 +1,57 @@
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 1ms
+.venv/bin/python -m unittest discover -s tests -v
+test_cache_hit_rate_is_optional (test_contract_semantics.ContractSemanticsTests.test_cache_hit_rate_is_optional) ... ok
+test_claim_must_match_its_requirement (test_contract_semantics.ContractSemanticsTests.test_claim_must_match_its_requirement) ... ok
+test_cli_uses_semantic_validator (test_contract_semantics.ContractSemanticsTests.test_cli_uses_semantic_validator) ... ok
+test_conflicting_evidence_abstains (test_contract_semantics.ContractSemanticsTests.test_conflicting_evidence_abstains) ... ok
+test_contradicted_child_blocks_positive_parent (test_contract_semantics.ContractSemanticsTests.test_contradicted_child_blocks_positive_parent) ... ok
+test_contradicted_child_with_contradicted_parent_is_valid (test_contract_semantics.ContractSemanticsTests.test_contradicted_child_with_contradicted_parent_is_valid) ... ok
+test_duplicate_requirement_and_claim_ids_are_rejected (test_contract_semantics.ContractSemanticsTests.test_duplicate_requirement_and_claim_ids_are_rejected) ... ok
+test_edge_bench_producer_validates_when_qedge_common_is_available (test_contract_semantics.ContractSemanticsTests.test_edge_bench_producer_validates_when_qedge_common_is_available) ... ok
+test_empty_supported_decision_is_rejected (test_contract_semantics.ContractSemanticsTests.test_empty_supported_decision_is_rejected) ... ok
+test_empty_supported_decision_is_structurally_valid (test_contract_semantics.ContractSemanticsTests.test_empty_supported_decision_is_structurally_valid) ... ok
+test_equality_inequality_and_containment (test_contract_semantics.ContractSemanticsTests.test_equality_inequality_and_containment) ... ok
+test_hardware_contradictions_are_rejected (test_contract_semantics.ContractSemanticsTests.test_hardware_contradictions_are_rejected) ... ok
+test_incompatible_types_and_units_are_rejected (test_contract_semantics.ContractSemanticsTests.test_incompatible_types_and_units_are_rejected) ... ok
+test_invalid_timestamps_are_rejected (test_contract_semantics.ContractSemanticsTests.test_invalid_timestamps_are_rejected) ... ok
+test_measured_benchmark_needs_evidence_and_model (test_contract_semantics.ContractSemanticsTests.test_measured_benchmark_needs_evidence_and_model) ... ok
+test_measured_npu_hardware_cannot_use_cpu_backend (test_contract_semantics.ContractSemanticsTests.test_measured_npu_hardware_cannot_use_cpu_backend) ... ok
+test_measured_npu_hardware_requires_device_identity_and_evidence (test_contract_semantics.ContractSemanticsTests.test_measured_npu_hardware_requires_device_identity_and_evidence) ... ok
+test_measured_npu_requires_execution_identity (test_contract_semantics.ContractSemanticsTests.test_measured_npu_requires_execution_identity) ... ok
+test_mismatched_child_item_id_is_rejected (test_contract_semantics.ContractSemanticsTests.test_mismatched_child_item_id_is_rejected) ... ok
+test_missing_coverage_can_be_explicitly_unknown (test_contract_semantics.ContractSemanticsTests.test_missing_coverage_can_be_explicitly_unknown) ... ok
+test_missing_mandatory_coverage_is_rejected (test_contract_semantics.ContractSemanticsTests.test_missing_mandatory_coverage_is_rejected) ... ok
+test_no_candidate_cannot_invent_an_item_id_or_claims (test_contract_semantics.ContractSemanticsTests.test_no_candidate_cannot_invent_an_item_id_or_claims) ... ok
+test_no_candidate_response_is_explicit (test_contract_semantics.ContractSemanticsTests.test_no_candidate_response_is_explicit) ... ok
+test_nonfinite_python_values_are_rejected (test_contract_semantics.ContractSemanticsTests.test_nonfinite_python_values_are_rejected) ... ok
+test_null_supported_observations_are_rejected (test_contract_semantics.ContractSemanticsTests.test_null_supported_observations_are_rejected) ... ok
+test_records_producer_calls_validator (test_contract_semantics.ContractSemanticsTests.test_records_producer_calls_validator) ... ok
+test_semantic_boundary_color_material_and_brand (test_contract_semantics.ContractSemanticsTests.test_semantic_boundary_color_material_and_brand) ... ok
+test_status_must_agree_with_observed_value (test_contract_semantics.ContractSemanticsTests.test_status_must_agree_with_observed_value) ... ok
+test_strict_and_inclusive_comparisons (test_contract_semantics.ContractSemanticsTests.test_strict_and_inclusive_comparisons) ... ok
+test_strict_json_loader_accepts_valid_example (test_contract_semantics.ContractSemanticsTests.test_strict_json_loader_accepts_valid_example) ... ok
+test_strict_json_loader_rejects_nonfinite_values (test_contract_semantics.ContractSemanticsTests.test_strict_json_loader_rejects_nonfinite_values) ... ok
+test_synthetic_benchmark_cannot_be_measured (test_contract_semantics.ContractSemanticsTests.test_synthetic_benchmark_cannot_be_measured) ... ok
+test_unparsed_and_ambiguity_block_positive_response (test_contract_semantics.ContractSemanticsTests.test_unparsed_and_ambiguity_block_positive_response) ... ok
+test_v1_and_v2_versions_are_explicit (test_contract_semantics.ContractSemanticsTests.test_v1_and_v2_versions_are_explicit) ... ok
+test_v1_examples_remain_valid (test_contract_semantics.ContractSemanticsTests.test_v1_examples_remain_valid) ... ok
+test_v2_positive_example_is_valid (test_contract_semantics.ContractSemanticsTests.test_v2_positive_example_is_valid) ... ok
+test_all_examples_validate (test_schemas.SchemaTests.test_all_examples_validate) ... ok
+test_all_schemas_are_valid_draft_2020_12 (test_schemas.SchemaTests.test_all_schemas_are_valid_draft_2020_12) ... ok
+test_example_paths_exist (test_schemas.SchemaTests.test_example_paths_exist) ... ok
+test_examples_are_independent_copies (test_schemas.SchemaTests.test_examples_are_independent_copies) ... ok
+test_hardware_status_requires_qnn_block (test_schemas.SchemaTests.test_hardware_status_requires_qnn_block) ... ok
+test_measured_benchmark_must_be_boolean (test_schemas.SchemaTests.test_measured_benchmark_must_be_boolean) ... ok
+test_present_attribute_cannot_be_null (test_schemas.SchemaTests.test_present_attribute_cannot_be_null) ... ok
+test_retrieval_request_requires_a_modality (test_schemas.SchemaTests.test_retrieval_request_requires_a_modality) ... ok
+test_schema_files_do_not_contain_machine_paths (test_schemas.SchemaTests.test_schema_files_do_not_contain_machine_paths) ... ok
+test_supported_decision_must_recommend (test_schemas.SchemaTests.test_supported_decision_must_recommend) ... ok
+test_unknown_decision_status_is_rejected (test_schemas.SchemaTests.test_unknown_decision_status_is_rejected) ... ok
+test_unknown_evidence_status_is_rejected (test_schemas.SchemaTests.test_unknown_evidence_status_is_rejected) ... ok
+test_unknown_fields_are_rejected (test_schemas.SchemaTests.test_unknown_fields_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 49 tests in 0.214s
+
+OK

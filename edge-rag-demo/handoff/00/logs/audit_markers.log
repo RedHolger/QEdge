@@ -1,0 +1,5 @@
+./tests/test_pipeline.py:44:        self.assertIn("matches your requirements", res["generated_response"])
+./tests/test_pipeline.py:124:        """Stage 4: Verify NPU-offloadable percentage exceeds 80% on neural dense stages."""
+./demo_pipeline.py:132:    out.append(f"NPU-offloadable: {npu_pct}% of pipeline wall time")
+./demo_pipeline.py:133:    out.append(f"On Snapdragon 8 Elite (45 TOPS): estimated total < 3 ms\n")
+./src/edge_rag/generator.py:72:        return f"Based on verified evidence: {title} matches your requirements. [{attr_summary}]"

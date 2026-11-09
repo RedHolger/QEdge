@@ -1,0 +1,7 @@
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache, kernel_safety and optional qnn_stub_cpu
+-- Configuring done (0.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release

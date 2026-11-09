@@ -1,0 +1,41 @@
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║   Portable C++ LLM Inference Engine                     ║
+  ║   KV Cache Optimization + Multi-Backend (CPU/Metal)     ║
+  ║   Apple M2 / macOS                                      ║
+  ╚══════════════════════════════════════════════════════════╝
+
+── KV Cache Demo ──────────────────────────────────────────────
+  FIFO: size=32 hits=24/60 hit_rate=40% evictions=48
+  LRU: size=32 hits=24/60 hit_rate=40% evictions=48
+  KeyDiff: size=32 hits=28/60 hit_rate=46.6667% evictions=48
+  QUOKA: size=32 hits=24/60 hit_rate=40% evictions=48
+
+── Attention Kernel Demo ──────────────────────────────────────
+  Backend: CPU (Accelerate/BLAS)
+  Attention output shape: [8, 4, 64]
+  First head, first token (first 8 dims): 0.0435 0.1129 -0.4183 -0.2739 -0.0417 0.3469 -0.0153 -0.0714 
+
+
++--------------------------------------------------------------------------------+
+|           LLM Inference Engine -- KV Cache Policy Benchmark                  |
++--------------------------------------------------------------------------------+
+  Model: 8L, 2048 hidden, 32 heads, 64 head_dim
+  Cache: 512 slots, Tokens: 64
+
+Backend             Policy        Avg Token (ms)  Tok/s           Hit Rate      Evicts      Peak Mem (MB) 
+----------------------------------------------------------------------------------------------------------
+CPU (Accelerate/BLAS)FIFO          0.081           12359.7         1.000         0           2             
+CPU (Accelerate/BLAS)LRU           0.072           13941.1         1.000         0           2             
+CPU (Accelerate/BLAS)KeyDiff       0.069           14468.0         1.000         0           2             
+CPU (Accelerate/BLAS)QUOKA         0.065           15368.1         1.000         0           2             
+Metal (MPS/GPU)     FIFO          0.341           2934.4          1.000         0           2             
+Metal (MPS/GPU)     LRU           0.259           3857.8          1.000         0           2             
+Metal (MPS/GPU)     KeyDiff       0.279           3584.6          1.000         0           2             
+Metal (MPS/GPU)     QUOKA         0.340           2940.0          1.000         0           2             
+----------------------------------------------------------------------------------------------------------
+
+Key Findings:
+  Best hit rate:  FIFO (CPU (Accelerate/BLAS)) — 100.000%
+  Best speed:     QUOKA (CPU (Accelerate/BLAS)) — 15368.1 tok/s
+

@@ -1,0 +1,4 @@
+--- Probing V2 Migration Integrity Gap ---
+integrity_hash in chunks after open: None
+value_type in chunks after open: None
+DEFECT REPRODUCED: Citation resolved with tampered value: 999.0 (expected CitationError)!

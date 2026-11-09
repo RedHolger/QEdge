@@ -1,0 +1,75 @@
+Initializing QEdge Runtime (device: auto, dtype: auto)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1031 00:02:04.946000 99933 llm-inference/runtime/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 15663.71it/s]
+Generating for prompt: What is 1+1?...
+Done: 8 tokens generated (prefill 83.8ms, selection 0.5ms, decode 108.0ms, TTFT 85.7ms)
+{
+  "prompt": "What is 1+1?",
+  "prompt_tokens_count": 37,
+  "generated_tokens_count": 8,
+  "generated_text": "1 + 1 = 2.",
+  "stopped_on_eos": false,
+  "model": {
+    "name": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "device": "mps",
+    "dtype": "bfloat16"
+  },
+  "timings_ms": {
+    "load": 943.41,
+    "formatting": 2.91,
+    "tokenization": 1.41,
+    "prefill": 83.76,
+    "first_token_selection": 0.55,
+    "ttft": 85.71,
+    "decode": 107.95,
+    "detokenization": 0.07,
+    "total": 196.64
+  },
+  "throughput": {
+    "prefill_tok_per_sec": 441.76,
+    "decode_tok_per_sec": 64.84
+  },
+  "outputs": {
+    "token_ids": [
+      33,
+      1232,
+      216,
+      33,
+      446,
+      216,
+      34,
+      30
+    ],
+    "text": "1 + 1 = 2."
+  },
+  "reproducibility": {
+    "dependencies": {
+      "python": "3.11.15",
+      "torch": "2.15.0",
+      "transformers": "5.22.1",
+      "safetensors": "0.8.0"
+    },
+    "lockfile": "llm-inference/runtime/uv.lock (frozen)",
+    "device": "mps",
+    "requested_dtype": "bfloat16",
+    "actual_dtype": "bfloat16",
+    "seed_policy": "none_deterministic_greedy",
+    "seed": null,
+    "generation_settings": {
+      "max_new_tokens": 8,
+      "greedy": true,
+      "do_sample": false,
+      "temperature": 0.0,
+      "top_p": 1.0
+    },
+    "template": {
+      "raw_prompt_mode": false,
+      "effective_template_digest": "872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788",
+      "template_identity": "sha256:872be49dbb638044ad01b60388f48d469ff2980e5f0dccdc22ec907db54d0788"
+    },
+    "model_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "tokenizer_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac"
+  }
+}

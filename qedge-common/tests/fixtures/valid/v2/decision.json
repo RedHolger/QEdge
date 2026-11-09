@@ -1,0 +1,66 @@
+{
+  "schema_version": "2",
+  "decision_id": "decision-v2-fixture-1",
+  "query": "wooden dining chair under 60cm",
+  "item_id": "fixture-chair-oak",
+  "status": "SUPPORTED",
+  "action": "RECOMMEND",
+  "reason": "Both required predicates are supported by the fixture source record.",
+  "requirements": [
+    {
+      "requirement_id": "req-width-max",
+      "attribute": "width",
+      "operator": "<=",
+      "required_value": 60.0,
+      "required_unit": "cm",
+      "mandatory": true
+    },
+    {
+      "requirement_id": "req-material",
+      "attribute": "material",
+      "operator": "==",
+      "required_value": "oak",
+      "required_unit": null,
+      "mandatory": true
+    }
+  ],
+  "claims": [
+    {
+      "schema_version": "2",
+      "claim_id": "claim-v2-width-max",
+      "item_id": "fixture-chair-oak",
+      "requirement_id": "req-width-max",
+      "attribute": "width",
+      "operator": "<=",
+      "required_value": 60.0,
+      "required_unit": "cm",
+      "observed_value": 48.0,
+      "observed_unit": "cm",
+      "status": "SUPPORTED",
+      "source": "catalog.item_dimensions",
+      "source_revision": "fixture-v2",
+      "evidence_text": "width: 48.0 cm",
+      "retrieved_at": "2026-10-27T00:00:00Z"
+    },
+    {
+      "schema_version": "2",
+      "claim_id": "claim-v2-material",
+      "item_id": "fixture-chair-oak",
+      "requirement_id": "req-material",
+      "attribute": "material",
+      "operator": "==",
+      "required_value": "oak",
+      "required_unit": null,
+      "observed_value": "oak",
+      "observed_unit": null,
+      "status": "SUPPORTED",
+      "source": "catalog.material",
+      "source_revision": "fixture-v2",
+      "evidence_text": "material: oak",
+      "retrieved_at": "2026-10-27T00:00:00Z"
+    }
+  ],
+  "unparsed_clauses": [],
+  "ambiguities": [],
+  "created_at": "2026-10-27T00:00:00Z"
+}

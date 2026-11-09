@@ -1,0 +1,26 @@
+# Stage 01 qedge-common tests
+# command: make -C qedge-common test
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:15:38Z
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 1ms
+.venv/bin/python -m unittest discover -s tests -v
+test_all_examples_validate (test_schemas.SchemaTests.test_all_examples_validate) ... ok
+test_all_schemas_are_valid_draft_2020_12 (test_schemas.SchemaTests.test_all_schemas_are_valid_draft_2020_12) ... ok
+test_example_paths_exist (test_schemas.SchemaTests.test_example_paths_exist) ... ok
+test_examples_are_independent_copies (test_schemas.SchemaTests.test_examples_are_independent_copies) ... ok
+test_hardware_status_requires_qnn_block (test_schemas.SchemaTests.test_hardware_status_requires_qnn_block) ... ok
+test_measured_benchmark_must_be_boolean (test_schemas.SchemaTests.test_measured_benchmark_must_be_boolean) ... ok
+test_present_attribute_cannot_be_null (test_schemas.SchemaTests.test_present_attribute_cannot_be_null) ... ok
+test_retrieval_request_requires_a_modality (test_schemas.SchemaTests.test_retrieval_request_requires_a_modality) ... ok
+test_schema_files_do_not_contain_machine_paths (test_schemas.SchemaTests.test_schema_files_do_not_contain_machine_paths) ... ok
+test_supported_decision_must_recommend (test_schemas.SchemaTests.test_supported_decision_must_recommend) ... ok
+test_unknown_decision_status_is_rejected (test_schemas.SchemaTests.test_unknown_decision_status_is_rejected) ... ok
+test_unknown_evidence_status_is_rejected (test_schemas.SchemaTests.test_unknown_evidence_status_is_rejected) ... ok
+test_unknown_fields_are_rejected (test_schemas.SchemaTests.test_unknown_fields_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.033s
+
+OK
+# exit: 0

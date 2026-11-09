@@ -1,0 +1,10 @@
+=== Checking Stage 04 Round 3 Review Blockers Status ===
+Reproduction 1: Color token vs string equality ('dark red' vs 'red chair')...
+  ACTIVE BLOCKER: ContractValidationError: decision@v2: claims[0].status: does not match predicate evaluation
+Reproduction 2: Unresolved material composition ('oak veneer' vs 'oak chair')...
+  ACTIVE BLOCKER: ContractValidationError: decision@v2: claims[0]: predicate is not evaluable for a supported/contradicted claim
+Reproduction 3: Brand whitespace normalization (' FixtureCo ' vs 'chair brand FixtureCo')...
+  ACTIVE BLOCKER: ContractValidationError: decision@v2: claims[0].status: does not match predicate evaluation
+
+Active blockers remaining: 3/3
+DEFECTS REPRODUCED.

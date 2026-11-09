@@ -1,0 +1,14 @@
+Test project /tmp/qedge-research-release-rr00-20261029
+    Start 1: llm_kv_cache
+1/2 Test #1: llm_kv_cache .....................   Passed    0.00 sec
+    Start 2: qnn_stub_cpu
+2/2 Test #2: qnn_stub_cpu .....................   Passed    0.00 sec
+
+100% tests passed out of 2
+
+Label Time Summary:
+cpu         =   0.01 sec*proc (2 tests)
+qnn-stub    =   0.00 sec*proc (1 test)
+stage01     =   0.01 sec*proc (2 tests)
+
+Total Test time (real) =   0.01 sec

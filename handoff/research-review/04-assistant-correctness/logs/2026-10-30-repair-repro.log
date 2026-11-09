@@ -1,0 +1,21 @@
+=== Reproducing Stage 04 Spot-Check Defects ===
+Reproduction 1: Mixed-unit range ('between 60cm and 1m wide')...
+  Parsed requirements: [('width', '>=', 1.0, 'cm'), ('width', '<=', 60.0, 'm'), ('material', '==', 'oak', None)]
+  Decision status: SUPPORTED, action: RECOMMEND
+  FAIL (Defect reproduced): 48cm chair falsely recommended for 60cm–1m range due to 1cm–60m reordering!
+Reproduction 2: Missing dimension in range ('between 40cm and 50cm')...
+  Parsed attributes: ['width', 'width', 'material'], ambiguities: []
+  Decision status: SUPPORTED, action: RECOMMEND
+  FAIL (Defect reproduced): Silently assumed 'width' for unspecified dimension range!
+Reproduction 3: Substantive requirement dropped ('that must be comfortable')...
+  Parsed reqs: ['material'], unparsed: []
+  Decision status: SUPPORTED, action: RECOMMEND
+  FAIL (Defect reproduced): Subjective requirement 'comfortable' discarded as filler, returning SUPPORTED!
+Reproduction 4: Brand parsing ('oak chair brand FixtureCo')...
+  Brand requirements found: 0, unparsed: ['brand FixtureCo']
+  FAIL (Defect reproduced): Brand grammar not recognized; brand became unparsed clause!
+Reproduction 5: Held-out duplicate check...
+  Held-out records: 40, Unique (query, item_id) pairs: 39
+  FAIL (Defect reproduced): Held-out set contains duplicates (39 < 40)!
+
+Total defects reproduced: 5/5

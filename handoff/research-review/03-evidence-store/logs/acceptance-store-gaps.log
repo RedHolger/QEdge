@@ -1,0 +1,9 @@
+PASS: Cross-owner read denied
+PASS: Cross-owner overwrite denied
+PASS: Forged 'system' string denied
+PASS: Deleted-object takeover denied
+PASS: Immutable citation resolution
+PASS: Malformed and mismatched citations fail
+PASS: Atomic concurrent writes across connections
+PASS: Legacy migration preserves owners & marks provenance unknown
+ALL ACCEPTANCE CHECKS PASSED

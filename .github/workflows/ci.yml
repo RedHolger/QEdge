@@ -1,0 +1,59 @@
+name: cpu-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    name: Python contracts and edge tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.9.18"
+          enable-cache: true
+      - name: Install and test Python projects
+        run: make python-test PYTHON=python
+      - name: Check machine paths
+        run: python scripts/check_no_absolute_paths.py
+
+  cpp:
+    name: C++ kernel-lab CTest
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.9.18"
+          enable-cache: true
+      - name: Configure and test
+        run: make cpp-test
+      - name: Historical hashes
+        run: python scripts/verify_historical_hashes.py
+
+  full-macos:
+    name: Full setup/test gate
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.9.18"
+          enable-cache: true
+      - name: Fresh setup
+        run: make setup
+      - name: Full test gate
+        run: make test
+      - name: Evaluation gate
+        run: make eval

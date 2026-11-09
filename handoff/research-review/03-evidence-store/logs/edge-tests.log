@@ -1,0 +1,39 @@
+test_authorized_and_explicit_public_access (test_evidence_store.EvidenceStoreAcceptanceTests.test_authorized_and_explicit_public_access) ... ok
+test_cross_owner_delete_and_restore_denial (test_evidence_store.EvidenceStoreAcceptanceTests.test_cross_owner_delete_and_restore_denial) ... ok
+test_cross_owner_read_denial (test_evidence_store.EvidenceStoreAcceptanceTests.test_cross_owner_read_denial) ... ok
+test_cross_owner_write_denial (test_evidence_store.EvidenceStoreAcceptanceTests.test_cross_owner_write_denial) ... ok
+test_deleted_object_ownership_takeover_denial (test_evidence_store.EvidenceStoreAcceptanceTests.test_deleted_object_ownership_takeover_denial) ... ok
+test_failure_midway_through_write_leaves_no_partial_update (test_evidence_store.EvidenceStoreAcceptanceTests.test_failure_midway_through_write_leaves_no_partial_update) ... ok
+test_forged_privileged_name_denial (test_evidence_store.EvidenceStoreAcceptanceTests.test_forged_privileged_name_denial) ... ok
+test_legacy_migration_correctness_and_rollback (test_evidence_store.EvidenceStoreAcceptanceTests.test_legacy_migration_correctness_and_rollback) ... ok
+test_missing_malformed_and_mismatched_citations_fail (test_evidence_store.EvidenceStoreAcceptanceTests.test_missing_malformed_and_mismatched_citations_fail) ... ok
+test_old_citations_resolve_original_facts_after_source_update (test_evidence_store.EvidenceStoreAcceptanceTests.test_old_citations_resolve_original_facts_after_source_update) ... ok
+test_persistence_across_close_and_reopen (test_evidence_store.EvidenceStoreAcceptanceTests.test_persistence_across_close_and_reopen) ... ok
+test_two_independent_connections_racing_on_same_expected_version (test_evidence_store.EvidenceStoreAcceptanceTests.test_two_independent_connections_racing_on_same_expected_version) ... ok
+test_unauthorized_historical_citation_access_is_denied (test_evidence_store.EvidenceStoreAcceptanceTests.test_unauthorized_historical_citation_access_is_denied) ... ok
+test_bench_fails_clearly_when_validator_unavailable (test_pipeline.PipelineTests.test_bench_fails_clearly_when_validator_unavailable) ... ok
+test_bench_smoke_emits_validated_contract_record (test_pipeline.PipelineTests.test_bench_smoke_emits_validated_contract_record) ... ok
+test_footer_has_no_hardcoded_energy_or_hit_rate (test_pipeline.PipelineTests.test_footer_has_no_hardcoded_energy_or_hit_rate) ... ok
+test_missing_catalog_fails_with_an_actionable_error (test_pipeline.PipelineTests.test_missing_catalog_fails_with_an_actionable_error) ... ok
+test_no_npu_offload_or_snapdragon_projection_is_printed (test_pipeline.PipelineTests.test_no_npu_offload_or_snapdragon_projection_is_printed) ... ok
+test_pipeline_returns_empty_for_unmatched_query (test_pipeline.PipelineTests.test_pipeline_returns_empty_for_unmatched_query) ... ok
+test_pipeline_returns_fixture_results (test_pipeline.PipelineTests.test_pipeline_returns_fixture_results) ... ok
+test_product_fixture_uses_shared_contract_field_names (test_pipeline.PipelineTests.test_product_fixture_uses_shared_contract_field_names) ... ok
+test_profiler_records_all_stages (test_pipeline.PipelineTests.test_profiler_records_all_stages) ... ok
+test_sqlite_evidence_store_is_local (test_pipeline.PipelineTests.test_sqlite_evidence_store_is_local) ... ok
+test_verify_contradicted_when_attribute_outside_range (test_pipeline.PipelineTests.test_verify_contradicted_when_attribute_outside_range) ... ok
+test_verify_supported_when_attribute_matches (test_pipeline.PipelineTests.test_verify_supported_when_attribute_matches) ... ok
+test_verify_unknown_when_attribute_missing (test_pipeline.PipelineTests.test_verify_unknown_when_attribute_missing) ... ok
+test_catalog_loads (test_pipeline.RealCatalogIntegrationTests.test_catalog_loads) ... skipped 'set QEDGE_RUN_CATALOG_INTEGRATION=1 with QEDGE_CATALOG_DIR to test the licensed catalog'
+test_local_environment_is_not_a_symlink (test_portability.PortabilityTests.test_local_environment_is_not_a_symlink) ... ok
+test_no_legacy_external_package_imports (test_portability.PortabilityTests.test_no_legacy_external_package_imports) ... ok
+test_no_machine_specific_user_paths (test_portability.PortabilityTests.test_no_machine_specific_user_paths) ... ok
+test_only_expected_skip_is_declared (test_portability.PortabilityTests.test_only_expected_skip_is_declared) ... ok
+test_profiler_does_not_claim_npu_execution (test_profiler.ProfilerTests.test_profiler_does_not_claim_npu_execution) ... ok
+test_profiler_records_measurements (test_profiler.ProfilerTests.test_profiler_records_measurements) ... ok
+test_stage_metadata_is_descriptive_only (test_profiler.ProfilerTests.test_stage_metadata_is_descriptive_only) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.151s
+
+OK (skipped=1)

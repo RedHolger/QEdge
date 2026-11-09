@@ -1,0 +1,23 @@
+ M CMakeLists.txt
+ M README.md
+ M include/backend/backend.h
+ M src/backend/backend.cpp
+ M src/main.cpp
+ M tests/test_kv_cache.cpp
+?? handoff/
+?? include/backend/qnn_stub_backend.h
+?? include/backend/qnn_types.h
+?? include/benchmark/power_report.h
+?? src/backend/qnn_stub_backend.cpp
+?? src/benchmark/power_report.cpp
+?? src/main_qnn.cpp
+?? tests/test_qnn_stub.cpp
+ CMakeLists.txt            |  35 +++++++++++-
+ README.md                 |  38 +++++++++++--
+ include/backend/backend.h |   3 +-
+ src/backend/backend.cpp   |   7 +++
+ src/main.cpp              |  24 +++++++++
+ tests/test_kv_cache.cpp   | 134 ++++++++++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 235 insertions(+), 6 deletions(-)
+tests/test_kv_cache.cpp:195: trailing whitespace.
++  

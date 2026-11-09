@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qedge.local/schemas/v2/decision.schema.json",
+  "title": "QEdge evidence decision (v2)",
+  "description": "A candidate-specific evidence decision with explicit required predicates, unresolved clauses, and no-candidate support. Contradiction blocks recommendation; missing or conflicting evidence abstains.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "decision_id",
+    "query",
+    "item_id",
+    "status",
+    "action",
+    "reason",
+    "requirements",
+    "claims",
+    "unparsed_clauses",
+    "ambiguities",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": { "const": "2" },
+    "decision_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "query": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "item_id": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "status": {
+      "enum": ["SUPPORTED", "CONTRADICTED", "UNKNOWN", "ABSTAIN"]
+    },
+    "action": {
+      "enum": ["RECOMMEND", "DO_NOT_RECOMMEND", "ABSTAIN"]
+    },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "requirements": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "$ref": "#/$defs/requirement" }
+    },
+    "claims": {
+      "type": "array",
+      "maxItems": 128,
+      "items": { "$ref": "#/$defs/claim" }
+    },
+    "unparsed_clauses": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "type": "string", "minLength": 1, "maxLength": 4096 }
+    },
+    "ambiguities": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "type": "string", "minLength": 1, "maxLength": 4096 }
+    },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "SUPPORTED" } },
+        "required": ["status"]
+      },
+      "then": { "properties": { "action": { "const": "RECOMMEND" } } }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "CONTRADICTED" } },
+        "required": ["status"]
+      },
+      "then": { "properties": { "action": { "const": "DO_NOT_RECOMMEND" } } }
+    },
+    {
+      "if": {
+        "properties": { "status": { "enum": ["UNKNOWN", "ABSTAIN"] } },
+        "required": ["status"]
+      },
+      "then": { "properties": { "action": { "const": "ABSTAIN" } } }
+    },
+    {
+      "if": {
+        "properties": { "item_id": { "type": "null" } },
+        "required": ["item_id"]
+      },
+      "then": { "properties": { "claims": { "maxItems": 0 } } }
+    }
+  ],
+  "$defs": {
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement_id",
+        "attribute",
+        "operator",
+        "required_value",
+        "required_unit",
+        "mandatory"
+      ],
+      "properties": {
+        "requirement_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "attribute": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "operator": {
+          "enum": ["<", "<=", ">", ">=", "==", "!=", "contains", "not_contains"]
+        },
+        "required_value": {
+          "type": ["string", "boolean", "integer", "number"]
+        },
+        "required_unit": {
+          "type": ["string", "null"],
+          "maxLength": 16
+        },
+        "mandatory": { "type": "boolean" }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "claim_id",
+        "item_id",
+        "requirement_id",
+        "attribute",
+        "operator",
+        "required_value",
+        "required_unit",
+        "observed_value",
+        "observed_unit",
+        "status",
+        "source",
+        "source_revision",
+        "evidence_text",
+        "retrieved_at"
+      ],
+      "properties": {
+        "schema_version": { "const": "2" },
+        "claim_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "item_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "requirement_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+        },
+        "attribute": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "operator": {
+          "enum": ["<", "<=", ">", ">=", "==", "!=", "contains", "not_contains"]
+        },
+        "required_value": {
+          "type": ["string", "boolean", "integer", "number"]
+        },
+        "required_unit": {
+          "type": ["string", "null"],
+          "maxLength": 16
+        },
+        "observed_value": {
+          "type": ["string", "boolean", "integer", "number", "null"]
+        },
+        "observed_unit": {
+          "type": ["string", "null"],
+          "maxLength": 16
+        },
+        "status": {
+          "enum": ["SUPPORTED", "CONTRADICTED", "UNKNOWN"]
+        },
+        "source": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "source_revision": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "evidence_text": { "type": "string", "maxLength": 4096 },
+        "retrieved_at": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "enum": ["SUPPORTED", "CONTRADICTED"] } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "observed_value": { "not": { "type": "null" } },
+              "evidence_text": { "minLength": 1 }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

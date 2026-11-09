@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qedge.local/schemas/hardware_status.schema.json",
+  "title": "QEdge hardware status",
+  "description": "Single source of truth for hardware availability. A device_verified=false value forbids NPU performance claims for that hardware.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "cpu",
+    "metal",
+    "snapdragon",
+    "qnn",
+    "npu_status",
+    "last_updated",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "cpu": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "metal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["available", "used"],
+      "properties": {
+        "available": { "type": "boolean" },
+        "used": { "type": "boolean" }
+      }
+    },
+    "snapdragon": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["available", "model"],
+      "properties": {
+        "available": { "type": "boolean" },
+        "model": { "type": ["string", "null"], "maxLength": 256 }
+      }
+    },
+    "qnn": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sdk_available", "device_verified"],
+      "properties": {
+        "sdk_available": { "type": "boolean" },
+        "device_verified": { "type": "boolean" }
+      }
+    },
+    "npu_status": {
+      "enum": ["unverified", "measured", "not-present"]
+    },
+    "last_updated": { "type": "string", "format": "date-time" },
+    "notes": {
+      "type": "array",
+      "maxItems": 32,
+      "items": { "type": "string", "maxLength": 1024 }
+    }
+  }
+}

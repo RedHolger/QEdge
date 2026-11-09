@@ -1,0 +1,46 @@
+# Stage 01 llm-inference CTest
+# command: make -C llm-inference test
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:17:58Z
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+cmake --build --preset release
+[  5%] Building CXX object CMakeFiles/llm_core.dir/src/backend/backend.cpp.o
+[ 10%] Building CXX object CMakeFiles/llm_core.dir/src/backend/qnn_stub_backend.cpp.o
+[ 15%] Building CXX object CMakeFiles/llm_core.dir/src/benchmark/power_report.cpp.o
+[ 20%] Linking CXX static library libllm_core.a
+[ 50%] Built target llm_core
+[ 60%] Built target llm_metal
+[ 65%] Linking CXX executable llm_infer
+[ 70%] Built target llm_infer
+[ 75%] Building CXX object CMakeFiles/run_tests.dir/tests/test_kv_cache.cpp.o
+[ 80%] Linking CXX executable run_tests
+[ 80%] Built target run_tests
+[ 85%] Building CXX object CMakeFiles/llm_qnn_bench.dir/src/main_qnn.cpp.o
+[ 90%] Linking CXX executable llm_qnn_bench
+[ 90%] Built target llm_qnn_bench
+[ 95%] Building CXX object CMakeFiles/run_qnn_tests.dir/tests/test_qnn_stub.cpp.o
+[100%] Linking CXX executable run_qnn_tests
+[100%] Built target run_qnn_tests
+ctest --preset release --output-on-failure
+Test project /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+    Start 1: llm_kv_cache
+1/2 Test #1: llm_kv_cache .....................   Passed    0.32 sec
+    Start 2: qnn_stub_cpu
+2/2 Test #2: qnn_stub_cpu .....................   Passed    0.25 sec
+
+100% tests passed out of 2
+
+Label Time Summary:
+cpu         =   0.57 sec*proc (2 tests)
+qnn-stub    =   0.25 sec*proc (1 test)
+stage01     =   0.57 sec*proc (2 tests)
+
+Total Test time (real) =   0.57 sec
+# exit: 0

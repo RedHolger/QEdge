@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://qedge.local/schemas/v2/benchmark_result.schema.json",
+  "title": "QEdge benchmark result (v2)",
+  "description": "A versioned measurement envelope. Set measured=true only for a reproducible, non-synthetic run on the named hardware. Generated text and token traces belong in outputs, not metrics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "kind",
+    "created_at",
+    "model",
+    "backend",
+    "hardware",
+    "measured",
+    "metrics",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": { "const": "2" },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "kind": {
+      "enum": [
+        "runtime-generation",
+        "cache-quality",
+        "quantization",
+        "retrieval",
+        "decision",
+        "synthetic-kernel",
+        "fixture-smoke"
+      ]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "model": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["name", "revision", "quantization"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "revision": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "quantization": { "type": "string", "minLength": 1, "maxLength": 64 }
+      }
+    },
+    "backend": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cpu", "npu_status"],
+      "properties": {
+        "cpu": { "type": "string", "minLength": 1, "maxLength": 256 },
+        "gpu": { "type": ["string", "null"], "maxLength": 256 },
+        "device": { "type": ["string", "null"], "maxLength": 256 },
+        "npu_status": {
+          "enum": ["unverified", "measured", "not-present"]
+        },
+        "execution_evidence": {
+          "type": ["string", "null"],
+          "maxLength": 2048
+        },
+        "execution_backend": {
+          "type": ["string", "null"],
+          "maxLength": 128
+        }
+      }
+    },
+    "measured": {
+      "type": "boolean",
+      "description": "True only when this record came from a reproducible run on the named hardware. Synthetic/microbenchmark records are false."
+    },
+    "metrics": {
+      "type": "object",
+      "maxProperties": 64,
+      "additionalProperties": {
+        "type": ["number", "string", "boolean", "null"]
+      },
+      "description": "Numeric and scalar measurements only. Generated text and token traces belong in outputs."
+    },
+    "outputs": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "description": "Generation artifacts kept separate from numeric metrics.",
+      "properties": {
+        "text": { "type": ["string", "null"], "maxLength": 65536 },
+        "token_ids": {
+          "type": ["array", "null"],
+          "maxItems": 8192,
+          "items": { "type": "integer", "minimum": 0 }
+        },
+        "token_trace": {
+          "type": ["array", "null"],
+          "maxItems": 8192,
+          "items": { "type": "string", "maxLength": 256 }
+        }
+      }
+    },
+    "cache": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "description": "Optional cache measurements. hit_rate is optional and must not be invented for policies where it is not meaningful.",
+      "properties": {
+        "policy": { "type": "string", "maxLength": 64 },
+        "capacity_tokens": { "type": "integer", "minimum": 0 },
+        "hit_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evictions": { "type": "integer", "minimum": 0 },
+        "peak_bytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "notes"],
+      "properties": {
+        "command": { "type": "string", "minLength": 1, "maxLength": 2048 },
+        "notes": {
+          "type": "array",
+          "maxItems": 32,
+          "items": { "type": "string", "maxLength": 1024 }
+        },
+        "log_path": { "type": ["string", "null"], "maxLength": 2048 }
+      }
+    }
+  }
+}

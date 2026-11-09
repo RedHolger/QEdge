@@ -1,0 +1,87 @@
+{
+  "stage": "01-kernel-safety",
+  "date_utc": "2026-10-29",
+  "verdict": "ACCEPTED",
+  "review_type": "self-review",
+  "independent_review_required": true,
+  "environment": {
+    "platform": "macOS 26.3.1 arm64",
+    "cmake": "4.4.2",
+    "compiler": "Apple clang 21.0.0 (clang-2100.1.1.101)",
+    "nested_repo_head": "edf35b722c1eeb690602e840ff5052c4f2cb170c"
+  },
+  "builds": {
+    "asan_ubsan": {
+      "path": "/tmp/qedge-research-asan-rr01-20261029",
+      "configure_exit": 0,
+      "build_exit": 0
+    },
+    "release": {
+      "path": "/tmp/qedge-research-release-rr01-20261029",
+      "configure_exit": 0,
+      "build_exit": 0
+    }
+  },
+  "ctest": {
+    "asan_ubsan": {
+      "exit": 0,
+      "tests_passed": 3,
+      "tests_failed": 0,
+      "tests_skipped": 0
+    },
+    "release": {
+      "exit": 0,
+      "tests_passed": 3,
+      "tests_failed": 0,
+      "tests_skipped": 0
+    }
+  },
+  "test_executables": {
+    "asan_ubsan": {
+      "run_tests": {"exit": 0, "passed": 21, "failed": 0},
+      "run_kernel_tests": {"exit": 0, "passed": 42, "failed": 0},
+      "run_qnn_tests": {"exit": 0, "passed": 12, "failed": 0}
+    },
+    "release": {
+      "run_tests": {"exit": 0, "passed": 21, "failed": 0},
+      "run_kernel_tests": {"exit": 0, "passed": 42, "failed": 0},
+      "run_qnn_tests": {"exit": 0, "passed": 12, "failed": 0}
+    }
+  },
+  "entry_points": {
+    "asan_ubsan": {
+      "llm_qnn_bench": {"exit": 0, "sanitizer_markers": 0},
+      "llm_infer": {"exit": 0, "sanitizer_markers": 0}
+    },
+    "release": {
+      "llm_qnn_bench": {"exit": 0},
+      "llm_infer": {"exit": 0}
+    }
+  },
+  "numerical_checks": {
+    "new_kernel_safety": {
+      "passed": 42,
+      "failed": 0,
+      "reference": "independent scalar attention and RoPE reference in tests/test_attention.cpp"
+    }
+  },
+  "source_changes": {
+    "audited_files_changed_vs_baseline": 8,
+    "protected_files_changed": 9,
+    "unexpected_protected_changes": 0,
+    "missing_protected_files": 0
+  },
+  "preservation": {
+    "protected_files_checked": 201,
+    "historical_manifest_verified": 30,
+    "historical_manifest_failures": 0,
+    "historical_hashes_exit": 0,
+    "preservation_audit_exit": 0
+  },
+  "diff_checks": {
+    "stage_files_exit": 0,
+    "new_test_trailing_whitespace_matches": 0,
+    "full_dirty_diff_check_exit": 2,
+    "full_dirty_diff_check_note": "pre-existing trailing whitespace in tests/test_kv_cache.cpp:195; not modified by this stage"
+  }
+}

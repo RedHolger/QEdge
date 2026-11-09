@@ -1,0 +1,683 @@
+{
+  "metadata": {
+    "source_model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "source_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "runtime_engine": "llama.cpp via llama-cpp-python",
+    "device": "mps (Apple Silicon Metal / ARM)",
+    "warmups_per_config": 3,
+    "measured_trials_per_prompt": 10,
+    "distinct_prompts_count": 8,
+    "total_raw_trials": 240,
+    "timestamp": "2026-11-02T12:03:04Z",
+    "energy_reporting": "omitted (no hardware power meter instrument integrated)",
+    "calibration": "none (standard block quantization applied)"
+  },
+  "models": {
+    "F16": {
+      "model_name": "smollm2-135m-instruct-f16.gguf",
+      "weight_precision": "F16",
+      "compute_precision": "F32/F16",
+      "kv_cache_precision": "F16",
+      "artifact_size_bytes": 270885920,
+      "artifact_size_mb": 258.34,
+      "peak_rss_bytes": 599867392,
+      "peak_rss_mb": 572.08,
+      "kv_cache_analytical_bytes_ctx512": 11796480,
+      "target_hit_rate": 0.5,
+      "total_measured_trials": 80,
+      "warmups_per_config": 3,
+      "ttft_stats": {
+        "mean": 15.68,
+        "std": 8.58,
+        "p50": 13.6,
+        "p95": 28.95,
+        "min": 5.89,
+        "max": 49.6,
+        "ci95": 1.88
+      },
+      "decode_speed_stats": {
+        "mean": 89.01,
+        "std": 39.21,
+        "p50": 86.3,
+        "p95": 156.68,
+        "min": 32.06,
+        "max": 178.26,
+        "ci95": 8.59
+      },
+      "per_prompt_results": {
+        "qa_01_paris": {
+          "ttft_ms": {
+            "mean": 10.53,
+            "std": 4.08,
+            "p50": 8.61,
+            "p95": 18.18,
+            "min": 6.46,
+            "max": 18.18,
+            "ci95": 2.53
+          },
+          "decode_tok_per_sec": {
+            "mean": 109.29,
+            "std": 32.63,
+            "p50": 115.52,
+            "p95": 156.68,
+            "min": 58.12,
+            "max": 156.68,
+            "ci95": 20.22
+          },
+          "target_hit": 1.0,
+          "output_text": "The capital of France is Paris."
+        },
+        "qa_02_water": {
+          "ttft_ms": {
+            "mean": 9.98,
+            "std": 3.17,
+            "p50": 8.55,
+            "p95": 16.59,
+            "min": 7.09,
+            "max": 16.59,
+            "ci95": 1.97
+          },
+          "decode_tok_per_sec": {
+            "mean": 114.81,
+            "std": 22.28,
+            "p50": 120.67,
+            "p95": 146.33,
+            "min": 85.78,
+            "max": 146.33,
+            "ci95": 13.81
+          },
+          "target_hit": 1.0,
+          "output_text": "The chemical formula for water is H2O."
+        },
+        "qa_03_speed_of_light": {
+          "ttft_ms": {
+            "mean": 13.26,
+            "std": 6.35,
+            "p50": 11.07,
+            "p95": 28.83,
+            "min": 5.89,
+            "max": 28.83,
+            "ci95": 3.94
+          },
+          "decode_tok_per_sec": {
+            "mean": 105.2,
+            "std": 32.79,
+            "p50": 95.47,
+            "p95": 178.26,
+            "min": 79.11,
+            "max": 178.26,
+            "ci95": 20.32
+          },
+          "target_hit": 1.0,
+          "output_text": "The physical constant represented by the letter c is the speed of light in a vacuum"
+        },
+        "qa_04_binary_five": {
+          "ttft_ms": {
+            "mean": 8.26,
+            "std": 1.48,
+            "p50": 8.17,
+            "p95": 11.79,
+            "min": 6.61,
+            "max": 11.79,
+            "ci95": 0.92
+          },
+          "decode_tok_per_sec": {
+            "mean": 140.55,
+            "std": 16.58,
+            "p50": 131.65,
+            "p95": 168.42,
+            "min": 123.42,
+            "max": 168.42,
+            "ci95": 10.27
+          },
+          "target_hit": 0.0,
+          "output_text": "The binary representation of the decimal number 5 is 1010."
+        },
+        "qa_05_primary_colors": {
+          "ttft_ms": {
+            "mean": 12.0,
+            "std": 2.96,
+            "p50": 11.43,
+            "p95": 16.86,
+            "min": 8.36,
+            "max": 16.86,
+            "ci95": 1.83
+          },
+          "decode_tok_per_sec": {
+            "mean": 94.4,
+            "std": 19.32,
+            "p50": 90.53,
+            "p95": 120.33,
+            "min": 65.78,
+            "max": 120.33,
+            "ci95": 11.98
+          },
+          "target_hit": 0.0,
+          "output_text": "The third primary color in additive color mixing is typically green."
+        },
+        "inst_06_arithmetic": {
+          "ttft_ms": {
+            "mean": 19.43,
+            "std": 4.09,
+            "p50": 18.74,
+            "p95": 25.57,
+            "min": 14.18,
+            "max": 25.57,
+            "ci95": 2.54
+          },
+          "decode_tok_per_sec": {
+            "mean": 56.28,
+            "std": 14.52,
+            "p50": 59.39,
+            "p95": 76.62,
+            "min": 36.85,
+            "max": 76.62,
+            "ci95": 9.0
+          },
+          "target_hit": 1.0,
+          "output_text": "15 multiplied by 4 is 60."
+        },
+        "inst_07_logic": {
+          "ttft_ms": {
+            "mean": 29.37,
+            "std": 7.55,
+            "p50": 28.22,
+            "p95": 49.6,
+            "min": 21.84,
+            "max": 49.6,
+            "ci95": 4.68
+          },
+          "decode_tok_per_sec": {
+            "mean": 40.07,
+            "std": 5.16,
+            "p50": 43.05,
+            "p95": 45.73,
+            "min": 32.06,
+            "max": 45.73,
+            "ci95": 3.2
+          },
+          "target_hit": 0.0,
+          "output_text": "No"
+        },
+        "inst_08_extraction": {
+          "ttft_ms": {
+            "mean": 22.63,
+            "std": 8.27,
+            "p50": 20.3,
+            "p95": 43.76,
+            "min": 14.93,
+            "max": 43.76,
+            "ci95": 5.13
+          },
+          "decode_tok_per_sec": {
+            "mean": 51.47,
+            "std": 9.23,
+            "p50": 50.99,
+            "p95": 65.27,
+            "min": 40.61,
+            "max": 65.27,
+            "ci95": 5.72
+          },
+          "target_hit": 0.0,
+          "output_text": "The fruit from the list is a table."
+        }
+      },
+      "generated_texts": {
+        "qa_01_paris": "The capital of France is Paris.",
+        "qa_02_water": "The chemical formula for water is H2O.",
+        "qa_03_speed_of_light": "The physical constant represented by the letter c is the speed of light in a vacuum",
+        "qa_04_binary_five": "The binary representation of the decimal number 5 is 1010.",
+        "qa_05_primary_colors": "The third primary color in additive color mixing is typically green.",
+        "inst_06_arithmetic": "15 multiplied by 4 is 60.",
+        "inst_07_logic": "No",
+        "inst_08_extraction": "The fruit from the list is a table."
+      },
+      "exact_agreement_with_f16": 1.0,
+      "length_aware_agreement_with_f16": 1.0
+    },
+    "Q8_0": {
+      "model_name": "smollm2-135m-instruct-q8_0.gguf",
+      "weight_precision": "Q8_0",
+      "compute_precision": "F32/F16",
+      "kv_cache_precision": "F16",
+      "artifact_size_bytes": 144811040,
+      "artifact_size_mb": 138.1,
+      "peak_rss_bytes": 469319680,
+      "peak_rss_mb": 447.58,
+      "kv_cache_analytical_bytes_ctx512": 11796480,
+      "target_hit_rate": 0.5,
+      "total_measured_trials": 80,
+      "warmups_per_config": 3,
+      "ttft_stats": {
+        "mean": 13.48,
+        "std": 4.81,
+        "p50": 12.14,
+        "p95": 25.57,
+        "min": 8.73,
+        "max": 31.84,
+        "ci95": 1.05
+      },
+      "decode_speed_stats": {
+        "mean": 89.42,
+        "std": 14.0,
+        "p50": 88.16,
+        "p95": 113.06,
+        "min": 55.78,
+        "max": 122.58,
+        "ci95": 3.07
+      },
+      "per_prompt_results": {
+        "qa_01_paris": {
+          "ttft_ms": {
+            "mean": 11.24,
+            "std": 1.19,
+            "p50": 10.75,
+            "p95": 13.54,
+            "min": 9.82,
+            "max": 13.54,
+            "ci95": 0.74
+          },
+          "decode_tok_per_sec": {
+            "mean": 90.62,
+            "std": 8.72,
+            "p50": 93.25,
+            "p95": 100.45,
+            "min": 76.6,
+            "max": 100.45,
+            "ci95": 5.4
+          },
+          "target_hit": 1.0,
+          "output_text": "The capital of France is Paris."
+        },
+        "qa_02_water": {
+          "ttft_ms": {
+            "mean": 13.93,
+            "std": 4.18,
+            "p50": 12.79,
+            "p95": 25.57,
+            "min": 10.7,
+            "max": 25.57,
+            "ci95": 2.59
+          },
+          "decode_tok_per_sec": {
+            "mean": 83.69,
+            "std": 4.27,
+            "p50": 81.98,
+            "p95": 93.04,
+            "min": 80.4,
+            "max": 93.04,
+            "ci95": 2.65
+          },
+          "target_hit": 1.0,
+          "output_text": "The chemical formula for water is H2O."
+        },
+        "qa_03_speed_of_light": {
+          "ttft_ms": {
+            "mean": 14.27,
+            "std": 4.26,
+            "p50": 12.58,
+            "p95": 25.79,
+            "min": 11.83,
+            "max": 25.79,
+            "ci95": 2.64
+          },
+          "decode_tok_per_sec": {
+            "mean": 83.48,
+            "std": 7.08,
+            "p50": 84.71,
+            "p95": 93.11,
+            "min": 69.99,
+            "max": 93.11,
+            "ci95": 4.39
+          },
+          "target_hit": 1.0,
+          "output_text": "The physical constant represented by the letter c is the speed of light in a vacuum"
+        },
+        "qa_04_binary_five": {
+          "ttft_ms": {
+            "mean": 14.37,
+            "std": 6.33,
+            "p50": 11.69,
+            "p95": 30.03,
+            "min": 9.08,
+            "max": 30.03,
+            "ci95": 3.93
+          },
+          "decode_tok_per_sec": {
+            "mean": 87.33,
+            "std": 14.07,
+            "p50": 83.96,
+            "p95": 109.35,
+            "min": 71.28,
+            "max": 109.35,
+            "ci95": 8.72
+          },
+          "target_hit": 0.0,
+          "output_text": "The binary representation of the decimal number 5 is 1010."
+        },
+        "qa_05_primary_colors": {
+          "ttft_ms": {
+            "mean": 14.21,
+            "std": 6.92,
+            "p50": 11.22,
+            "p95": 31.84,
+            "min": 9.26,
+            "max": 31.84,
+            "ci95": 4.29
+          },
+          "decode_tok_per_sec": {
+            "mean": 90.38,
+            "std": 17.41,
+            "p50": 94.74,
+            "p95": 108.17,
+            "min": 63.59,
+            "max": 108.17,
+            "ci95": 10.79
+          },
+          "target_hit": 0.0,
+          "output_text": "In additive color mixing, the third primary color is typically green."
+        },
+        "inst_06_arithmetic": {
+          "ttft_ms": {
+            "mean": 13.73,
+            "std": 3.98,
+            "p50": 12.98,
+            "p95": 21.66,
+            "min": 8.95,
+            "max": 21.66,
+            "ci95": 2.47
+          },
+          "decode_tok_per_sec": {
+            "mean": 86.46,
+            "std": 12.58,
+            "p50": 92.81,
+            "p95": 102.94,
+            "min": 63.79,
+            "max": 102.94,
+            "ci95": 7.8
+          },
+          "target_hit": 1.0,
+          "output_text": "15 multiplied by 4 is 60."
+        },
+        "inst_07_logic": {
+          "ttft_ms": {
+            "mean": 13.13,
+            "std": 5.67,
+            "p50": 10.86,
+            "p95": 27.73,
+            "min": 8.76,
+            "max": 27.73,
+            "ci95": 3.52
+          },
+          "decode_tok_per_sec": {
+            "mean": 100.62,
+            "std": 22.89,
+            "p50": 109.7,
+            "p95": 122.58,
+            "min": 55.78,
+            "max": 122.58,
+            "ci95": 14.19
+          },
+          "target_hit": 0.0,
+          "output_text": "No"
+        },
+        "inst_08_extraction": {
+          "ttft_ms": {
+            "mean": 13.0,
+            "std": 4.64,
+            "p50": 11.07,
+            "p95": 24.06,
+            "min": 8.73,
+            "max": 24.06,
+            "ci95": 2.87
+          },
+          "decode_tok_per_sec": {
+            "mean": 92.79,
+            "std": 12.13,
+            "p50": 95.6,
+            "p95": 111.39,
+            "min": 75.29,
+            "max": 111.39,
+            "ci95": 7.52
+          },
+          "target_hit": 0.0,
+          "output_text": "The fruit from the list is a table."
+        }
+      },
+      "generated_texts": {
+        "qa_01_paris": "The capital of France is Paris.",
+        "qa_02_water": "The chemical formula for water is H2O.",
+        "qa_03_speed_of_light": "The physical constant represented by the letter c is the speed of light in a vacuum",
+        "qa_04_binary_five": "The binary representation of the decimal number 5 is 1010.",
+        "qa_05_primary_colors": "In additive color mixing, the third primary color is typically green.",
+        "inst_06_arithmetic": "15 multiplied by 4 is 60.",
+        "inst_07_logic": "No",
+        "inst_08_extraction": "The fruit from the list is a table."
+      },
+      "exact_agreement_with_f16": 0.875,
+      "length_aware_agreement_with_f16": 0.9091
+    },
+    "Q4_K_M": {
+      "model_name": "smollm2-135m-instruct-q4_k_m.gguf",
+      "weight_precision": "Q4_K_M",
+      "compute_precision": "F32/F16",
+      "kv_cache_precision": "F16",
+      "artifact_size_bytes": 105454112,
+      "artifact_size_mb": 100.57,
+      "peak_rss_bytes": 432308224,
+      "peak_rss_mb": 412.28,
+      "kv_cache_analytical_bytes_ctx512": 11796480,
+      "target_hit_rate": 0.5,
+      "total_measured_trials": 80,
+      "warmups_per_config": 3,
+      "ttft_stats": {
+        "mean": 10.38,
+        "std": 4.25,
+        "p50": 10.32,
+        "p95": 19.49,
+        "min": 5.82,
+        "max": 26.77,
+        "ci95": 0.93
+      },
+      "decode_speed_stats": {
+        "mean": 117.26,
+        "std": 30.73,
+        "p50": 103.14,
+        "p95": 170.52,
+        "min": 79.84,
+        "max": 174.51,
+        "ci95": 6.73
+      },
+      "per_prompt_results": {
+        "qa_01_paris": {
+          "ttft_ms": {
+            "mean": 6.11,
+            "std": 0.18,
+            "p50": 6.15,
+            "p95": 6.39,
+            "min": 5.82,
+            "max": 6.39,
+            "ci95": 0.11
+          },
+          "decode_tok_per_sec": {
+            "mean": 169.05,
+            "std": 3.92,
+            "p50": 169.43,
+            "p95": 174.51,
+            "min": 162.67,
+            "max": 174.51,
+            "ci95": 2.43
+          },
+          "target_hit": 1.0,
+          "output_text": "The capital of France is Paris."
+        },
+        "qa_02_water": {
+          "ttft_ms": {
+            "mean": 7.49,
+            "std": 2.35,
+            "p50": 6.81,
+            "p95": 14.14,
+            "min": 6.34,
+            "max": 14.14,
+            "ci95": 1.46
+          },
+          "decode_tok_per_sec": {
+            "mean": 152.54,
+            "std": 5.96,
+            "p50": 152.57,
+            "p95": 161.19,
+            "min": 143.91,
+            "max": 161.19,
+            "ci95": 3.7
+          },
+          "target_hit": 1.0,
+          "output_text": "The chemical formula for water is H2O."
+        },
+        "qa_03_speed_of_light": {
+          "ttft_ms": {
+            "mean": 8.6,
+            "std": 2.93,
+            "p50": 7.69,
+            "p95": 16.74,
+            "min": 7.03,
+            "max": 16.74,
+            "ci95": 1.81
+          },
+          "decode_tok_per_sec": {
+            "mean": 140.98,
+            "std": 7.5,
+            "p50": 142.25,
+            "p95": 151.3,
+            "min": 128.64,
+            "max": 151.3,
+            "ci95": 4.65
+          },
+          "target_hit": 1.0,
+          "output_text": "In physics, the physical constant c is the speed of light in a vacuum,"
+        },
+        "qa_04_binary_five": {
+          "ttft_ms": {
+            "mean": 10.15,
+            "std": 3.3,
+            "p50": 9.12,
+            "p95": 19.49,
+            "min": 8.35,
+            "max": 19.49,
+            "ci95": 2.05
+          },
+          "decode_tok_per_sec": {
+            "mean": 109.91,
+            "std": 5.79,
+            "p50": 108.38,
+            "p95": 121.31,
+            "min": 102.95,
+            "max": 121.31,
+            "ci95": 3.59
+          },
+          "target_hit": 0.0,
+          "output_text": "Binary representation: 1010"
+        },
+        "qa_05_primary_colors": {
+          "ttft_ms": {
+            "mean": 12.04,
+            "std": 3.74,
+            "p50": 10.74,
+            "p95": 22.54,
+            "min": 10.26,
+            "max": 22.54,
+            "ci95": 2.32
+          },
+          "decode_tok_per_sec": {
+            "mean": 94.62,
+            "std": 5.35,
+            "p50": 93.25,
+            "p95": 105.94,
+            "min": 88.69,
+            "max": 105.94,
+            "ci95": 3.32
+          },
+          "target_hit": 0.0,
+          "output_text": "In additive color mixing, the third primary color is green."
+        },
+        "inst_06_arithmetic": {
+          "ttft_ms": {
+            "mean": 12.8,
+            "std": 4.3,
+            "p50": 11.7,
+            "p95": 24.76,
+            "min": 9.58,
+            "max": 24.76,
+            "ci95": 2.66
+          },
+          "decode_tok_per_sec": {
+            "mean": 89.13,
+            "std": 3.68,
+            "p50": 87.44,
+            "p95": 95.14,
+            "min": 85.77,
+            "max": 95.14,
+            "ci95": 2.28
+          },
+          "target_hit": 1.0,
+          "output_text": "15 multiplied by 4 is 60."
+        },
+        "inst_07_logic": {
+          "ttft_ms": {
+            "mean": 12.83,
+            "std": 4.46,
+            "p50": 11.52,
+            "p95": 25.37,
+            "min": 10.47,
+            "max": 25.37,
+            "ci95": 2.76
+          },
+          "decode_tok_per_sec": {
+            "mean": 88.0,
+            "std": 6.39,
+            "p50": 88.31,
+            "p95": 99.63,
+            "min": 79.84,
+            "max": 99.63,
+            "ci95": 3.96
+          },
+          "target_hit": 0.0,
+          "output_text": "No"
+        },
+        "inst_08_extraction": {
+          "ttft_ms": {
+            "mean": 13.05,
+            "std": 4.86,
+            "p50": 11.68,
+            "p95": 26.77,
+            "min": 10.37,
+            "max": 26.77,
+            "ci95": 3.01
+          },
+          "decode_tok_per_sec": {
+            "mean": 93.86,
+            "std": 2.51,
+            "p50": 93.72,
+            "p95": 98.74,
+            "min": 90.93,
+            "max": 98.74,
+            "ci95": 1.55
+          },
+          "target_hit": 0.0,
+          "output_text": "I'm sorry for the confusion, but as a helpful AI, I don't"
+        }
+      },
+      "generated_texts": {
+        "qa_01_paris": "The capital of France is Paris.",
+        "qa_02_water": "The chemical formula for water is H2O.",
+        "qa_03_speed_of_light": "In physics, the physical constant c is the speed of light in a vacuum,",
+        "qa_04_binary_five": "Binary representation: 1010",
+        "qa_05_primary_colors": "In additive color mixing, the third primary color is green.",
+        "inst_06_arithmetic": "15 multiplied by 4 is 60.",
+        "inst_07_logic": "No",
+        "inst_08_extraction": "I'm sorry for the confusion, but as a helpful AI, I don't"
+      },
+      "exact_agreement_with_f16": 0.5,
+      "length_aware_agreement_with_f16": 0.5218
+    }
+  }
+}

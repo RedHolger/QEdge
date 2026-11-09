@@ -1,0 +1,28 @@
+[project]
+name = "qedge-common"
+version = "0.1.0"
+description = "Shared contracts and validation utilities for QEdge Runtime and QEdge Assist"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "jsonschema>=4.18,<5",
+]
+
+[project.scripts]
+qedge-validate = "qedge_common.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qedge_common"]
+
+# The canonical schemas live at the project root so they are easy to inspect.
+# The wheel carries the same files inside the importable package.
+[tool.hatch.build.targets.wheel.force-include]
+"schemas" = "qedge_common/schemas"
+"tests/fixtures/valid" = "qedge_common/examples"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

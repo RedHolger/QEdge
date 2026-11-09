@@ -1,0 +1,47 @@
+--- file tree (excluding .venv and __pycache__) ---
+./.python-version
+./demo_pipeline.py
+./handoff/00.md
+./handoff/00/logs/audit_markers.log
+./handoff/00/logs/catalog_audit.log
+./handoff/00/logs/edge_absolute_paths.log
+./handoff/00/logs/edge_adversarial.log
+./handoff/00/logs/edge_demo_readme.log
+./handoff/00/logs/edge_demo.log
+./handoff/00/logs/edge_env.log
+./handoff/00/logs/edge_file_tree.log
+./handoff/00/logs/edge_hashes.txt
+./handoff/00/logs/edge_red_chair.log
+./handoff/00/logs/edge_tests.log
+./handoff/D-integration.md
+./pyproject.toml
+./README.md
+./src/edge_rag/__init__.py
+./src/edge_rag/generator.py
+./src/edge_rag/profiler.py
+./src/edge_rag/retriever.py
+./src/edge_rag/verifier.py
+./tests/__init__.py
+./tests/test_pipeline.py
+./tests/test_profiler.py
+./uv.lock
+--- source LOC ---
+src
+      81 src/edge_rag/retriever.py
+       7 src/edge_rag/__init__.py
+      86 src/edge_rag/generator.py
+      58 src/edge_rag/profiler.py
+     253 src/edge_rag/verifier.py
+     485 total
+tests
+       1 tests/__init__.py
+      36 tests/test_profiler.py
+     148 tests/test_pipeline.py
+     185 total
+--- entrypoint/docs/config LOC ---
+     164 demo_pipeline.py
+      42 README.md
+      18 pyproject.toml
+     451 uv.lock
+       1 .python-version
+     676 total

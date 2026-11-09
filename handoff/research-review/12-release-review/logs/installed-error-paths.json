@@ -1,0 +1,30 @@
+[
+  {
+    "case": "missing_catalog",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "stdout": "",
+    "stderr": "QEdge Assist: No catalog found. Set QEDGE_CATALOG_DIR to a directory containing catalog.jsonl, or pass catalog_dir. For an offline fixture demo, run qedge-portfolio demo.\n"
+  },
+  {
+    "case": "invalid_limit",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "stdout": "{\n  \"schema_version\": \"2\",\n  \"request_id\": \"req-588c00fbf002\",\n  \"mode\": \"find\",\n  \"query\": \"chair\",\n  \"item_id\": null,\n  \"status\": \"ERROR\",\n  \"decision\": {},\n  \"action\": \"ABSTAIN\",\n  \"decision_status\": \"ABSTAIN\",\n  \"reason\": \"k must be an integer between 1 and 100\",\n  \"candidates\": [],\n  \"verified_candidates\": [],\n  \"citations\": [],\n  \"citation_diagnostics\": [],\n  \"answer\": \"\",\n  \"timing_ms\": {\n    \"parse_ms\": 0.0,\n    \"retrieve_ms\": 0.0,\n    \"verify_ms\": 0.0,\n    \"generate_ms\": 0.0,\n    \"total_ms\": 0.015\n  },\n  \"generation_fallback_reason\": null,\n  \"error\": {\n    \"code\": \"INVALID_INPUT\",\n    \"message\": \"k must be an integer between 1 and 100\",\n    \"details\": {}\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "invalid_deadline",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "stdout": "{\n  \"schema_version\": \"2\",\n  \"request_id\": \"req-abe50ac2ee56\",\n  \"mode\": \"find\",\n  \"query\": \"chair\",\n  \"item_id\": null,\n  \"status\": \"ERROR\",\n  \"decision\": {},\n  \"action\": \"ABSTAIN\",\n  \"decision_status\": \"ABSTAIN\",\n  \"reason\": \"timeout_s must be finite and positive, or None\",\n  \"candidates\": [],\n  \"verified_candidates\": [],\n  \"citations\": [],\n  \"citation_diagnostics\": [],\n  \"answer\": \"\",\n  \"timing_ms\": {\n    \"parse_ms\": 0.0,\n    \"retrieve_ms\": 0.0,\n    \"verify_ms\": 0.0,\n    \"generate_ms\": 0.0,\n    \"total_ms\": 0.016\n  },\n  \"generation_fallback_reason\": null,\n  \"error\": {\n    \"code\": \"INVALID_INPUT\",\n    \"message\": \"timeout_s must be finite and positive, or None\",\n    \"details\": {}\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "case": "missing_item",
+    "exit_code": 2,
+    "expected_exit": 2,
+    "stdout": "",
+    "stderr": "Error: --item-id is required when --mode check is specified\n"
+  }
+]

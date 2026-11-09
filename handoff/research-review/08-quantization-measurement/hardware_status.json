@@ -1,0 +1,28 @@
+{
+  "schema_version": "2",
+  "cpu": "arm (Darwin arm64)",
+  "metal": {
+    "available": true,
+    "used": true
+  },
+  "snapdragon": {
+    "available": false,
+    "model": null
+  },
+  "qnn": {
+    "sdk_available": false,
+    "device_verified": false,
+    "device": null,
+    "execution_evidence": null,
+    "execution_backend": null
+  },
+  "npu_status": "unverified",
+  "last_updated": "2026-11-03T20:29:41Z",
+  "notes": [
+    "Host execution environment is Apple Silicon Darwin.",
+    "Qualcomm Snapdragon X Elite / Hexagon NPU hardware is absent.",
+    "QNN SDK and HTP execution providers are unavailable on macOS.",
+    "Stage 08 quantization evaluation executed honestly on local GGUF engine.",
+    "Qualcomm NPU / AI Hub physical deployment path remains explicitly BLOCKED."
+  ]
+}

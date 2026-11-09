@@ -1,0 +1,145 @@
+test_allow_harmless_documentation (test_acquisition.TestAcquisition.test_allow_harmless_documentation)
+Control test: harmless documentation files (README, LICENSE) are allowed alongside assets. ... ok
+test_canonical_assets_verification (test_acquisition.TestAcquisition.test_canonical_assets_verification)
+Positive test: canonical downloaded assets pass complete hash verification. ... ok
+test_check_model_assets_missing_dir (test_acquisition.TestAcquisition.test_check_model_assets_missing_dir) ... ok
+test_check_model_assets_partial (test_acquisition.TestAcquisition.test_check_model_assets_partial) ... ok
+test_estimate_download_size (test_acquisition.TestAcquisition.test_estimate_download_size) ... ok
+test_manifest_free_canonical_assets (test_acquisition.TestAcquisition.test_manifest_free_canonical_assets)
+Control test: manifest-free canonical assets are accepted only via complete trusted hashes. ... ok
+test_rejection_of_corrupt_files_and_wrong_manifest (test_acquisition.TestAcquisition.test_rejection_of_corrupt_files_and_wrong_manifest)
+Negative test for review defect 1: corrupt files and stale manifest must be rejected. ... ok
+test_rejection_of_extra_unverified_model_weights (test_acquisition.TestAcquisition.test_rejection_of_extra_unverified_model_weights)
+Negative test: unexpected extra safetensors file must be rejected as unverified loader asset. ... ok
+test_rejection_of_hash_mismatch (test_acquisition.TestAcquisition.test_rejection_of_hash_mismatch)
+Negative test: even with matching manifest, corrupt file hash must fail. ... ok
+test_rejection_of_unexpected_loader_override_assets (test_acquisition.TestAcquisition.test_rejection_of_unexpected_loader_override_assets)
+Negative test for probe 2: chat_template.jinja alongside canonical assets must be rejected. ... ok
+test_rejection_of_zeros_in_manifest_hashes (test_acquisition.TestAcquisition.test_rejection_of_zeros_in_manifest_hashes)
+Negative test for probe 1: valid assets but manifest hashes replaced with zeros. ... ok
+test_measured_run_without_model_rejected (test_benchmark_contracts.TestBenchmarkContracts.test_measured_run_without_model_rejected) ... ok
+test_missing_assets_reports_error_without_smoke_fallback (test_benchmark_contracts.TestBenchmarkContracts.test_missing_assets_reports_error_without_smoke_fallback)
+A requested real benchmark without assets must report a missing dependency (not silently emit smoke). ... Missing dependency: Model assets not available or invalid in /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/tmpbzqt0lee:
+  - Missing required file: config.json
+  - Missing required file: generation_config.json
+  - Missing required file: merges.txt
+  - Missing required file: model.safetensors
+  - Missing required file: special_tokens_map.json
+  - Missing required file: tokenizer.json
+  - Missing required file: tokenizer_config.json
+  - Missing required file: vocab.json
+Run 'make acquire' to download pinned model assets, or pass --smoke for explicit fixture smoke.
+ok
+test_real_benchmark_record_validates (test_benchmark_contracts.TestBenchmarkContracts.test_real_benchmark_record_validates) ... ok
+test_smoke_record_validates (test_benchmark_contracts.TestBenchmarkContracts.test_smoke_record_validates) ... ok
+test_zero_output_benchmark_record_validates (test_benchmark_contracts.TestBenchmarkContracts.test_zero_output_benchmark_record_validates)
+Zero tokens generated: ttft_ms is not present in metrics. ... ok
+test_budget_rejection_preserves_successful_state_and_peak_history (test_cache_contract.TestAccuratePeakTemporaryMemory.test_budget_rejection_preserves_successful_state_and_peak_history)
+A rejected budget operation must NOT count as an achieved peak or alter committed state. ... ok
+test_coexisting_buffers_peak_accounting (test_cache_contract.TestAccuratePeakTemporaryMemory.test_coexisting_buffers_peak_accounting)
+Reproduction probe 4: 1 layer, 1 KV head, D=128, FP32, capacity=2. ... ok
+test_independent_byte_calculations_for_lifetimes (test_cache_contract.TestAccuratePeakTemporaryMemory.test_independent_byte_calculations_for_lifetimes)
+Hand-calculated exact allocation bytes for update and eviction lifetimes. ... ok
+test_pruning_and_explicit_eviction_allowance_contract (test_cache_contract.TestAccuratePeakTemporaryMemory.test_pruning_and_explicit_eviction_allowance_contract)
+Preflight allowance check protects evict_to_capacity and evict_positions atomically. ... ok
+test_successful_operation_peak_history_monotonic (test_cache_contract.TestAccuratePeakTemporaryMemory.test_successful_operation_peak_history_monotonic)
+Peak memory history must be strictly monotonically non-decreasing over successful operations. ... ok
+test_temporary_memory_allowance_enforcement (test_cache_contract.TestAccuratePeakTemporaryMemory.test_temporary_memory_allowance_enforcement)
+Setting temporary memory allowance raises MemoryError when coexisting peak exceeds limit. ... ok
+test_unrelated_accelerator_allocations_do_not_alter_telemetry (test_cache_contract.TestAccuratePeakTemporaryMemory.test_unrelated_accelerator_allocations_do_not_alter_telemetry)
+Reproduction review item 1: unrelated allocations do not alter cache telemetry or measured peaks. ... ok
+test_adapter_active_positions_channel (test_cache_contract.TestAdapterPositionRouting.test_adapter_active_positions_channel)
+Explicit caller position channel functions cleanly. ... ok
+test_adapter_nonzero_start_and_gaps (test_cache_contract.TestAdapterPositionRouting.test_adapter_nonzero_start_and_gaps)
+Adapter preserves nonzero starts and gaps accurately. ... ok
+test_adapter_preserves_cache_position_from_cache_kwargs (test_cache_contract.TestAdapterPositionRouting.test_adapter_preserves_cache_position_from_cache_kwargs)
+Reproduction probe 1: pass cache_kwargs={'cache_position': tensor([10])}. ... ok
+test_batch_size_greater_than_one_rejected (test_cache_contract.TestBoundedCacheInvariants.test_batch_size_greater_than_one_rejected)
+Batch size > 1 must be explicitly rejected upfront. ... ok
+test_capacity_one_sliding_window (test_cache_contract.TestBoundedCacheInvariants.test_capacity_one_sliding_window)
+Capacity 1: cache retains exactly the single most recent token. ... ok
+test_duplicate_positions_rejected (test_cache_contract.TestBoundedCacheInvariants.test_duplicate_positions_rejected)
+Duplicate positions in update or against resident cache must raise ValueError. ... ok
+test_non_monotonic_positions_rejected (test_cache_contract.TestBoundedCacheInvariants.test_non_monotonic_positions_rejected)
+Non-monotonic incoming positions must raise ValueError. ... ok
+test_state_isolation_and_reset (test_cache_contract.TestBoundedCacheInvariants.test_state_isolation_and_reset)
+Reset clears all resident state, counters, and telemetry cleanly. ... ok
+test_tiny_budgets_and_reconciliation_invariant (test_cache_contract.TestBoundedCacheInvariants.test_tiny_budgets_and_reconciliation_invariant)
+Test budgets C in [2, 3, 4, 8] with sink tokens S in [0, 1, 2]. ... ok
+test_zero_norm_vectors_numerical_stability (test_cache_contract.TestBoundedCacheInvariants.test_zero_norm_vectors_numerical_stability)
+Zero-norm query and key vectors produce uniform attention over unmasked keys without NaN. ... ok
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1102 05:30:51.590000 45717 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 5905.48it/s]
+test_fifo_bounded_generation_and_reconciliation (test_cache_contract.TestEndToEndRealModelGeneration.test_fifo_bounded_generation_and_reconciliation)
+Bounded FIFO generation stays within capacity and reconciles evictions. ... ok
+test_full_policy_parity_with_stage05_greedy_baseline (test_cache_contract.TestEndToEndRealModelGeneration.test_full_policy_parity_with_stage05_greedy_baseline)
+Full cache policy achieves 100% token parity and zero logit divergence. ... ok
+test_multi_token_chunked_prefill_equivalence (test_cache_contract.TestEndToEndRealModelGeneration.test_multi_token_chunked_prefill_equivalence)
+Multi-token chunked prefill produces exact logits as single-pass prefill. ... ok
+test_recency_window_generation (test_cache_contract.TestEndToEndRealModelGeneration.test_recency_window_generation)
+Recency window baseline preserves recency without LRU degeneracy confusion. ... ok
+test_gqa_head_expansion_with_bounded_cache (test_cache_contract.TestGroupedQueryAttentionAndRoPE.test_gqa_head_expansion_with_bounded_cache)
+SmolLM2 GQA: H_q = 9, H_kv = 3. Cache stores 3 KV heads; query expands via repeat. ... ok
+test_rope_phase_invariance_under_eviction (test_cache_contract.TestGroupedQueryAttentionAndRoPE.test_rope_phase_invariance_under_eviction)
+RoPE dot product Q(P_q) . K(P_k)^T depends solely on P_q - P_k, regardless of evictions. ... ok
+test_hand_calculated_attention_interior_eviction (test_cache_contract.TestHandCalculatedAttention.test_hand_calculated_attention_interior_eviction)
+Hand-worked numeric attention example with interior eviction. ... ok
+test_hand_calculated_future_token_causal_masking (test_cache_contract.TestHandCalculatedAttention.test_hand_calculated_future_token_causal_masking)
+Hand-worked example verifying that future keys receive -inf and zero attention weight. ... ok
+test_factual_resident_storage_derivation (test_cache_contract.TestTensorLayoutDtypeDeviceContracts.test_factual_resident_storage_derivation)
+Reported resident payload matches actual tensor element sizes directly. ... ok
+test_tensor_dtype_contract (test_cache_contract.TestTensorLayoutDtypeDeviceContracts.test_tensor_dtype_contract)
+Cache configured for float32 must reject float64. ... ok
+test_tensor_heads_and_dimension_contract (test_cache_contract.TestTensorLayoutDtypeDeviceContracts.test_tensor_heads_and_dimension_contract)
+Reproduction probe 3: cache configured for H=1, D=1 must reject [1, 2, 1, 3]. ... ok
+test_adapter_methods_and_properties (test_cache_contract.TestTransformersAdapterCompatibility.test_adapter_methods_and_properties) ... ok
+test_validation_atomicity_on_non_integral_or_negative_positions (test_cache_contract.TestValidationPrecedesMutation.test_validation_atomicity_on_non_integral_or_negative_positions)
+Reject float positions and negative positions before mutation. ... ok
+test_validation_atomicity_on_out_of_order_arrival (test_cache_contract.TestValidationPrecedesMutation.test_validation_atomicity_on_out_of_order_arrival)
+Reproduction probe 2: updating [10] then [5] must raise ValueError before mutation. ... ok
+test_validation_atomicity_on_replaying_evicted_position (test_cache_contract.TestValidationPrecedesMutation.test_validation_atomicity_on_replaying_evicted_position)
+Replaying a previously evicted position without reset must fail atomically. ... ok
+test_validation_atomicity_with_sink_tokens (test_cache_contract.TestValidationPrecedesMutation.test_validation_atomicity_with_sink_tokens)
+With sink_tokens=1 and capacity=2, interior token 1 is evicted, pos 0 is preserved. ... ok
+test_architecture_defaults (test_config.TestConfig.test_architecture_defaults) ... ok
+test_compute_file_sha256 (test_config.TestConfig.test_compute_file_sha256) ... ok
+test_format_smollm_chat_prompt (test_config.TestConfig.test_format_smollm_chat_prompt) ... ok
+test_from_checkpoint_dict (test_config.TestConfig.test_from_checkpoint_dict) ... ok
+test_pinned_metadata (test_config.TestConfig.test_pinned_metadata) ... ok
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 5027.06it/s]
+test_greedy_token_parity_and_logits_agreement (test_parity_real.TestParityReal.test_greedy_token_parity_and_logits_agreement) ... ok
+test_hub_revision_propagation_without_network_downloads (test_parity_real.TestParityReal.test_hub_revision_propagation_without_network_downloads)
+Verify that when loading from Hub ID, the pinned revision is passed explicitly to both loaders. ... ok
+test_mps_greedy_parity_if_available (test_parity_real.TestParityReal.test_mps_greedy_parity_if_available) ... Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 28976.19it/s]
+ok
+test_zero_and_one_token_upstream_parity (test_parity_real.TestParityReal.test_zero_and_one_token_upstream_parity) ... ok
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights:  91%|█████████ | 247/272 [00:00<00:00, 2383.96it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 2489.07it/s]
+test_early_eos_behavior (test_runner_unit.TestRunnerUnit.test_early_eos_behavior) ... ok
+test_explicit_seed_setting_and_factual_metadata (test_runner_unit.TestRunnerUnit.test_explicit_seed_setting_and_factual_metadata)
+Verify that passing an explicit seed sets seed policy and records it factually. ... ok
+test_factual_template_identity_and_raw_prompt_mode (test_runner_unit.TestRunnerUnit.test_factual_template_identity_and_raw_prompt_mode)
+Verify raw_prompt_mode records raw_prompt identity and skips chat template. ... ok
+test_invalid_max_tokens_rejected (test_runner_unit.TestRunnerUnit.test_invalid_max_tokens_rejected) ... ok
+test_loader_override_cannot_change_formatted_prompt_while_verified (test_runner_unit.TestRunnerUnit.test_loader_override_cannot_change_formatted_prompt_while_verified)
+Demonstrate that an extra template cannot change formatted input while provenance is verified. ... Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 4576.51it/s]
+ok
+test_measurement_phases_and_breakdown (test_runner_unit.TestRunnerUnit.test_measurement_phases_and_breakdown)
+Verify explicit phase timings and total duration accounting. ... ok
+test_non_zero_temperature_rejected (test_runner_unit.TestRunnerUnit.test_non_zero_temperature_rejected) ... ok
+test_one_token_limit_and_ttft_measurement (test_runner_unit.TestRunnerUnit.test_one_token_limit_and_ttft_measurement)
+One-token limit: TTFT measures through first-token selection. ... ok
+test_reproducibility_metadata (test_runner_unit.TestRunnerUnit.test_reproducibility_metadata) ... ok
+test_sampling_explicitly_rejected (test_runner_unit.TestRunnerUnit.test_sampling_explicitly_rejected)
+Review defect 2: sampling must be rejected in greedy baseline. ... ok
+test_state_isolation_repeated_requests (test_runner_unit.TestRunnerUnit.test_state_isolation_repeated_requests) ... ok
+test_unsupported_top_p_rejected (test_runner_unit.TestRunnerUnit.test_unsupported_top_p_rejected) ... ok
+test_unverified_local_model_rejected (test_runner_unit.TestRunnerUnit.test_unverified_local_model_rejected)
+Negative test for review defect 1: arbitrary local dir cannot inherit SmolLM identity. ... ok
+test_zero_token_limit_and_timing_definition (test_runner_unit.TestRunnerUnit.test_zero_token_limit_and_timing_definition)
+Zero-token limit: returns immediately without implying a token arrived. ... ok
+
+----------------------------------------------------------------------
+Ran 72 tests in 10.700s
+
+OK

@@ -1,0 +1,10 @@
+-- QNN Stub backend enabled — targets: llm_infer, llm_qnn_bench, run_tests, run_qnn_tests
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build
+[ 10%] Built target llm_metal
+[ 60%] Built target llm_core
+[ 95%] Built target llm_qnn_bench
+[ 95%] Built target run_tests
+[ 95%] Built target llm_infer
+[100%] Built target run_qnn_tests

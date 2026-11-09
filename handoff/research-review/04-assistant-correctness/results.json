@@ -1,0 +1,90 @@
+{
+  "stage": "04-assistant-correctness",
+  "date_utc": "2026-10-30",
+  "verdict": "ACCEPTED_BOUNDED_SCOPE",
+  "review_type": "independent-review-accepted",
+  "independent_review_required": false,
+  "independent_generalization_pending": true,
+  "spot_check_defects_repaired": [
+    "Mixed-unit range parsing: raw numeric reordering bug ('between 60cm and 1m wide') fixed by metric unit normalization prior to comparison without raw reordering",
+    "Missing dimension range guessing: removed silent assumption of 'width' for bare ranges like 'between 40cm and 50cm', ensuring they remain ambiguous and abstain",
+    "Substantive mandatory constraints: preserved subjective qualifiers ('comfortable') and disjunctions ('without red or blue') as unparsed/ambiguities, blocking positive recommendation",
+    "Brand grammar, normalization, and complete identity: separated equality (==, !=) from containment (contains, not_contains); enforced complete normalized identity matching with whitespace stripping and case folding; distinct brands contradict on == and satisfy on !=; source observation is strictly preserved (' FixtureCo ')",
+    "Color directed derivation and compound shades: reconciled verifier and contract validator by implementing directed compound shade derivation in qedge_common.taxonomy and schema.py; compound shade observations ('dark red') satisfy base requirements ('red') under == with observation fidelity, contradict !=, and disjoint colors ('blue', 'dark blue') contradict ==",
+    "Material conservative composition: unresolved material compositions ('oak veneer') cannot establish solid-oak composition or unsupported negation, evaluating conservatively to UNKNOWN in both verifier and contract validator, producing validated UNKNOWN / ABSTAIN decisions",
+    "Observation fidelity in claims: eliminated all rewriting branches that replaced observed_value with required_value across brand, material, color, and other categoricals; actual source observation is strictly preserved and validated via explicit derivation semantics in qedge-common",
+    "Structured evidence status: enforced eligible evidence status (status == 'present') before evaluating structured facts; non-present facts (unknown, missing) strictly return UNKNOWN / ABSTAIN and cannot support or contradict requirements; text fallback cannot bypass structured status",
+    "Held-out fixture duplicate: replaced duplicate heldout-38 with distinct mixed-unit scenario, achieving 80 strictly unique pairs; corrected provenance to internal authored suite; marked independent generalization gate as pending",
+    "Answer boundary fidelity: verified rendered answers strictly reflect validated decisions (action, status, reason, per-claim citations), not a reduced summary",
+    "Bounded affirmative color grammar: restricted color derivation exclusively to recognized affirmative color descriptions (<modifier> <base>); non-affirmative descriptions including negations ('not red'), alternatives/disjunctions ('red or blue'), uncertain expressions ('maybe red'), and unrecognized modifiers ('sparkly red') evaluate conservatively to UNKNOWN / ABSTAIN across both verifier and contract validator",
+    "Exact numeric equality without tolerance: eliminated implicit 1e-6 float tolerance from assistant verifier, aligning strictly with exact numeric equality enforced by shared contract validator; verified exact boundary values, near-boundary values inside and outside former tolerance (e.g. 48.0000005 vs 48.0), inequalities (!=), and exact equality after unit conversion"
+  ],
+  "suites": {
+    "edge_tests": {
+      "total": 69,
+      "passed": 68,
+      "failed": 0,
+      "skipped": 1,
+      "expected_skip": "RealCatalogIntegrationTests.test_catalog_loads"
+    },
+    "qedge_common_tests": {
+      "total": 49,
+      "passed": 49,
+      "failed": 0,
+      "skipped": 0
+    },
+    "llm_ctest": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "decision_program_80_cases": {
+      "total": 80,
+      "unique_query_item_pairs": 80,
+      "development_passed": 40,
+      "development_failed": 0,
+      "held_out_passed": 40,
+      "held_out_failed": 0,
+      "adverse_cases_false_positive_count": 0,
+      "generalization_claim": "authored regression cases; independent generalization evaluation pending independent review"
+    },
+    "acceptance_probes": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0
+    },
+    "round2_reproduction_probes": {
+      "total": 2,
+      "reproduced_before_repair": 2,
+      "resolved_after_repair": 2
+    },
+    "round3_reproduction_probes": {
+      "total": 3,
+      "reproduced_before_repair": 3,
+      "resolved_after_repair": 3
+    },
+    "round4_reproduction_probes": {
+      "total": 3,
+      "reproduced_before_repair": 3,
+      "resolved_after_repair": 3
+    },
+    "historical_hashes": {
+      "total": 30,
+      "verified": 30,
+      "failed": 0
+    },
+    "v1_schema_hashes": {
+      "total": 7,
+      "verified": 7,
+      "failed": 0
+    }
+  },
+  "contracts": {
+    "version": "2",
+    "validated_producers": [
+      "edge_rag.verifier.verify_candidate",
+      "edge_rag.bench.run_smoke"
+    ]
+  }
+}

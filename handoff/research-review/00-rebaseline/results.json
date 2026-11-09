@@ -1,0 +1,272 @@
+[
+  {
+    "id": "edge-tests",
+    "argv": [
+      "edge-rag-demo/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "edge-rag-demo/tests",
+      "-v"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.329063+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": 18,
+    "failed": 0,
+    "skipped": 1,
+    "log": "logs/finalization/edge-tests.log",
+    "status": "PASS"
+  },
+  {
+    "id": "schema-tests",
+    "argv": [
+      "qedge-common/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "qedge-common/tests",
+      "-v"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.481842+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": 13,
+    "failed": 0,
+    "skipped": 0,
+    "log": "logs/finalization/schema-tests.log",
+    "status": "PASS"
+  },
+  {
+    "id": "gap-probe",
+    "argv": [
+      "qedge-common/.venv/bin/python",
+      "docs/research-review/evidence/reproduce_gaps.py"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.612216+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/gap-probe.log",
+    "status": "DEFECTS_REPRODUCED"
+  },
+  {
+    "id": "extra-probe",
+    "argv": [
+      "qedge-common/.venv/bin/python",
+      "handoff/research-review/00-rebaseline/probes/extra_audit_probes.py"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.684489+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/extra-probe.log",
+    "status": "DEFECTS_REPRODUCED"
+  },
+  {
+    "id": "historical-hashes",
+    "argv": [
+      "python3.11",
+      "scripts/verify_historical_hashes.py"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.716605+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "log": "logs/finalization/historical-hashes.log",
+    "status": "PASS"
+  },
+  {
+    "id": "contracts-eval",
+    "argv": [
+      "qedge-common/.venv/bin/python",
+      "-m",
+      "qedge_common.eval"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.747693+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "log": "logs/finalization/contracts-eval.log",
+    "status": "PASS"
+  },
+  {
+    "id": "edge-eval",
+    "argv": [
+      "edge-rag-demo/.venv/bin/python",
+      "-m",
+      "edge_rag.eval"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.811055+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": 0,
+    "failed": 0,
+    "skipped": null,
+    "log": "logs/finalization/edge-eval.log",
+    "status": "NOT_RUN"
+  },
+  {
+    "id": "asan-configure",
+    "argv": [
+      "cmake",
+      "-S",
+      "llm-inference",
+      "-B",
+      "/tmp/qedge-research-asan-rr00-20261029",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DENABLE_SANITIZERS=ON"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.841354+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/asan-configure.log",
+    "status": "PASS"
+  },
+  {
+    "id": "asan-build",
+    "argv": [
+      "cmake",
+      "--build",
+      "/tmp/qedge-research-asan-rr00-20261029",
+      "-j",
+      "4"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:53.990216+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/asan-build.log",
+    "status": "PASS"
+  },
+  {
+    "id": "asan-ctest",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "/tmp/qedge-research-asan-rr00-20261029",
+      "--output-on-failure"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:54.188766+00:00",
+    "returncode": 8,
+    "shell_exit_code": 8,
+    "passed": 0,
+    "failed": 2,
+    "skipped": 0,
+    "log": "logs/finalization/asan-ctest.log",
+    "status": "FAIL"
+  },
+  {
+    "id": "asan-qnn-bench",
+    "argv": [
+      "/tmp/qedge-research-asan-rr00-20261029/llm_qnn_bench"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:54.742004+00:00",
+    "returncode": -6,
+    "shell_exit_code": 134,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/asan-qnn-bench.log",
+    "status": "FAIL"
+  },
+  {
+    "id": "asan-llm-infer",
+    "argv": [
+      "/tmp/qedge-research-asan-rr00-20261029/llm_infer"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:54.970641+00:00",
+    "returncode": -6,
+    "shell_exit_code": 134,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/asan-llm-infer.log",
+    "status": "FAIL"
+  },
+  {
+    "id": "release-configure",
+    "argv": [
+      "cmake",
+      "-S",
+      "llm-inference",
+      "-B",
+      "/tmp/qedge-research-release-rr00-20261029",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DENABLE_SANITIZERS=OFF"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:55.260450+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/release-configure.log",
+    "status": "PASS"
+  },
+  {
+    "id": "release-build",
+    "argv": [
+      "cmake",
+      "--build",
+      "/tmp/qedge-research-release-rr00-20261029",
+      "-j",
+      "4"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:55.358994+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": null,
+    "failed": null,
+    "skipped": null,
+    "log": "logs/finalization/release-build.log",
+    "status": "PASS"
+  },
+  {
+    "id": "release-ctest",
+    "argv": [
+      "ctest",
+      "--test-dir",
+      "/tmp/qedge-research-release-rr00-20261029",
+      "--output-on-failure"
+    ],
+    "cwd": "workspace root",
+    "started_at_utc": "2026-10-29T22:26:55.568009+00:00",
+    "returncode": 0,
+    "shell_exit_code": 0,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "log": "logs/finalization/release-ctest.log",
+    "status": "PASS"
+  }
+]

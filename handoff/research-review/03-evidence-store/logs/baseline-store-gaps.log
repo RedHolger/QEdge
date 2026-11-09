@@ -1,0 +1,6 @@
+Running baseline evidence store gap probe...
+GAP 1: Cross-owner read permitted (bob read alice's private document)
+GAP 2: Cross-owner overwrite permitted (bob overwrote alice's document)
+GAP 3: Arbitrary string 'system' accepted as owner/requester identity
+GAP 4: Citation 'doc-1:0' is unversioned; updating document rewrites what the citation yields
+Baseline probe finished.

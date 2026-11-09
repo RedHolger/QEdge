@@ -1,0 +1,19 @@
+Model assets already present in /private/var/folders/nc/d9sgqbv161q2q14mld0jgmkh0000gn/T/qedge_corrupt_repro_lv1rn5g6
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1030 23:36:40.826000 86950 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+=== Stage 05 Defect Reproduction Probe ===
+Testing Repro 1: Corrupt files and invalid manifest accepted as ready...
+  check_model_assets returned: valid=True, missing=[]
+  acquire_model returned model_id: wrong-model, revision: wrong-revision
+  DEFECT REPRODUCED: corrupt assets with wrong-model manifest accepted as ready!
+
+Testing Repro 2: do_sample=True, temperature=0.7 accepted silently...
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights:   0%|          | 1/272 [00:00<01:11,  3.80it/s]Loading weights:  97%|█████████▋| 264/272 [00:00<00:00, 901.54it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 721.31it/s]
+  generate() succeeded with text: '1 + 1'
+  DEFECT REPRODUCED: Sampling requested but runner silently executed greedy argmax!
+
+Testing Repro 3: Non-integral or float max_new_tokens accepted...
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 10002.99it/s]
+  generate() rejected non-integer limit: 'float' object cannot be interpreted as an integer
+
+Active defects reproduced: 2/3

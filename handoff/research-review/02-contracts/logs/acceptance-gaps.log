@@ -1,0 +1,17 @@
+PASS rejected empty SUPPORTED decision: decision@v2: status: expected UNKNOWN from evidence precedence, got 'SUPPORTED'; action: expected ABSTAIN from evidence precedence, got 'RECOMMEND'
+PASS rejected contradicted child with positive parent: decision@v2: status: expected CONTRADICTED from evidence precedence, got 'SUPPORTED'; action: expected DO_NOT_RECOMMEND from evidence precedence, got 'RECOMMEND'
+PASS rejected missing mandatory coverage: decision@v2: status: expected UNKNOWN from evidence precedence, got 'SUPPORTED'; action: expected ABSTAIN from evidence precedence, got 'RECOMMEND'
+PASS rejected mismatched child item_id: decision@v2: claims[0].item_id: must match decision item_id
+PASS rejected invalid created_at: decision@v2: created_at: 'not-a-date' is not a 'date-time'
+PASS rejected invalid nested retrieved_at: decision@v2: claims.0.retrieved_at: '2026-10-27T00:00:00' is not a 'date-time'
+PASS rejected null supported observation: decision@v2: claims.0.observed_value: None should not be valid under {'type': 'null'}
+PASS rejected synthetic record marked measured: benchmark_result@v2: measured: fixture-smoke is synthetic and cannot be measured=true; provenance.log_path: measured run needs a reproducible log/evidence reference
+PASS rejected measured NPU with unverified device: hardware_status@v2: npu_status: measured NPU requires an available Snapdragon model; npu_status: measured NPU requires qnn.sdk_available; npu_status: measured NPU requires qnn.device_verified; npu_status: measured NPU requires qnn.device; npu_status: measured NPU requires execution evidence; npu_status: measured NPU requires an execution backend
+PASS rejected NaN observed value: decision@v2: <root>.claims[0].observed_value: non-finite JSON number
+PASS positive v2 positive decision
+PASS positive v2 standalone claim
+PASS positive v2 fixture-smoke benchmark
+PASS positive v2 unverified hardware
+PASS positive historical v1 decision
+PASS positive explicit no-candidate decision
+ACCEPTANCE PASS

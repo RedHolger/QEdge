@@ -1,0 +1,58 @@
+-- The CXX compiler identification is AppleClang 21.0.0.21000101
+-- The C compiler identification is AppleClang 21.0.0.21000101
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Debug
+-- Sanitizers: ON
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /tmp/qedge-research-asan
+[ 15%] Building CXX object CMakeFiles/llm_core.dir/src/kv_cache/kv_cache.cpp.o
+[ 20%] Building CXX object CMakeFiles/llm_metal.dir/src/backend/metal_backend.mm.o
+[ 20%] Building CXX object CMakeFiles/llm_core.dir/src/core/config.cpp.o
+[ 20%] Building CXX object CMakeFiles/llm_core.dir/src/core/tensor.cpp.o
+[ 25%] Building CXX object CMakeFiles/llm_core.dir/src/kv_cache/policy.cpp.o
+[ 30%] Building CXX object CMakeFiles/llm_core.dir/src/backend/backend.cpp.o
+[ 35%] Building CXX object CMakeFiles/llm_core.dir/src/backend/cpu_backend.cpp.o
+[ 40%] Building CXX object CMakeFiles/llm_core.dir/src/benchmark/benchmark.cpp.o
+[ 45%] Building CXX object CMakeFiles/llm_core.dir/src/backend/qnn_stub_backend.cpp.o
+/Users/manuvashistha/Developer/qualcomm/llm-inference/src/backend/cpu_backend.cpp:10:3: warning: 'cblas_sgemm' is deprecated: first deprecated in macOS 13.3 - An updated CBLAS interface supporting ILP64 is available.  Please compile with -DACCELERATE_NEW_LAPACK to access the new headers and -DACCELERATE_LAPACK_ILP64 for ILP64 support. [-Wdeprecated-declarations]
+   10 |   cblas_sgemm(CblasRowMajor,
+      |   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/vecLib.framework/Headers/cblas.h:610:6: note: 'cblas_sgemm' has been explicitly marked deprecated here
+  610 | void cblas_sgemm(const enum CBLAS_ORDER __Order,
+      |      ^
+/Users/manuvashistha/Developer/qualcomm/llm-inference/src/backend/cpu_backend.cpp:164:3: warning: 'cblas_sgemm' is deprecated: first deprecated in macOS 13.3 - An updated CBLAS interface supporting ILP64 is available.  Please compile with -DACCELERATE_NEW_LAPACK to access the new headers and -DACCELERATE_LAPACK_ILP64 for ILP64 support. [-Wdeprecated-declarations]
+  164 |   cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+      |   ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/vecLib.framework/Headers/cblas.h:610:6: note: 'cblas_sgemm' has been explicitly marked deprecated here
+  610 | void cblas_sgemm(const enum CBLAS_ORDER __Order,
+      |      ^
+[ 50%] Building CXX object CMakeFiles/llm_core.dir/src/benchmark/power_report.cpp.o
+[ 55%] Linking CXX static library libllm_metal.a
+2 warnings generated.
+[ 55%] Built target llm_metal
+[ 60%] Linking CXX static library libllm_core.a
+[ 60%] Built target llm_core
+[ 80%] Building CXX object CMakeFiles/llm_infer.dir/src/main.cpp.o
+[ 80%] Building CXX object CMakeFiles/llm_qnn_bench.dir/src/main_qnn.cpp.o
+[ 80%] Building CXX object CMakeFiles/run_qnn_tests.dir/tests/test_qnn_stub.cpp.o
+[ 80%] Building CXX object CMakeFiles/run_tests.dir/tests/test_kv_cache.cpp.o
+[ 85%] Linking CXX executable llm_qnn_bench
+[ 85%] Built target llm_qnn_bench
+[ 90%] Linking CXX executable run_qnn_tests
+[ 95%] Linking CXX executable run_tests
+[100%] Linking CXX executable llm_infer
+[100%] Built target run_qnn_tests
+[100%] Built target run_tests
+[100%] Built target llm_infer

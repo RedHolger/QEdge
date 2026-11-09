@@ -1,0 +1,16 @@
+{
+  "schema_version": "1",
+  "claim_id": "claim-fixture-1",
+  "item_id": "fixture-chair-oak",
+  "attribute": "width",
+  "operator": "<=",
+  "required_value": 60.0,
+  "required_unit": "cm",
+  "observed_value": 48.0,
+  "observed_unit": "cm",
+  "status": "SUPPORTED",
+  "source": "catalog.item_dimensions",
+  "source_revision": "fixture-v1",
+  "evidence_text": "width: 48.0 cm",
+  "retrieved_at": "2026-10-27T00:00:00Z"
+}

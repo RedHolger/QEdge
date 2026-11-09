@@ -1,0 +1,132 @@
+{
+  "stage": "06-cache-contract",
+  "date_utc": "2026-11-02",
+  "verdict": "SELF_ASSESSMENT_READY_FOR_REVIEW",
+  "review_type": "handoff-self-assessment",
+  "independent_review_required": true,
+  "model": {
+    "id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "license": "Apache-2.0",
+    "architecture": {
+      "num_layers": 30,
+      "num_attention_heads": 9,
+      "num_kv_heads": 3,
+      "head_dim": 64,
+      "rope_theta": 100000.0,
+      "vocab_size": 49152
+    }
+  },
+  "cache_contract": {
+    "policies_implemented": [
+      "full",
+      "fifo",
+      "recency_window"
+    ],
+    "position_semantics": {
+      "absolute_positions": "Tracked per resident token monotonically and uniquely",
+      "resident_indices": "Compacted 0..S_resident-1 tensor dimension",
+      "total_tokens_seen": "Cumulative monotonic counter across entire inference sequence",
+      "reconciliation_invariant": "total_tokens_seen - resident_tokens == total_evictions",
+      "failure_atomicity": "Pre-mutation validation ensures invalid, out-of-order, negative, float, or replayed evicted positions fail before any state or counter mutation",
+      "adapter_position_routing": "Preserves absolute positions via kwargs, cache_kwargs, positional dicts, or active_positions_context channel"
+    },
+    "batch_policy": {
+      "supported_batch_size": 1,
+      "larger_batches": "Strictly rejected with ValueError"
+    },
+    "attention_and_masking": {
+      "causal_mask_type": "Non-contiguous 4D float mask [1, 1, S_q, S_k]",
+      "future_token_permission": "-inf suppression for P_k > P_q (yields exact 0.0 softmax attention weight)",
+      "gqa_support": "Grouped-Query Attention with H_q=9, H_kv=3 expanded via head repeat",
+      "rope_invariance": "Keys preserve absolute position phase; rotary dot product invariant under intermediate eviction"
+    },
+    "dense_attention_lru_semantics": {
+      "degeneracy_statement": "Dense attention accesses every resident key on every step, rendering access-frequency/timestamp LRU degenerate. recency_window provides the well-defined token arrival recency baseline."
+    },
+    "memory_accounting": {
+      "payload_bytes_formula": "2 * H_kv * head_dim * dtype_bytes * num_layers * resident_tokens (derived directly from resident tensor allocations)",
+      "capacity_bytes_formula": "2 * H_kv * head_dim * dtype_bytes * num_layers * capacity_tokens",
+      "metadata_bytes_formula": "num_layers * resident_tokens * 8 + 64",
+      "peak_temporary_bytes_formula": "Analytical summation of coexisting buffers during update (old_resident + incoming + concat + gathered + other_layers + metadata)",
+      "temporary_memory_allowance": "Explicit temporary_memory_allowance_bytes bound preflighted across update(), evict_to_capacity(), and evict_positions() raising MemoryError before state mutation if coexisting peak exceeds allowance",
+      "authoritative_vs_allocator_snapshots": "Analytical cache accounting is authoritative. Global accelerator snapshots reported separately under allocator_snapshot with global_process scope and post_update sampling point, never overriding analytical cache bounds. measured_peak_bytes remains null in the absence of an isolated cache measurement.",
+      "budget_rejection_failure_atomicity": "Rejected candidate bounds never update analytical_peak_bytes or set committed overflow flag; resident state, positions, counters, and peak history remain 100% unchanged, with diagnostics preserved in last_rejected_attempt."
+    },
+    "adapter": {
+      "subclass": "transformers.cache_utils.Cache",
+      "compatibility_boundary": "transformers >= 4.36.0 (verified on pinned transformers 5.22.1)",
+      "methods": [
+        "update",
+        "get_seq_length",
+        "get_max_length",
+        "get_usable_length",
+        "get_mask_sizes",
+        "get_query_offset",
+        "reset",
+        "key_cache",
+        "value_cache",
+        "set_active_positions",
+        "active_positions_context"
+      ]
+    }
+  },
+  "suites": {
+    "runtime_tests": {
+      "total": 72,
+      "passed": 72,
+      "failed": 0,
+      "skipped": 0
+    },
+    "cache_contract_probes": {
+      "total": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "llm_ctest": {
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "edge_tests": {
+      "total": 69,
+      "passed": 68,
+      "failed": 0,
+      "skipped": 1,
+      "expected_skip": "RealCatalogIntegrationTests.test_catalog_loads"
+    },
+    "qedge_common_tests": {
+      "total": 49,
+      "passed": 49,
+      "failed": 0,
+      "skipped": 0
+    },
+    "historical_hashes": {
+      "total": 30,
+      "verified": 30,
+      "failed": 0
+    },
+    "schema_hashes": {
+      "total": 7,
+      "verified_byte_for_byte": 7,
+      "failed": 0
+    }
+  },
+  "verification_highlights": {
+    "hand_calculated_attention_interior_eviction_error": 7.63e-06,
+    "future_token_attention_weight": 0.0,
+    "capacity_one_reconciliation": "10 seen - 1 resident == 9 evictions",
+    "full_cache_greedy_token_parity": "100%",
+    "full_cache_logits_max_diff": 0.0,
+    "chunked_prefill_logits_max_diff": 3.27e-05,
+    "contract_v2_benchmark_record": "Validated against https://qedge.local/schemas/v2/benchmark_result.schema.json"
+  },
+  "limitations_and_deferred_scope": {
+    "speedup_claims": "None. Stage 06 is strictly an attention correctness and position contract gate.",
+    "quality_ranking_claims": "None. Bounded policies are not claimed superior in downstream quality.",
+    "second_model": "Deferred (Qwen/Qwen2.5-0.5B-Instruct).",
+    "attention_selectors": "Deferred to Stage 07 (selective eviction, heavy hitters).",
+    "qualcomm_npu_execution": "Deferred to Stage 11 (Qualcomm QNN / Hexagon deployment)."
+  }
+}

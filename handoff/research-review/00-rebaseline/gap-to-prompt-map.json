@@ -1,0 +1,110 @@
+[
+  {
+    "id": "G01",
+    "classification": "still present",
+    "basis": "dynamic",
+    "finding": "CPU attention head indexing and per-head output are unsafe; ASan fails CTest and both entry points.",
+    "source": "llm-inference/src/backend/cpu_backend.cpp:127",
+    "evidence": "logs/finalization/asan-ctest.log",
+    "repair_prompt": "01-kernel-safety"
+  },
+  {
+    "id": "G02",
+    "classification": "still present",
+    "basis": "source inspection",
+    "finding": "Metal attention is raw matmul(q,k), ignoring V, softmax and mask.",
+    "source": "llm-inference/src/backend/metal_backend.mm:111",
+    "evidence": "../../../docs/research-review/ANALYSIS.md",
+    "repair_prompt": "01-kernel-safety"
+  },
+  {
+    "id": "G03",
+    "classification": "still present",
+    "basis": "source inspection",
+    "finding": "RoPE has fixed base, repeated position and incorrect split-half frequency exponent.",
+    "source": "llm-inference/src/backend/cpu_backend.cpp:35",
+    "evidence": "../../../docs/research-review/ANALYSIS.md",
+    "repair_prompt": "01-kernel-safety"
+  },
+  {
+    "id": "G04",
+    "classification": "still present",
+    "basis": "source inspection",
+    "finding": "RNG is reseeded per tensor, workload is synthetic, retrieval failure ignored and attention uses a single retrieved token.",
+    "source": "llm-inference/src/benchmark/benchmark.cpp:10",
+    "evidence": "../../../docs/research-review/ANALYSIS.md",
+    "repair_prompt": "01-kernel-safety (unsafe calls); 08-quantization-measurement (benchmark redesign)"
+  },
+  {
+    "id": "G05",
+    "classification": "still present",
+    "basis": "source inspection",
+    "finding": "LRU uses counts, KeyDiff newest-key similarity, QUOKA has no query input.",
+    "source": "llm-inference/src/kv_cache/kv_cache.cpp",
+    "evidence": "../../../docs/research-review/ANALYSIS.md",
+    "repair_prompt": "06-cache-contract and 07-research-selectors"
+  },
+  {
+    "id": "G06",
+    "classification": "still present",
+    "basis": "inventory",
+    "finding": "Runtime is a README placeholder; project models directory is empty.",
+    "source": "llm-inference/runtime/README.md",
+    "evidence": "logs/asset-inventory.log",
+    "repair_prompt": "05-real-model-baseline"
+  },
+  {
+    "id": "G07",
+    "classification": "still present",
+    "basis": "dynamic",
+    "finding": "Red-chair defaults, missing-unit cm assumption, and negation parsed as positive oak.",
+    "source": "edge-rag-demo/src/edge_rag/cli.py",
+    "evidence": "logs/finalization/gap-probe.log",
+    "repair_prompt": "04-assistant-correctness"
+  },
+  {
+    "id": "G08",
+    "classification": "still present",
+    "basis": "dynamic",
+    "finding": "Bob reads and overwrites Alice-owned document.",
+    "source": "edge-rag-demo/src/edge_rag/store.py",
+    "evidence": "logs/finalization/gap-probe.log",
+    "repair_prompt": "03-evidence-store"
+  },
+  {
+    "id": "G09",
+    "classification": "still present",
+    "basis": "dynamic",
+    "finding": "Empty SUPPORTED and unverified measured hardware accepted by validators.",
+    "source": "qedge-common/schemas/decision.schema.json; hardware_status.schema.json",
+    "evidence": "logs/finalization/gap-probe.log",
+    "repair_prompt": "02-contracts"
+  },
+  {
+    "id": "G10",
+    "classification": "still present",
+    "basis": "dynamic",
+    "finding": "Generic wood falsely supports oak; retrieved chunks are flattened text without revision/hash.",
+    "source": "edge-rag-demo/src/edge_rag/verifier.py",
+    "evidence": "logs/finalization/extra-probe.log",
+    "repair_prompt": "03-evidence-store and 04-assistant-correctness"
+  },
+  {
+    "id": "G11",
+    "classification": "still present",
+    "basis": "source/inventory/evaluation",
+    "finding": "BM25 fixture pipeline only; no integrated neural/image retrieval or human quality labels.",
+    "source": "edge-rag-demo/src/edge_rag/retriever.py",
+    "evidence": "logs/finalization/edge-eval.log",
+    "repair_prompt": "09-catalog-retrieval"
+  },
+  {
+    "id": "G12",
+    "classification": "still present",
+    "basis": "source inspection",
+    "finding": "CPU-stub energy model; backend-operation and outer workload time scopes differ. No measured device energy.",
+    "source": "llm-inference/src/backend/qnn_stub_backend.cpp",
+    "evidence": "../../../docs/research-review/ANALYSIS.md",
+    "repair_prompt": "08-quantization-measurement and 11-qualcomm-deployment"
+  }
+]

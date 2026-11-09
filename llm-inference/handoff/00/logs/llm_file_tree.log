@@ -1,0 +1,59 @@
+--- file tree (excluding .git, build, models) ---
+./.gitignore
+./CMakeLists.txt
+./handoff/00.md
+./handoff/00/logs/llm_absolute_paths.log
+./handoff/00/logs/llm_build.log
+./handoff/00/logs/llm_env.log
+./handoff/00/logs/llm_file_tree.log
+./handoff/00/logs/llm_git_status.log
+./handoff/00/logs/llm_hashes.txt
+./handoff/00/logs/llm_infer_run1.log
+./handoff/00/logs/llm_infer_run2.log
+./handoff/00/logs/llm_infer_run3.log
+./handoff/00/logs/llm_infer.log
+./handoff/00/logs/llm_qnn_bench_run1.log
+./handoff/00/logs/llm_qnn_bench_run2.log
+./handoff/00/logs/llm_qnn_bench.log
+./handoff/00/logs/llm_run_qnn_tests.log
+./handoff/00/logs/llm_run_tests.log
+./handoff/A-qnn-stub.md
+./include/backend/backend.h
+./include/backend/cpu_backend.h
+./include/backend/metal_backend.h
+./include/backend/metal_factory.h
+./include/backend/qnn_stub_backend.h
+./include/backend/qnn_types.h
+./include/benchmark/benchmark.h
+./include/benchmark/power_report.h
+./include/core/config.h
+./include/core/tensor.h
+./include/kv_cache/kv_cache.h
+./include/kv_cache/policy.h
+./README.md
+./scripts/bench.sh
+./scripts/download_model.py
+./src/backend/backend.cpp
+./src/backend/cpu_backend.cpp
+./src/backend/metal_backend.mm
+./src/backend/qnn_stub_backend.cpp
+./src/benchmark/benchmark.cpp
+./src/benchmark/power_report.cpp
+./src/core/config.cpp
+./src/core/tensor.cpp
+./src/kv_cache/kv_cache.cpp
+./src/kv_cache/policy.cpp
+./src/main_qnn.cpp
+./src/main.cpp
+./tests/test_kv_cache.cpp
+./tests/test_qnn_stub.cpp
+--- source LOC ---
+cpp       1710 total
+h          510 total
+mm         126 src/backend/metal_backend.mm
+py          47 scripts/download_model.py
+sh          17 scripts/bench.sh
+--- docs/config LOC ---
+     423 README.md
+      70 CMakeLists.txt
+     493 total

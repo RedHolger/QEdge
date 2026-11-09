@@ -1,0 +1,276 @@
+{
+  "timestamp_start": "2026-11-07T21:26:38.000000+00:00",
+  "timestamp_end": "2026-11-07T21:35:20.000000+00:00",
+  "stage": "11-qualcomm-deployment",
+  "verdict": "ACCEPTED (self-review for completed export provenance validation, active CPU parity, and strict hardware governance; device execution BLOCKED / NPU UNVERIFIED)",
+  "hardware_status": {
+    "npu_status": "UNVERIFIED",
+    "execution_device": "CPU baseline (CPUExecutionProvider)",
+    "measured_energy": "unavailable / not measured",
+    "device_execution_status": "BLOCKED",
+    "device_performance_status": "BLOCKED",
+    "notes": "No Qualcomm Snapdragon hardware attached via ADB or locally present. Device execution blocked; CPU baseline only."
+  },
+  "retrieval_quality_status": {
+    "software_repairs": "ACCEPTED (105/105 tests, 49/49 schema tests)",
+    "human_evaluation_gate": "BLOCKED",
+    "review_queue_pending": 1009,
+    "notes": "Human retrieval-quality gate remains BLOCKED pending annotation of the 1,009 active review queue candidates."
+  },
+  "secondary_model_status": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "status": "DEFERRED / BLOCKED",
+    "notes": "Preserved deferred status per execution contract."
+  },
+  "generalization_evaluation": {
+    "status": "PENDING",
+    "notes": "Independent generalization evaluation remains pending."
+  },
+  "hardware_evidence_governance": {
+    "hardware_bypass_status": "CLOSED",
+    "rule": "Caller-supplied evidence dictionary or model checksum is never treated as execution proof. Hardware status remains UNVERIFIED under all conditions in local environment.",
+    "session_classification": {
+      "cpu_only_session": {
+        "registered_providers": [
+          "CPUExecutionProvider"
+        ],
+        "executed_placement": "CPU (CPUExecutionProvider)",
+        "fallback_detected": false
+      },
+      "mixed_or_qnn_session": {
+        "executed_placement": "UNKNOWN (placement logs not verified)",
+        "fallback_detected": "UNKNOWN (node placement unverified)"
+      }
+    }
+  },
+  "export_provenance_validation": {
+    "status": "VALIDATED",
+    "contract": [
+      "model_id: 'HuggingFaceTB/SmolLM2-135M-Instruct'",
+      "source_revision: '12fd25f77366fa6b3b4b768ec3050bf629380bac'",
+      "export_format: 'ONNX'",
+      "onnx_file: manifest filename strictly matches resolved file name on disk",
+      "opset_version: default domain opset matches manifest",
+      "sha256 & file_size_bytes match artifact on disk",
+      "graph inputs: exactly 1 input ('input_ids', INT64, rank 2)",
+      "graph outputs: exactly 1 output ('logits', FLOAT32, rank 3, vocab=49152)",
+      "input_schema: deep comparison matches graph input names, dtypes (int64), and ranks (2)",
+      "output_schema: deep comparison matches graph output names, dtypes (float32), ranks (3), and vocab (49152)",
+      "graph_execution_mode: rejects 'cached_decode' or incompatible modes for graphs lacking KV cache tensors",
+      "use_cache: rejects use_cache=True for graphs lacking KV cache tensors"
+    ],
+    "negative_probes_verified": [
+      "Wrong source revision ('wrong-revision') -> ProvenanceValidationError",
+      "Missing opset_version -> ProvenanceValidationError",
+      "Incompatible graph interface (input 'X', output 'Y') -> ProvenanceValidationError",
+      "Wrong model_id -> ProvenanceValidationError",
+      "Contradictory onnx_file name ('different_model.onnx') -> ProvenanceValidationError",
+      "Contradictory input_schema ('wrong_input', dtype 'float16', shape [99]) -> ProvenanceValidationError",
+      "Contradictory input_schema dtype ('float16' instead of 'int64') -> ProvenanceValidationError",
+      "Contradictory input_schema rank ([99] rank 1 instead of rank 2) -> ProvenanceValidationError",
+      "Empty output_schema ({}) -> ProvenanceValidationError",
+      "Contradictory output_schema key ('wrong_output') -> ProvenanceValidationError",
+      "Contradictory output_schema dtype ('int64' instead of 'float32') -> ProvenanceValidationError",
+      "Contradictory output_schema rank ([1, 4] rank 2 instead of rank 3) -> ProvenanceValidationError",
+      "Contradictory output_schema vocab dim (32000 instead of 49152) -> ProvenanceValidationError",
+      "Contradictory graph_execution_mode ('cached_decode') -> ProvenanceValidationError",
+      "Contradictory use_cache=True -> ProvenanceValidationError",
+      "Combined contradictory manifest probe -> ProvenanceValidationError",
+      "Runner require_verified=True rejects contradictory manifest -> ValueError('Export provenance validation failed')"
+    ],
+    "original_manifest_preservation": "Original export manifest from 2026-11-05 preserved exactly as historical evidence."
+  },
+  "measured_evidence": {
+    "onnx_artifact": {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "source_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "onnx_file_path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/models/smollm2-135m-instruct-onnx/smollm2-135m-instruct.onnx",
+      "sha256": "59594bf1b2507d9326023bbf58176862b2dadf71b8b6b27bc1148547f435e167",
+      "file_size_bytes": 652561201,
+      "opset_version": 17,
+      "actual_graph_opset": 17,
+      "graph_execution_mode": "full_prefix_recomputation_no_kv_cache",
+      "use_cache": false,
+      "input_schema": {
+        "input_ids": {
+          "shape": [
+            "batch_size",
+            "seq_len"
+          ],
+          "dtype": "int64"
+        }
+      },
+      "output_schema": {
+        "logits": {
+          "shape": [
+            "batch_size",
+            "seq_len",
+            49152
+          ],
+          "dtype": "float32"
+        }
+      }
+    },
+    "single_forward_pass_parity_check": {
+      "verified": true,
+      "execution_provider": "CPUExecutionProvider",
+      "input_tokens": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "max_absolute_difference": 0.0007988214492797852,
+      "mean_absolute_difference": 0.00011879634257638827,
+      "max_tolerance": 0.001,
+      "mean_tolerance": 0.0002,
+      "pytorch_greedy_tokens": [
+        28,
+        198,
+        376,
+        33
+      ],
+      "onnx_greedy_tokens": [
+        28,
+        198,
+        376,
+        33
+      ],
+      "greedy_token_parity": true,
+      "numerical_tolerance_status": "PASS"
+    },
+    "multi_prompt_autoregressive_parity": {
+      "verified": true,
+      "execution_provider": "CPUExecutionProvider",
+      "graph_execution_mode": "full_prefix_recomputation_no_kv_cache",
+      "num_prompts_evaluated": 3,
+      "total_steps_evaluated": 12,
+      "matching_steps_count": 12,
+      "token_agreement_rate": 1.0,
+      "overall_max_absolute_difference": 0.000102996826171875,
+      "overall_average_mean_absolute_difference": 1.4451934400009728e-05,
+      "max_tolerance": 0.001,
+      "mean_tolerance": 0.0002,
+      "prompt_evaluations": [
+        {
+          "prompt": "Hello, my name is",
+          "generated_tokens": [
+            15487,
+            28,
+            284,
+            339
+          ],
+          "generated_text": " Emily, and I",
+          "tokens_match_all": true
+        },
+        {
+          "prompt": "The capital of France is",
+          "generated_tokens": [
+            7042,
+            30,
+            7042,
+            314
+          ],
+          "generated_text": " Paris. Paris is",
+          "tokens_match_all": true
+        },
+        {
+          "prompt": "Qualcomm Snapdragon NPU inference",
+          "generated_tokens": [
+            198,
+            198,
+            504,
+            36727
+          ],
+          "generated_text": "\n\nThe Snap",
+          "tokens_match_all": true
+        }
+      ],
+      "numerical_tolerance_status": "PASS"
+    },
+    "python_optimized_mode_parity_active": {
+      "verified": true,
+      "mechanism": "ParityVerificationError is raised instead of python assert",
+      "subprocess_exit_code_under_python_O": 42
+    }
+  },
+  "derived_evidence": {
+    "kv_cache_dimensions": {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "layers": 30,
+      "kv_heads": 3,
+      "head_dim": 64,
+      "tokens": 512,
+      "derivation_formula": "one_way = 2 * layers * kv_heads * tokens * head_dim * bytes_per_elem; round_trip = 2 * one_way",
+      "fp16_one_way_payload_bytes": 11796480,
+      "fp16_one_way_payload_mib": 11.25,
+      "fp16_round_trip_traffic_bytes": 23592960,
+      "fp16_round_trip_traffic_mib": 22.5,
+      "int8_one_way_payload_bytes": 5898240,
+      "int8_one_way_payload_mib": 5.625,
+      "int8_round_trip_traffic_bytes": 11796480,
+      "int8_round_trip_traffic_mib": 11.25
+    }
+  },
+  "assumed_evidence": {
+    "analytical_transfer_models": [
+      {
+        "assumed_bus_bandwidth_gb_s": 2.0,
+        "assumed_driver_overhead_ms": 0.5,
+        "round_trip_traffic_bytes": 23592960,
+        "estimated_transfer_ms": 12.3,
+        "formula": "estimated_transfer_ms = (round_trip_traffic_bytes / (bandwidth_gb_s * 1e9) * 1000) + overhead_ms",
+        "is_measured": false,
+        "notes": "Theoretical analytical estimate assuming effective 2.0 GB/s bus bandwidth; NOT a hardware measurement."
+      },
+      {
+        "assumed_bus_bandwidth_gb_s": 4.0,
+        "assumed_driver_overhead_ms": 0.5,
+        "round_trip_traffic_bytes": 23592960,
+        "estimated_transfer_ms": 6.4,
+        "formula": "estimated_transfer_ms = (round_trip_traffic_bytes / (bandwidth_gb_s * 1e9) * 1000) + overhead_ms",
+        "is_measured": false,
+        "notes": "Theoretical analytical estimate assuming effective 4.0 GB/s bus bandwidth; NOT a hardware measurement."
+      },
+      {
+        "assumed_bus_bandwidth_gb_s": 8.0,
+        "assumed_driver_overhead_ms": 0.3,
+        "round_trip_traffic_bytes": 23592960,
+        "estimated_transfer_ms": 3.25,
+        "formula": "estimated_transfer_ms = (round_trip_traffic_bytes / (bandwidth_gb_s * 1e9) * 1000) + overhead_ms",
+        "is_measured": false,
+        "notes": "Theoretical analytical estimate assuming effective 8.0 GB/s bus bandwidth; NOT a hardware measurement."
+      }
+    ]
+  },
+  "unverified_evidence": {
+    "qualcomm_hardware_offload": "UNVERIFIED (No Snapdragon SoC accessible)",
+    "npu_measured_latency": "UNAVAILABLE / UNMEASURED",
+    "vtcm_sram_residency": "UNVERIFIED (Requires binary QNN profiler log showing zero DDR spills)",
+    "fastrpc_zero_copy_performance": "UNVERIFIED"
+  },
+  "deployment_preparation_status": {
+    "current_export_readiness": "NOT READY FOR DIRECT HTP STAGING",
+    "reasons": [
+      "Current export is a dynamic-shape graph [batch_size, seq_len]; HTP strictly requires static/fixed shapes or explicit profile shapes.",
+      "Current export recomputes the entire prefix on every step (use_cache=False); HTP staging requires stateful or I/O KV cache tensors."
+    ],
+    "mandatory_pre_staging_checklist": [
+      "1. Shape Specialization: specialize inputs to fixed prefill and decode shapes",
+      "2. Stateful / I/O KV Cache Interface: add explicit past/present key-value tensors",
+      "3. Operator Verification: validate specialized graph against target HTP Op Package",
+      "4. Quantization to W8A16 / W4A16: calibrate activations and quantize weights for HVX",
+      "5. Pre-Staging CPU Parity Check: verify numerical parity of specialized graph on CPU before pushing to device"
+    ]
+  },
+  "final_dimension_repair": {
+    "date": "2026-11-09",
+    "verdict": "ACCEPTED for bounded CPU export/provenance scope; target preparation and device execution BLOCKED",
+    "review_type": "implementing-agent verification",
+    "dimension_contract": "positive fixed sizes must match dim_value; symbolic strings must match dim_param exactly; malformed and unknown axes rejected",
+    "tests": "../12-release-review/logs/dimensions.log",
+    "runtime_tests": 137,
+    "runtime_exit_code": 0,
+    "historical_manifest_modified": false
+  }
+}

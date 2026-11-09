@@ -1,0 +1,20 @@
+QUERY: 'I need a dining chair with oak material under 60cm wide'
+PARSED: {'width_lte_cm': 60.0, 'material': 'oak'}
+
+QUERY: 'I need a chair under 61cm wide'
+PARSED: {'width_lte_cm': 61.0}
+
+QUERY: 'red chair'
+PARSED: {}
+
+QUERY: 'chair with a built-in phone charger'
+PARSED: {}
+
+QUERY: 'chair under 24 inches'
+PARSED: {'width_lte_cm': 60.96}
+
+GENERATOR WITH CONTRADICTION:
+Based on verified evidence: Test Chair matches your requirements. [width (75cm): CONTRADICTED, material (leather): CONTRADICTED]
+
+GENERATOR WITH UNKNOWN:
+Based on verified evidence: Test Chair matches your requirements. [width: UNKNOWN, material: UNKNOWN]

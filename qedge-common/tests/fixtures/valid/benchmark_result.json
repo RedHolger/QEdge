@@ -1,0 +1,23 @@
+{
+  "schema_version": "1",
+  "run_id": "benchmark-fixture-1",
+  "kind": "fixture-smoke",
+  "created_at": "2026-10-27T00:00:00Z",
+  "model": null,
+  "backend": "cpu",
+  "hardware": {
+    "cpu": "fixture-host",
+    "npu_status": "unverified"
+  },
+  "measured": false,
+  "metrics": {
+    "stage_total_ms": 0.2,
+    "candidates": 1
+  },
+  "provenance": {
+    "command": ".venv/bin/python -m edge_rag.bench",
+    "notes": [
+      "Fixture smoke only; not a performance measurement."
+    ]
+  }
+}

@@ -1,0 +1,1279 @@
+{
+  "run_manifest": {
+    "manifest_id": "run_manifest_9d09726bb29b7e85",
+    "timestamp": "2026-11-03T20:29:48Z",
+    "source_model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "source_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "converter_identity": {
+      "tool": "llama.cpp convert_hf_to_gguf.py",
+      "commit": "aac6da8012efd5c0fd211c907c4e870ba075b211",
+      "script_sha256": "39fd91af35d1fb60be9a12b9e7bf63e50ac297100d7f72431b37e4f9053ad91b"
+    },
+    "gguf_artifacts": {
+      "F16": {
+        "name": "smollm2-135m-instruct-f16.gguf",
+        "path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/models/smollm2-135m-instruct-gguf/smollm2-135m-instruct-f16.gguf",
+        "size_bytes": 270885920,
+        "sha256": "47e1e4bc9f562fd7fe8d5da818ceb10e1a7a6e85712e2fc62f7ab0e419c6954a",
+        "format": "F16"
+      },
+      "Q8_0": {
+        "name": "smollm2-135m-instruct-q8_0.gguf",
+        "path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/models/smollm2-135m-instruct-gguf/smollm2-135m-instruct-q8_0.gguf",
+        "size_bytes": 144811040,
+        "sha256": "56309b68c39c15428a63650d37c01f2296f900edeaabbcd5a4915023abacf1db",
+        "format": "Q8_0"
+      },
+      "Q4_K_M": {
+        "name": "smollm2-135m-instruct-q4_k_m.gguf",
+        "path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/models/smollm2-135m-instruct-gguf/smollm2-135m-instruct-q4_k_m.gguf",
+        "size_bytes": 105454112,
+        "sha256": "b986dc0e36c816e6088cba806d8f5520c452092781754b1d3724b72d8299b785",
+        "format": "Q4_K_M"
+      }
+    },
+    "native_runtime": {
+      "binding_version": "0.3.36",
+      "library_name": "libllama.dylib",
+      "library_path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/runtime/.venv/lib/python3.11/site-packages/llama_cpp/lib/libllama.dylib",
+      "library_sha256": "a41e2bf90535158a30da94bf46b8861dc3989e280aee2d0346bdf6d41b48d05d",
+      "device": "Apple Silicon Metal (ggml-metal / Darwin arm64)",
+      "backend_evidence": "MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 |",
+      "gpu_offload_supported": true
+    },
+    "effective_settings": {
+      "warmups_per_config": 3,
+      "trials_per_prompt": 10,
+      "max_tokens": 16,
+      "temperature": 0.0,
+      "clear_state": true,
+      "kv_cache_state_isolation": "llm.reset() called before every measured trial (clear_state=True)",
+      "configured_kv_cache_type": "GGML_TYPE_F16",
+      "observed_kv_cache_type": "GGML_TYPE_F16 (context_params.type_k=1, type_v=1)",
+      "configured_compute_precision": "F32/F16",
+      "observed_compute_precision": "unverified"
+    }
+  },
+  "metadata": {
+    "source_model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "source_revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "runtime_engine": "llama.cpp via llama-cpp-python 0.3.36",
+    "device": "Apple Silicon Metal (ggml-metal / Darwin arm64)",
+    "native_library_name": "libllama.dylib",
+    "native_library_sha256": "a41e2bf90535158a30da94bf46b8861dc3989e280aee2d0346bdf6d41b48d05d",
+    "backend_evidence": "MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 |",
+    "warmups_per_config": 3,
+    "measured_trials_per_prompt": 10,
+    "kv_cache_state_isolation": "llm.reset() called before every measured trial (clear_state=True)",
+    "timing_definitions": {
+      "prefill_ms": "eval(prompt_tokens) duration",
+      "first_token_selection_ms": "sample() duration for first token",
+      "ttft_ms": "prefill_ms + first_token_selection_ms",
+      "decode_ms": "subsequent eval/sample duration for decode steps",
+      "decode_tok_per_sec": "decode_steps / (decode_ms / 1000)",
+      "prefill_tok_per_sec": "evaluated_prompt_tokens / (prefill_ms / 1000)"
+    },
+    "distinct_prompts_count": 8,
+    "total_raw_trials": 240,
+    "timestamp": "2026-11-03T20:29:48Z",
+    "energy_reporting": "omitted (no hardware power meter instrument integrated)",
+    "calibration": "none (standard block quantization applied)"
+  },
+  "models": {
+    "F16": {
+      "run_manifest_id": "run_manifest_9d09726bb29b7e85",
+      "model_name": "smollm2-135m-instruct-f16.gguf",
+      "model_sha256": "47e1e4bc9f562fd7fe8d5da818ceb10e1a7a6e85712e2fc62f7ab0e419c6954a",
+      "weight_precision": "F16",
+      "precision_source": "gguf_inspection",
+      "compute_precision": "unverified",
+      "kv_cache_precision": "F16",
+      "precision_details": {
+        "weight": {
+          "configured": "F16",
+          "observed": "F16",
+          "established_by": "structural_gguf_tensor_inspection"
+        },
+        "kv_cache": {
+          "configured": "F16",
+          "observed": "GGML_TYPE_F16",
+          "type_k": "GGML_TYPE_F16",
+          "type_v": "GGML_TYPE_F16",
+          "established_by": "context_params.type_k/type_v readback from llama_context"
+        },
+        "compute": {
+          "configured": "F32/F16",
+          "observed": "unverified",
+          "established_by": "unverified (internal kernel accumulation precision not exposed by llama.cpp runtime API)"
+        }
+      },
+      "native_runtime": {
+        "binding_version": "0.3.36",
+        "library_name": "libllama.dylib",
+        "library_path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/runtime/.venv/lib/python3.11/site-packages/llama_cpp/lib/libllama.dylib",
+        "library_sha256": "a41e2bf90535158a30da94bf46b8861dc3989e280aee2d0346bdf6d41b48d05d",
+        "device": "Apple Silicon Metal (ggml-metal / Darwin arm64)",
+        "backend_evidence": "MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 |",
+        "gpu_offload_supported": true
+      },
+      "artifact_size_bytes": 270885920,
+      "artifact_size_mb": 258.34,
+      "peak_rss_bytes": 618938368,
+      "peak_rss_mb": 590.27,
+      "rss_measurement_status": "success",
+      "rss_measurement_error": null,
+      "kv_cache_analytical_bytes_ctx512": 11796480,
+      "coarse_target_hit_rate": 0.5,
+      "total_measured_trials": 80,
+      "warmups_per_config": 3,
+      "ttft_stats": {
+        "mean": 24.75,
+        "std": 4.06,
+        "p50": 25.05,
+        "p95": 30.86,
+        "min": 15.95,
+        "max": 32.01,
+        "ci95": 0.89
+      },
+      "decode_speed_stats": {
+        "mean": 166.88,
+        "std": 13.77,
+        "p50": 171.91,
+        "p95": 176.99,
+        "min": 112.76,
+        "max": 178.55,
+        "ci95": 3.02
+      },
+      "per_prompt_results": {
+        "qa_01_paris": {
+          "ttft_ms": {
+            "mean": 26.03,
+            "std": 4.07,
+            "p50": 27.77,
+            "p95": 30.92,
+            "min": 17.01,
+            "max": 30.92,
+            "ci95": 2.52
+          },
+          "decode_tok_per_sec": {
+            "mean": 167.61,
+            "std": 8.15,
+            "p50": 170.31,
+            "p95": 174.43,
+            "min": 149.71,
+            "max": 174.43,
+            "ci95": 5.05
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "The capital of France is Paris.",
+          "output_token_count": 8
+        },
+        "qa_02_water": {
+          "ttft_ms": {
+            "mean": 24.29,
+            "std": 3.68,
+            "p50": 23.39,
+            "p95": 30.34,
+            "min": 20.1,
+            "max": 30.34,
+            "ci95": 2.28
+          },
+          "decode_tok_per_sec": {
+            "mean": 170.98,
+            "std": 4.0,
+            "p50": 171.98,
+            "p95": 175.05,
+            "min": 165.7,
+            "max": 175.05,
+            "ci95": 2.48
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "The chemical formula for water is H2O.",
+          "output_token_count": 11
+        },
+        "qa_03_speed_of_light": {
+          "ttft_ms": {
+            "mean": 24.13,
+            "std": 4.87,
+            "p50": 23.09,
+            "p95": 30.29,
+            "min": 16.13,
+            "max": 30.29,
+            "ci95": 3.02
+          },
+          "decode_tok_per_sec": {
+            "mean": 172.41,
+            "std": 4.83,
+            "p50": 174.18,
+            "p95": 177.17,
+            "min": 161.15,
+            "max": 177.17,
+            "ci95": 2.99
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "length",
+          "output_text": "The physical constant represented by the letter c is the speed of light in a vacuum",
+          "output_token_count": 16
+        },
+        "qa_04_binary_five": {
+          "ttft_ms": {
+            "mean": 21.54,
+            "std": 4.53,
+            "p50": 20.85,
+            "p95": 32.01,
+            "min": 15.95,
+            "max": 32.01,
+            "ci95": 2.81
+          },
+          "decode_tok_per_sec": {
+            "mean": 174.92,
+            "std": 3.13,
+            "p50": 175.33,
+            "p95": 178.55,
+            "min": 168.46,
+            "max": 178.55,
+            "ci95": 1.94
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "length",
+          "output_text": "The binary representation of the decimal number 5 is 1010.",
+          "output_token_count": 16
+        },
+        "qa_05_primary_colors": {
+          "ttft_ms": {
+            "mean": 21.74,
+            "std": 3.41,
+            "p50": 21.28,
+            "p95": 28.87,
+            "min": 17.86,
+            "max": 28.87,
+            "ci95": 2.11
+          },
+          "decode_tok_per_sec": {
+            "mean": 169.25,
+            "std": 5.6,
+            "p50": 170.49,
+            "p95": 175.5,
+            "min": 156.22,
+            "max": 175.5,
+            "ci95": 3.47
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "The third primary color in additive color mixing is typically green.",
+          "output_token_count": 13
+        },
+        "inst_06_arithmetic": {
+          "ttft_ms": {
+            "mean": 25.91,
+            "std": 1.25,
+            "p50": 25.77,
+            "p95": 28.11,
+            "min": 24.12,
+            "max": 28.11,
+            "ci95": 0.78
+          },
+          "decode_tok_per_sec": {
+            "mean": 173.31,
+            "std": 1.84,
+            "p50": 172.64,
+            "p95": 175.56,
+            "min": 170.56,
+            "max": 175.56,
+            "ci95": 1.14
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "15 multiplied by 4 is 60.",
+          "output_token_count": 12
+        },
+        "inst_07_logic": {
+          "ttft_ms": {
+            "mean": 28.27,
+            "std": 3.17,
+            "p50": 28.95,
+            "p95": 31.63,
+            "min": 22.2,
+            "max": 31.63,
+            "ci95": 1.96
+          },
+          "decode_tok_per_sec": {
+            "mean": 136.08,
+            "std": 15.97,
+            "p50": 134.24,
+            "p95": 154.51,
+            "min": 112.76,
+            "max": 154.51,
+            "ci95": 9.9
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "No",
+          "output_token_count": 2
+        },
+        "inst_08_extraction": {
+          "ttft_ms": {
+            "mean": 26.06,
+            "std": 2.41,
+            "p50": 25.88,
+            "p95": 29.53,
+            "min": 21.27,
+            "max": 29.53,
+            "ci95": 1.5
+          },
+          "decode_tok_per_sec": {
+            "mean": 170.5,
+            "std": 3.75,
+            "p50": 171.51,
+            "p95": 174.96,
+            "min": 162.66,
+            "max": 174.96,
+            "ci95": 2.32
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "The fruit from the list is a table.",
+          "output_token_count": 10
+        }
+      },
+      "generated_texts": {
+        "qa_01_paris": "The capital of France is Paris.",
+        "qa_02_water": "The chemical formula for water is H2O.",
+        "qa_03_speed_of_light": "The physical constant represented by the letter c is the speed of light in a vacuum",
+        "qa_04_binary_five": "The binary representation of the decimal number 5 is 1010.",
+        "qa_05_primary_colors": "The third primary color in additive color mixing is typically green.",
+        "inst_06_arithmetic": "15 multiplied by 4 is 60.",
+        "inst_07_logic": "No",
+        "inst_08_extraction": "The fruit from the list is a table."
+      },
+      "generated_token_ids": {
+        "qa_01_paris": [
+          504,
+          3575,
+          282,
+          4649,
+          314,
+          7042,
+          30,
+          2
+        ],
+        "qa_02_water": [
+          504,
+          2819,
+          7961,
+          327,
+          913,
+          314,
+          407,
+          34,
+          63,
+          30,
+          2
+        ],
+        "qa_03_speed_of_light": [
+          504,
+          2099,
+          3836,
+          6610,
+          411,
+          260,
+          4386,
+          265,
+          314,
+          260,
+          3547,
+          282,
+          1420,
+          281,
+          253,
+          12391
+        ],
+        "qa_04_binary_five": [
+          504,
+          11087,
+          6133,
+          282,
+          260,
+          17948,
+          1230,
+          216,
+          37,
+          314,
+          216,
+          33,
+          32,
+          33,
+          32,
+          30
+        ],
+        "qa_05_primary_colors": [
+          504,
+          3464,
+          3003,
+          2380,
+          281,
+          23564,
+          2380,
+          12136,
+          314,
+          3431,
+          2654,
+          30,
+          2
+        ],
+        "inst_06_arithmetic": [
+          33,
+          37,
+          25319,
+          411,
+          216,
+          36,
+          314,
+          216,
+          38,
+          32,
+          30,
+          2
+        ],
+        "inst_07_logic": [
+          5230,
+          2
+        ],
+        "inst_08_extraction": [
+          504,
+          4354,
+          429,
+          260,
+          1398,
+          314,
+          253,
+          3252,
+          30,
+          2
+        ]
+      },
+      "exact_token_agreement_with_f16": 1.0,
+      "len_aware_token_agreement_with_f16": 1.0,
+      "word_split_exact_agreement_with_f16": 1.0,
+      "word_split_len_aware_agreement_with_f16": 1.0
+    },
+    "Q8_0": {
+      "run_manifest_id": "run_manifest_9d09726bb29b7e85",
+      "model_name": "smollm2-135m-instruct-q8_0.gguf",
+      "model_sha256": "56309b68c39c15428a63650d37c01f2296f900edeaabbcd5a4915023abacf1db",
+      "weight_precision": "Q8_0",
+      "precision_source": "gguf_inspection",
+      "compute_precision": "unverified",
+      "kv_cache_precision": "F16",
+      "precision_details": {
+        "weight": {
+          "configured": "Q8_0",
+          "observed": "Q8_0",
+          "established_by": "structural_gguf_tensor_inspection"
+        },
+        "kv_cache": {
+          "configured": "F16",
+          "observed": "GGML_TYPE_F16",
+          "type_k": "GGML_TYPE_F16",
+          "type_v": "GGML_TYPE_F16",
+          "established_by": "context_params.type_k/type_v readback from llama_context"
+        },
+        "compute": {
+          "configured": "F32/F16",
+          "observed": "unverified",
+          "established_by": "unverified (internal kernel accumulation precision not exposed by llama.cpp runtime API)"
+        }
+      },
+      "native_runtime": {
+        "binding_version": "0.3.36",
+        "library_name": "libllama.dylib",
+        "library_path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/runtime/.venv/lib/python3.11/site-packages/llama_cpp/lib/libllama.dylib",
+        "library_sha256": "a41e2bf90535158a30da94bf46b8861dc3989e280aee2d0346bdf6d41b48d05d",
+        "device": "Apple Silicon Metal (ggml-metal / Darwin arm64)",
+        "backend_evidence": "MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 |",
+        "gpu_offload_supported": true
+      },
+      "artifact_size_bytes": 144811040,
+      "artifact_size_mb": 138.1,
+      "peak_rss_bytes": 492290048,
+      "peak_rss_mb": 469.48,
+      "rss_measurement_status": "success",
+      "rss_measurement_error": null,
+      "kv_cache_analytical_bytes_ctx512": 11796480,
+      "coarse_target_hit_rate": 0.5,
+      "total_measured_trials": 80,
+      "warmups_per_config": 3,
+      "ttft_stats": {
+        "mean": 18.07,
+        "std": 3.91,
+        "p50": 16.34,
+        "p95": 26.96,
+        "min": 14.54,
+        "max": 33.13,
+        "ci95": 0.86
+      },
+      "decode_speed_stats": {
+        "mean": 188.54,
+        "std": 14.44,
+        "p50": 194.01,
+        "p95": 199.09,
+        "min": 130.32,
+        "max": 201.94,
+        "ci95": 3.16
+      },
+      "per_prompt_results": {
+        "qa_01_paris": {
+          "ttft_ms": {
+            "mean": 18.27,
+            "std": 3.33,
+            "p50": 18.01,
+            "p95": 24.5,
+            "min": 14.71,
+            "max": 24.5,
+            "ci95": 2.06
+          },
+          "decode_tok_per_sec": {
+            "mean": 190.85,
+            "std": 5.71,
+            "p50": 189.66,
+            "p95": 201.81,
+            "min": 183.64,
+            "max": 201.81,
+            "ci95": 3.54
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "The capital of France is Paris.",
+          "output_token_count": 8
+        },
+        "qa_02_water": {
+          "ttft_ms": {
+            "mean": 17.29,
+            "std": 2.9,
+            "p50": 16.27,
+            "p95": 23.89,
+            "min": 14.64,
+            "max": 23.89,
+            "ci95": 1.8
+          },
+          "decode_tok_per_sec": {
+            "mean": 191.6,
+            "std": 6.58,
+            "p50": 191.99,
+            "p95": 199.6,
+            "min": 177.49,
+            "max": 199.6,
+            "ci95": 4.08
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "The chemical formula for water is H2O.",
+          "output_token_count": 11
+        },
+        "qa_03_speed_of_light": {
+          "ttft_ms": {
+            "mean": 15.91,
+            "std": 0.71,
+            "p50": 15.96,
+            "p95": 16.85,
+            "min": 14.74,
+            "max": 16.85,
+            "ci95": 0.44
+          },
+          "decode_tok_per_sec": {
+            "mean": 196.1,
+            "std": 1.49,
+            "p50": 196.54,
+            "p95": 198.15,
+            "min": 193.68,
+            "max": 198.15,
+            "ci95": 0.93
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "length",
+          "output_text": "The physical constant represented by the letter c is the speed of light in a vacuum",
+          "output_token_count": 16
+        },
+        "qa_04_binary_five": {
+          "ttft_ms": {
+            "mean": 15.85,
+            "std": 0.98,
+            "p50": 15.74,
+            "p95": 17.82,
+            "min": 14.54,
+            "max": 17.82,
+            "ci95": 0.61
+          },
+          "decode_tok_per_sec": {
+            "mean": 195.25,
+            "std": 2.27,
+            "p50": 195.27,
+            "p95": 198.71,
+            "min": 190.13,
+            "max": 198.71,
+            "ci95": 1.41
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "length",
+          "output_text": "The binary representation of the decimal number 5 is 1010.",
+          "output_token_count": 16
+        },
+        "qa_05_primary_colors": {
+          "ttft_ms": {
+            "mean": 15.88,
+            "std": 0.77,
+            "p50": 16.01,
+            "p95": 17.27,
+            "min": 14.82,
+            "max": 17.27,
+            "ci95": 0.48
+          },
+          "decode_tok_per_sec": {
+            "mean": 195.55,
+            "std": 3.17,
+            "p50": 195.57,
+            "p95": 200.38,
+            "min": 190.86,
+            "max": 200.38,
+            "ci95": 1.96
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "In additive color mixing, the third primary color is typically green.",
+          "output_token_count": 14
+        },
+        "inst_06_arithmetic": {
+          "ttft_ms": {
+            "mean": 16.75,
+            "std": 1.31,
+            "p50": 16.19,
+            "p95": 18.44,
+            "min": 14.67,
+            "max": 18.44,
+            "ci95": 0.81
+          },
+          "decode_tok_per_sec": {
+            "mean": 193.88,
+            "std": 2.66,
+            "p50": 193.24,
+            "p95": 197.4,
+            "min": 189.44,
+            "max": 197.4,
+            "ci95": 1.65
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "15 multiplied by 4 is 60.",
+          "output_token_count": 12
+        },
+        "inst_07_logic": {
+          "ttft_ms": {
+            "mean": 24.01,
+            "std": 4.94,
+            "p50": 24.25,
+            "p95": 33.13,
+            "min": 16.37,
+            "max": 33.13,
+            "ci95": 3.06
+          },
+          "decode_tok_per_sec": {
+            "mean": 157.87,
+            "std": 16.58,
+            "p50": 166.94,
+            "p95": 173.05,
+            "min": 130.32,
+            "max": 173.05,
+            "ci95": 10.27
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "No",
+          "output_token_count": 2
+        },
+        "inst_08_extraction": {
+          "ttft_ms": {
+            "mean": 20.59,
+            "std": 4.68,
+            "p50": 19.18,
+            "p95": 27.93,
+            "min": 15.25,
+            "max": 27.93,
+            "ci95": 2.9
+          },
+          "decode_tok_per_sec": {
+            "mean": 187.19,
+            "std": 13.81,
+            "p50": 190.46,
+            "p95": 201.94,
+            "min": 159.64,
+            "max": 201.94,
+            "ci95": 8.56
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "The fruit from the list is a table.",
+          "output_token_count": 10
+        }
+      },
+      "generated_texts": {
+        "qa_01_paris": "The capital of France is Paris.",
+        "qa_02_water": "The chemical formula for water is H2O.",
+        "qa_03_speed_of_light": "The physical constant represented by the letter c is the speed of light in a vacuum",
+        "qa_04_binary_five": "The binary representation of the decimal number 5 is 1010.",
+        "qa_05_primary_colors": "In additive color mixing, the third primary color is typically green.",
+        "inst_06_arithmetic": "15 multiplied by 4 is 60.",
+        "inst_07_logic": "No",
+        "inst_08_extraction": "The fruit from the list is a table."
+      },
+      "generated_token_ids": {
+        "qa_01_paris": [
+          504,
+          3575,
+          282,
+          4649,
+          314,
+          7042,
+          30,
+          2
+        ],
+        "qa_02_water": [
+          504,
+          2819,
+          7961,
+          327,
+          913,
+          314,
+          407,
+          34,
+          63,
+          30,
+          2
+        ],
+        "qa_03_speed_of_light": [
+          504,
+          2099,
+          3836,
+          6610,
+          411,
+          260,
+          4386,
+          265,
+          314,
+          260,
+          3547,
+          282,
+          1420,
+          281,
+          253,
+          12391
+        ],
+        "qa_04_binary_five": [
+          504,
+          11087,
+          6133,
+          282,
+          260,
+          17948,
+          1230,
+          216,
+          37,
+          314,
+          216,
+          33,
+          32,
+          33,
+          32,
+          30
+        ],
+        "qa_05_primary_colors": [
+          788,
+          23564,
+          2380,
+          12136,
+          28,
+          260,
+          3464,
+          3003,
+          2380,
+          314,
+          3431,
+          2654,
+          30,
+          2
+        ],
+        "inst_06_arithmetic": [
+          33,
+          37,
+          25319,
+          411,
+          216,
+          36,
+          314,
+          216,
+          38,
+          32,
+          30,
+          2
+        ],
+        "inst_07_logic": [
+          5230,
+          2
+        ],
+        "inst_08_extraction": [
+          504,
+          4354,
+          429,
+          260,
+          1398,
+          314,
+          253,
+          3252,
+          30,
+          2
+        ]
+      },
+      "exact_token_agreement_with_f16": 0.875,
+      "len_aware_token_agreement_with_f16": 0.875,
+      "word_split_exact_agreement_with_f16": 0.875,
+      "word_split_len_aware_agreement_with_f16": 0.9091
+    },
+    "Q4_K_M": {
+      "run_manifest_id": "run_manifest_9d09726bb29b7e85",
+      "model_name": "smollm2-135m-instruct-q4_k_m.gguf",
+      "model_sha256": "b986dc0e36c816e6088cba806d8f5520c452092781754b1d3724b72d8299b785",
+      "weight_precision": "Q4_K_M",
+      "precision_source": "gguf_inspection",
+      "compute_precision": "unverified",
+      "kv_cache_precision": "F16",
+      "precision_details": {
+        "weight": {
+          "configured": "Q4_K_M",
+          "observed": "Q4_K_M",
+          "established_by": "structural_gguf_tensor_inspection"
+        },
+        "kv_cache": {
+          "configured": "F16",
+          "observed": "GGML_TYPE_F16",
+          "type_k": "GGML_TYPE_F16",
+          "type_v": "GGML_TYPE_F16",
+          "established_by": "context_params.type_k/type_v readback from llama_context"
+        },
+        "compute": {
+          "configured": "F32/F16",
+          "observed": "unverified",
+          "established_by": "unverified (internal kernel accumulation precision not exposed by llama.cpp runtime API)"
+        }
+      },
+      "native_runtime": {
+        "binding_version": "0.3.36",
+        "library_name": "libllama.dylib",
+        "library_path": "/Users/manuvashistha/Developer/qualcomm/llm-inference/runtime/.venv/lib/python3.11/site-packages/llama_cpp/lib/libllama.dylib",
+        "library_sha256": "a41e2bf90535158a30da94bf46b8861dc3989e280aee2d0346bdf6d41b48d05d",
+        "device": "Apple Silicon Metal (ggml-metal / Darwin arm64)",
+        "backend_evidence": "MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 |",
+        "gpu_offload_supported": true
+      },
+      "artifact_size_bytes": 105454112,
+      "artifact_size_mb": 100.57,
+      "peak_rss_bytes": 455573504,
+      "peak_rss_mb": 434.47,
+      "rss_measurement_status": "success",
+      "rss_measurement_error": null,
+      "kv_cache_analytical_bytes_ctx512": 11796480,
+      "coarse_target_hit_rate": 0.5,
+      "total_measured_trials": 80,
+      "warmups_per_config": 3,
+      "ttft_stats": {
+        "mean": 17.54,
+        "std": 2.21,
+        "p50": 16.87,
+        "p95": 22.51,
+        "min": 15.43,
+        "max": 27.36,
+        "ci95": 0.48
+      },
+      "decode_speed_stats": {
+        "mean": 199.38,
+        "std": 16.51,
+        "p50": 205.75,
+        "p95": 208.12,
+        "min": 137.33,
+        "max": 212.27,
+        "ci95": 3.62
+      },
+      "per_prompt_results": {
+        "qa_01_paris": {
+          "ttft_ms": {
+            "mean": 17.93,
+            "std": 2.54,
+            "p50": 17.18,
+            "p95": 23.98,
+            "min": 15.55,
+            "max": 23.98,
+            "ci95": 1.57
+          },
+          "decode_tok_per_sec": {
+            "mean": 198.98,
+            "std": 14.22,
+            "p50": 204.23,
+            "p95": 206.45,
+            "min": 159.9,
+            "max": 206.45,
+            "ci95": 8.81
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "The capital of France is Paris.",
+          "output_token_count": 8
+        },
+        "qa_02_water": {
+          "ttft_ms": {
+            "mean": 16.67,
+            "std": 1.04,
+            "p50": 16.36,
+            "p95": 18.61,
+            "min": 15.43,
+            "max": 18.61,
+            "ci95": 0.64
+          },
+          "decode_tok_per_sec": {
+            "mean": 206.47,
+            "std": 2.41,
+            "p50": 206.34,
+            "p95": 212.27,
+            "min": 203.85,
+            "max": 212.27,
+            "ci95": 1.49
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "The chemical formula for water is H2O.",
+          "output_token_count": 11
+        },
+        "qa_03_speed_of_light": {
+          "ttft_ms": {
+            "mean": 16.62,
+            "std": 0.59,
+            "p50": 16.39,
+            "p95": 17.94,
+            "min": 15.99,
+            "max": 17.94,
+            "ci95": 0.37
+          },
+          "decode_tok_per_sec": {
+            "mean": 206.68,
+            "std": 1.29,
+            "p50": 207.15,
+            "p95": 208.43,
+            "min": 204.65,
+            "max": 208.43,
+            "ci95": 0.8
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "length",
+          "output_text": "In physics, the physical constant c is the speed of light in a vacuum,",
+          "output_token_count": 16
+        },
+        "qa_04_binary_five": {
+          "ttft_ms": {
+            "mean": 17.21,
+            "std": 0.94,
+            "p50": 17.31,
+            "p95": 18.79,
+            "min": 15.72,
+            "max": 18.79,
+            "ci95": 0.58
+          },
+          "decode_tok_per_sec": {
+            "mean": 204.47,
+            "std": 1.12,
+            "p50": 204.88,
+            "p95": 205.78,
+            "min": 202.5,
+            "max": 205.78,
+            "ci95": 0.69
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "Binary representation: 1010",
+          "output_token_count": 9
+        },
+        "qa_05_primary_colors": {
+          "ttft_ms": {
+            "mean": 17.22,
+            "std": 0.84,
+            "p50": 17.32,
+            "p95": 18.79,
+            "min": 16.29,
+            "max": 18.79,
+            "ci95": 0.52
+          },
+          "decode_tok_per_sec": {
+            "mean": 202.29,
+            "std": 7.49,
+            "p50": 206.59,
+            "p95": 206.84,
+            "min": 183.48,
+            "max": 206.84,
+            "ci95": 4.64
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "In additive color mixing, the third primary color is green.",
+          "output_token_count": 13
+        },
+        "inst_06_arithmetic": {
+          "ttft_ms": {
+            "mean": 16.29,
+            "std": 0.62,
+            "p50": 16.23,
+            "p95": 17.78,
+            "min": 15.58,
+            "max": 17.78,
+            "ci95": 0.38
+          },
+          "decode_tok_per_sec": {
+            "mean": 206.87,
+            "std": 3.08,
+            "p50": 206.59,
+            "p95": 212.22,
+            "min": 201.65,
+            "max": 212.22,
+            "ci95": 1.91
+          },
+          "coarse_target_hit": 1.0,
+          "stop_reason": "stop",
+          "output_text": "15 multiplied by 4 is 60.",
+          "output_token_count": 12
+        },
+        "inst_07_logic": {
+          "ttft_ms": {
+            "mean": 21.38,
+            "std": 3.19,
+            "p50": 20.93,
+            "p95": 27.36,
+            "min": 16.97,
+            "max": 27.36,
+            "ci95": 1.98
+          },
+          "decode_tok_per_sec": {
+            "mean": 161.94,
+            "std": 16.52,
+            "p50": 166.81,
+            "p95": 180.38,
+            "min": 137.33,
+            "max": 180.38,
+            "ci95": 10.24
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "stop",
+          "output_text": "No",
+          "output_token_count": 2
+        },
+        "inst_08_extraction": {
+          "ttft_ms": {
+            "mean": 16.99,
+            "std": 1.47,
+            "p50": 16.55,
+            "p95": 21.04,
+            "min": 16.03,
+            "max": 21.04,
+            "ci95": 0.91
+          },
+          "decode_tok_per_sec": {
+            "mean": 207.33,
+            "std": 0.65,
+            "p50": 207.49,
+            "p95": 208.12,
+            "min": 206.12,
+            "max": 208.12,
+            "ci95": 0.41
+          },
+          "coarse_target_hit": 0.0,
+          "stop_reason": "length",
+          "output_text": "I'm sorry for the confusion, but as a helpful AI, I don't",
+          "output_token_count": 16
+        }
+      },
+      "generated_texts": {
+        "qa_01_paris": "The capital of France is Paris.",
+        "qa_02_water": "The chemical formula for water is H2O.",
+        "qa_03_speed_of_light": "In physics, the physical constant c is the speed of light in a vacuum,",
+        "qa_04_binary_five": "Binary representation: 1010",
+        "qa_05_primary_colors": "In additive color mixing, the third primary color is green.",
+        "inst_06_arithmetic": "15 multiplied by 4 is 60.",
+        "inst_07_logic": "No",
+        "inst_08_extraction": "I'm sorry for the confusion, but as a helpful AI, I don't"
+      },
+      "generated_token_ids": {
+        "qa_01_paris": [
+          504,
+          3575,
+          282,
+          4649,
+          314,
+          7042,
+          30,
+          2
+        ],
+        "qa_02_water": [
+          504,
+          2819,
+          7961,
+          327,
+          913,
+          314,
+          407,
+          34,
+          63,
+          30,
+          2
+        ],
+        "qa_03_speed_of_light": [
+          788,
+          6944,
+          28,
+          260,
+          2099,
+          3836,
+          265,
+          314,
+          260,
+          3547,
+          282,
+          1420,
+          281,
+          253,
+          12391,
+          28
+        ],
+        "qa_04_binary_five": [
+          39503,
+          6133,
+          42,
+          216,
+          33,
+          32,
+          33,
+          32,
+          2
+        ],
+        "qa_05_primary_colors": [
+          788,
+          23564,
+          2380,
+          12136,
+          28,
+          260,
+          3464,
+          3003,
+          2380,
+          314,
+          2654,
+          30,
+          2
+        ],
+        "inst_06_arithmetic": [
+          33,
+          37,
+          25319,
+          411,
+          216,
+          36,
+          314,
+          216,
+          38,
+          32,
+          30,
+          2
+        ],
+        "inst_07_logic": [
+          5230,
+          2
+        ],
+        "inst_08_extraction": [
+          57,
+          5248,
+          22657,
+          327,
+          260,
+          9563,
+          28,
+          564,
+          347,
+          253,
+          5356,
+          5646,
+          28,
+          339,
+          1326,
+          982
+        ]
+      },
+      "exact_token_agreement_with_f16": 0.5,
+      "len_aware_token_agreement_with_f16": 0.5288,
+      "word_split_exact_agreement_with_f16": 0.5,
+      "word_split_len_aware_agreement_with_f16": 0.5218
+    }
+  },
+  "comparison_table": {
+    "headers": [
+      "Variant",
+      "Disk Size",
+      "Peak RSS",
+      "TTFT p50 (ms)",
+      "TTFT Mean \u00b1 Std",
+      "Decode tok/s p50",
+      "Decode tok/s Mean \u00b1 Std",
+      "Exact Token Match vs F16",
+      "Len-Aware Token Agreement",
+      "Coarse Target Hit Rate"
+    ],
+    "rows": [
+      {
+        "variant": "F16",
+        "disk_size_mb": 258.34,
+        "peak_rss_mb": 590.27,
+        "ttft_p50_ms": 25.05,
+        "ttft_mean_ms": 24.75,
+        "ttft_std_ms": 4.06,
+        "decode_p50_tok_s": 171.91,
+        "decode_mean_tok_s": 166.88,
+        "decode_std_tok_s": 13.77,
+        "exact_token_agreement_with_f16": 1.0,
+        "len_aware_token_agreement_with_f16": 1.0,
+        "coarse_target_hit_rate": 0.5
+      },
+      {
+        "variant": "Q8_0",
+        "disk_size_mb": 138.1,
+        "peak_rss_mb": 469.48,
+        "ttft_p50_ms": 16.34,
+        "ttft_mean_ms": 18.07,
+        "ttft_std_ms": 3.91,
+        "decode_p50_tok_s": 194.01,
+        "decode_mean_tok_s": 188.54,
+        "decode_std_tok_s": 14.44,
+        "exact_token_agreement_with_f16": 0.875,
+        "len_aware_token_agreement_with_f16": 0.875,
+        "coarse_target_hit_rate": 0.5
+      },
+      {
+        "variant": "Q4_K_M",
+        "disk_size_mb": 100.57,
+        "peak_rss_mb": 434.47,
+        "ttft_p50_ms": 16.87,
+        "ttft_mean_ms": 17.54,
+        "ttft_std_ms": 2.21,
+        "decode_p50_tok_s": 205.75,
+        "decode_mean_tok_s": 199.38,
+        "decode_std_tok_s": 16.51,
+        "exact_token_agreement_with_f16": 0.5,
+        "len_aware_token_agreement_with_f16": 0.5288,
+        "coarse_target_hit_rate": 0.5
+      }
+    ]
+  }
+}

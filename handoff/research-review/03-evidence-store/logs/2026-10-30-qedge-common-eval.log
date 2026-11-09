@@ -1,0 +1,68 @@
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 0.26ms
+.venv/bin/python -m qedge_common.eval
+{
+  "stage": "02",
+  "evaluation": "shared-contracts",
+  "schemas": 7,
+  "examples": 11,
+  "ok": 11,
+  "results": [
+    {
+      "schema": "product",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "retrieval_request",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "retrieval_result",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "evidence_claim",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "evidence_claim",
+      "version": "2",
+      "status": "ok"
+    },
+    {
+      "schema": "decision",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "decision",
+      "version": "2",
+      "status": "ok"
+    },
+    {
+      "schema": "benchmark_result",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "benchmark_result",
+      "version": "2",
+      "status": "ok"
+    },
+    {
+      "schema": "hardware_status",
+      "version": "1",
+      "status": "ok"
+    },
+    {
+      "schema": "hardware_status",
+      "version": "2",
+      "status": "ok"
+    }
+  ],
+  "note": "No retrieval, model, or hardware evaluation has been run."
+}

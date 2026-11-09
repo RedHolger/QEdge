@@ -1,0 +1,21 @@
+workspace=/Users/manuvashistha/Developer/qualcomm
+
+[llm-inference/models]
+llm-inference/models
+
+[catalog search]
+./edge-rag-demo/tests/fixtures/catalog.jsonl
+
+[huggingface cache]
+/Users/manuvashistha/.cache/huggingface/.agent_harnesses.json
+/Users/manuvashistha/.cache/huggingface/xet/logs/xet_20261021T043607874+0100_7446.log
+
+[huggingface hub dirs]
+
+[other model caches]
+present: /Users/manuvashistha/.cache/torch
+absent: /Users/manuvashistha/.cache/modelscope
+absent: /Users/manuvashistha/.cache/llama.cpp
+present: /Users/manuvashistha/.ollama
+
+[installed model-related Python packages in edge venv]

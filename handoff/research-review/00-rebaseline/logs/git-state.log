@@ -1,0 +1,34 @@
+[root]
+git_root=NOT_A_GIT_REPOSITORY
+
+[llm-inference]
+git_root=/Users/manuvashistha/Developer/qualcomm/llm-inference
+head=edf35b722c1eeb690602e840ff5052c4f2cb170c
+branch=main
+status:
+ M CMakeLists.txt
+ M README.md
+ M include/backend/backend.h
+ M src/backend/backend.cpp
+ M src/benchmark/benchmark.cpp
+ M src/main.cpp
+ M tests/test_kv_cache.cpp
+?? CMakePresets.json
+?? Makefile
+?? cpp/
+?? handoff/
+?? include/backend/qnn_stub_backend.h
+?? include/backend/qnn_types.h
+?? include/benchmark/power_report.h
+?? legacy/
+?? runtime/
+?? src/backend/qnn_stub_backend.cpp
+?? src/benchmark/power_report.cpp
+?? src/main_qnn.cpp
+?? tests/test_qnn_stub.cpp
+
+[edge-rag-demo]
+git_root=NOT_A_GIT_REPOSITORY
+
+[qedge-common]
+git_root=NOT_A_GIT_REPOSITORY

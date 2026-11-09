@@ -1,0 +1,39 @@
+
+  QEdge Runtime — QnnStub CPU fallback report (Stage 01)
+  This is not an NPU run. Snapdragon/QNN hardware: unverified.
+  Numbers below are synthetic CPU-stub estimates, not device power.
+
+
+[QnnStub] Running power-efficiency benchmark across all KV-cache policies...
+        FIFO tok/s=126 hit=52.4% evicts=1166
+         LRU tok/s=133 hit=17.5% evicts=1166
+     KeyDiff tok/s=105 hit=52.4% evicts=1166
+       QUOKA tok/s=94 hit=52.4% evicts=1166
+
+  QEdge Runtime — KV-cache CPU-stub report (Stage 01)
+  Synthetic power estimates only; no Snapdragon/QNN device was used.
+  Hardware status: unverified.
+
+Policy      tok/s       Peak MB     Hit%      Est.mJ      tok/mJ      
+----------------------------------------------------------------------
+FIFO        126         0.95        52.4      0.0003      1303        
+LRU         133         0.95        17.5      0.0004      1380        
+KeyDiff     105         0.95        52.4      0.0007      1088        
+QUOKA       94          0.95        52.4      0.0009      970         
+----------------------------------------------------------------------
+
+  CPU-stub comparison (not an NPU recommendation): LRU has the highest synthetic tok/mJ in this run (1380).
+    This is a CPU-stub estimate; no Snapdragon/Hexagon measurement exists.
+
+  QNN interface mapping (design only; not executed):
+  ─────────────────────────────────────────────────────────
+  matmul           → QNN_OP_MAT_MUL
+  rope             → QNN_OP_ROTARY_EMBEDDING
+  softmax          → QNN_OP_SOFTMAX
+  rms_norm         → QNN_OP_LAYER_NORM
+  silu_mul         → QNN_OP_GELU
+  add              → QNN_OP_ELEMENT_WISE_ADD
+  attention        → QNN_OP_MULTI_HEAD_ATTENTION
+  fused_qk_v_attn  → QNN_OP_MULTI_HEAD_ATTENTION
+  ─────────────────────────────────────────────────────────
+

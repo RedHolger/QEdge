@@ -1,0 +1,98 @@
+Loading model from /Users/manuvashistha/Developer/qualcomm/llm-inference/models/smollm2-135m-instruct (device: auto, dtype: auto)...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+W1102 05:30:10.177000 45395 llm-inference/runtime/.venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/272 [00:00<?, ?it/s]Loading weights: 100%|██████████| 272/272 [00:00<00:00, 15662.85it/s]
+Generating (max_new_tokens=32, policy=full, capacity=None)...
+Completed: 32 tokens in 1581.6ms (prefill: 121.9ms, selection: 0.4ms, decode: 1455.3ms, TTFT: 123.4ms)
+{
+  "schema_version": "2",
+  "run_id": "runtime-baseline-smollm2",
+  "kind": "runtime-generation",
+  "created_at": "2026-11-02T05:30:12.080715+00:00",
+  "model": {
+    "name": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "quantization": "bfloat16"
+  },
+  "backend": "mps",
+  "hardware": {
+    "cpu": "arm",
+    "gpu": "Apple Silicon GPU (MPS)",
+    "device": "Manus-MacBook-Air-2.local",
+    "npu_status": "not-present",
+    "execution_evidence": null,
+    "execution_backend": null
+  },
+  "measured": true,
+  "metrics": {
+    "load_ms": 1064.1986250011541,
+    "formatting_ms": 2.8295830015849788,
+    "tokenization_ms": 1.0866669981624,
+    "prefill_ms": 121.92904200128396,
+    "first_token_selection_ms": 0.3525829997670371,
+    "decode_ms": 1455.3390410001157,
+    "detokenization_ms": 0.0887080022948794,
+    "total_ms": 1581.625624003209,
+    "prefill_tok_per_sec": 311.6566765086192,
+    "decode_tok_per_sec": 21.30087843908637,
+    "prompt_tokens": 38,
+    "generated_tokens": 32,
+    "stopped_on_eos": false,
+    "ttft_ms": 123.3682919992134
+  },
+  "outputs": {
+    "text": "Edge computing is a type of computing that operates at the edge of the network, typically in areas with low latency and high processing power, such as near-edge",
+    "token_ids": [
+      36270,
+      7867,
+      314,
+      253,
+      1502,
+      282,
+      7867,
+      338,
+      13662,
+      418,
+      260,
+      5595,
+      282,
+      260,
+      3082,
+      28,
+      3431,
+      281,
+      1721,
+      351,
+      1642,
+      28270,
+      284,
+      904,
+      4604,
+      1149,
+      28,
+      715,
+      347,
+      2141,
+      29,
+      7277
+    ],
+    "token_trace": null
+  },
+  "cache": {
+    "policy": "full",
+    "capacity_tokens": 1000000,
+    "evictions": 0,
+    "peak_bytes": 1659928
+  },
+  "provenance": {
+    "command": "python -m qedge_runtime.benchmark",
+    "notes": [
+      "Real model baseline run without cache compression or QNN.",
+      "Frozen dependencies from committed llm-inference/runtime/uv.lock.",
+      "TTFT defined through availability of first token (tokenization + prefill + selection).",
+      "Greedy-only generation (do_sample=False, temperature=0.0, seed=42).",
+      "Outputs kept strictly separate from numeric scalar metrics."
+    ],
+    "log_path": "handoff/research-review/05-real-model-baseline/logs/benchmark.log"
+  }
+}

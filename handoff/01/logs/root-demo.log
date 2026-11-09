@@ -1,0 +1,106 @@
+# Stage 01 root demo gate
+# command: make demo
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:21:00Z
+Python 3.11.15
+/Library/Developer/CommandLineTools/usr/bin/make -C qedge-common setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 3ms
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.33ms
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference setup
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference demo
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+cmake --build --preset release --target llm_infer
+[ 14%] Built target llm_metal
+[ 85%] Built target llm_core
+[100%] Built target llm_infer
+./build/release/llm_infer
+
+  QEdge Runtime — C++ kernel lab (Stage 01)
+  Synthetic cache and attention microbenchmark; no model is loaded.
+  QNN fallback is a CPU stub; Snapdragon/NPU status: unverified.
+
+── KV Cache Demo ──────────────────────────────────────────────
+  FIFO: size=32 hits=24/60 hit_rate=40% evictions=48
+  LRU: size=32 hits=24/60 hit_rate=40% evictions=48
+  KeyDiff: size=32 hits=28/60 hit_rate=46.6667% evictions=48
+  QUOKA: size=32 hits=24/60 hit_rate=40% evictions=48
+
+── Attention Kernel Demo ──────────────────────────────────────
+  Backend: CPU (Accelerate/BLAS)
+  Attention output shape: [8, 4, 64]
+  First head, first token (first 8 dims): 0.0435 0.1129 -0.4183 -0.2739 -0.0417 0.3469 -0.0153 -0.0714 
+
+
++--------------------------------------------------------------------------------+
+|      KERNEL LAB: synthetic KV-cache microbenchmark (not model inference)      |
++--------------------------------------------------------------------------------+
+  Model: 8L, 2048 hidden, 32 heads, 64 head_dim
+  NOTE: synthetic random tensors and cache bookkeeping; not model throughput.
+  Cache: 512 slots, Tokens: 64
+
+Backend             Policy        Avg Token (ms)  Tok/s           Hit Rate      Evicts      Peak Mem (MB) 
+----------------------------------------------------------------------------------------------------------
+CPU (Accelerate/BLAS)FIFO          0.111           8971.6          1.000         0           2             
+CPU (Accelerate/BLAS)LRU           0.095           10580.8         1.000         0           2             
+CPU (Accelerate/BLAS)KeyDiff       0.081           12407.6         1.000         0           2             
+CPU (Accelerate/BLAS)QUOKA         0.085           11780.9         1.000         0           2             
+Metal (MPS/GPU)     FIFO          0.308           3242.6          1.000         0           2             
+Metal (MPS/GPU)     LRU           0.277           3614.8          1.000         0           2             
+Metal (MPS/GPU)     KeyDiff       0.263           3801.0          1.000         0           2             
+Metal (MPS/GPU)     QUOKA         0.286           3500.3          1.000         0           2             
+----------------------------------------------------------------------------------------------------------
+
+Synthetic comparison (not a model benchmark):
+  Best hit rate:  FIFO (CPU (Accelerate/BLAS)) — 100.000%
+  Best speed:     KeyDiff (CPU (Accelerate/BLAS)) — 12407.6 tok/s
+
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo demo
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.13ms
+QEDGE_CATALOG_DIR=/Users/manuvashistha/Developer/qualcomm/edge-rag-demo/tests/fixtures .venv/bin/edge-rag-demo "wooden dining chair under 60cm"
+══════════════════════════════════════════════════════════════
+ QEdge Assist — Stage 01 foundation demo
+══════════════════════════════════════════════════════════════
+Query: "wooden dining chair under 60cm"
+
+Stage         Time (ms)   Target
+────────────────────────────────────────
+RETRIEVE      0.1         retrieval (CPU in Stage 01)
+VERIFY        0.3         deterministic evidence checks (CPU)
+GENERATE      0.1         template fill (CPU)
+Total         0.6
+
+Results:
+1. Fixture Oak Dining Chair — width: SUPPORTED (48cm)
+2. Fixture Wide Aluminum Chair — width: CONTRADICTED (75cm)
+3. Fixture Chair With Missing Dimensions — width: UNKNOWN
+
+Generated response:
+Based on verified evidence: Fixture Oak Dining Chair. Verification: [width (48cm): SUPPORTED]. Stage 01 template only; the Stage 07 decision policy and recommendation are not implemented.
+
+NPU status: unverified — no Snapdragon/QNN device or AI Hub run; no offload percentage is reported.
+
+══════════════════════════════════════════════════════════════
+ Evidence store: local SQLite · 3 document(s) checked
+ Retrieval: fixture-v1 · local BM25 (Stage 01 baseline; not neural)
+ QNN CPU-stub (synthetic): QUOKA 1011 tok/mJ (synthetic CPU-stub estimate; not measured; not NPU) · QNN/NPU status: unverified
+══════════════════════════════════════════════════════════════
+# exit: 0

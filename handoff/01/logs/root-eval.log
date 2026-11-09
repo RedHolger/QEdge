@@ -1,0 +1,79 @@
+# Stage 01 root evaluation gate
+# command: make eval
+# cwd: /Users/manuvashistha/Developer/qualcomm
+# started: 2026-10-27T22:21:25Z
+Python 3.11.15
+/Library/Developer/CommandLineTools/usr/bin/make -C qedge-common setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 0.29ms
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo setup
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.08ms
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference setup
+cmake --preset release
+-- QNN Stub enabled — CPU-only stub, no NPU measurement
+-- Build type: Release
+-- Sanitizers: OFF
+-- CTest: llm_kv_cache and optional qnn_stub_cpu
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/manuvashistha/Developer/qualcomm/llm-inference/build/release
+python3.11 scripts/verify_historical_hashes.py
+historical manifest: 30 verified, 0 failure(s)
+/Library/Developer/CommandLineTools/usr/bin/make -C qedge-common eval
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 7 packages in 0.26ms
+.venv/bin/python -m qedge_common.eval
+{
+  "stage": "01",
+  "evaluation": "shared-contracts",
+  "schemas": 7,
+  "ok": 7,
+  "results": [
+    {
+      "schema": "product",
+      "status": "ok"
+    },
+    {
+      "schema": "retrieval_request",
+      "status": "ok"
+    },
+    {
+      "schema": "retrieval_result",
+      "status": "ok"
+    },
+    {
+      "schema": "evidence_claim",
+      "status": "ok"
+    },
+    {
+      "schema": "decision",
+      "status": "ok"
+    },
+    {
+      "schema": "benchmark_result",
+      "status": "ok"
+    },
+    {
+      "schema": "hardware_status",
+      "status": "ok"
+    }
+  ],
+  "note": "No retrieval, model, or hardware evaluation has been run."
+}
+/Library/Developer/CommandLineTools/usr/bin/make -C edge-rag-demo eval
+env -u VIRTUAL_ENV uv sync --frozen --python 3.11
+Audited 1 package in 0.09ms
+.venv/bin/python -m edge_rag.eval
+{
+  "stage": "01",
+  "evaluation": "retrieval-and-decision",
+  "status": "not-run",
+  "reason": "No human relevance labels or reviewed decision cases exist yet. Stage 06 adds qrels/annotation; Stage 09 adds decision evaluation.",
+  "measured": false,
+  "score": null
+}
+/Library/Developer/CommandLineTools/usr/bin/make -C llm-inference eval
+Stage 01: no model or runtime evaluation artifacts exist yet.
+The synthetic kernel microbenchmark is not a model evaluation; see docs/CLAIMS.md.
+# exit: 0

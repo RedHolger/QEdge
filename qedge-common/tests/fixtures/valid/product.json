@@ -1,0 +1,31 @@
+{
+  "schema_version": "1",
+  "item_id": "fixture-chair-oak",
+  "variant_id": "fixture-chair-oak-01",
+  "catalog_version": "fixture-v1",
+  "title": "Fixture Oak Dining Chair",
+  "category": "Chairs",
+  "text": "Fixture Oak Dining Chair wooden dining chair oak seat 48 cm wide",
+  "image_asset_id": null,
+  "image_path": null,
+  "image_sha256": null,
+  "source_url": "https://example.invalid/fixture-chair-oak",
+  "source_revision": "fixture-v1",
+  "source_hash": "8891ab952473f797c28388c25e7cad6f877f97e11313173b7084f8a1f44af1ec",
+  "provenance": {
+    "kind": "fixture",
+    "note": "Synthetic contract example; not an ABO item."
+  },
+  "attributes": {
+    "width": {
+      "value": 48.0,
+      "unit": "cm",
+      "status": "present"
+    },
+    "material": {
+      "value": "oak",
+      "status": "present"
+    }
+  },
+  "license_ref": "test-fixture-only"
+}

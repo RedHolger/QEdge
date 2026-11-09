@@ -1,0 +1,26 @@
+utc_timestamp=2026-10-29T22:18:50Z
+workspace=/Users/manuvashistha/Developer/qualcomm
+kernel=Darwin Manus-MacBook-Air-2.local 25.3.0 Darwin Kernel Version 25.3.0: Wed Jan 28 20:56:34 PST 2026; root:xnu-12377.91.3~2/RELEASE_ARM64_T8112 arm64
+os=macOS 26.3.1 (25D771280a)
+arch=arm64
+cmake=cmake version 4.4.2
+clang=Apple clang version 21.0.0 (clang-2100.1.1.101)
+clang_target=Target: arm64-apple-darwin25.3.0
+cxx=Apple clang version 21.0.0 (clang-2100.1.1.101)
+system_python=Python 3.11.15
+edge_python=Python 3.11.15
+schema_python=Python 3.11.15
+edge_prefix=/Users/manuvashistha/Developer/qualcomm/edge-rag-demo/.venv
+schema_prefix=/Users/manuvashistha/Developer/qualcomm/qedge-common/.venv
+
+[edge venv packages]
+edge-rag-demo==0.2.0
+
+[schema venv packages]
+attrs==26.1.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+qedge-common==0.1.0
+referencing==0.37.0
+rpds-py==2026.9.1
+typing_extensions==4.16.0

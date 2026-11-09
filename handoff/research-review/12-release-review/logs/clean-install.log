@@ -1,0 +1,12 @@
+Building wheel...
+Successfully built .release/wheels/qedge_common-0.1.0-py3-none-any.whl
+Building wheel...
+Successfully built .release/wheels/edge_rag_demo-0.2.0-py3-none-any.whl
+Using Python 3.11.15 environment at: .release/venv
+Resolved 8 packages in 13ms
+Prepared 2 packages in 8ms
+Uninstalled 2 packages in 8ms
+Installed 2 packages in 3ms
+ ~ edge-rag-demo==0.2.0 (from file:///Users/manuvashistha/Developer/qualcomm/.release/wheels/edge_rag_demo-0.2.0-py3-none-any.whl)
+ ~ qedge-common==0.1.0 (from file:///Users/manuvashistha/Developer/qualcomm/.release/wheels/qedge_common-0.1.0-py3-none-any.whl)
+Installed. Run /Users/manuvashistha/Developer/qualcomm/.release/venv/bin/qedge-portfolio demo
