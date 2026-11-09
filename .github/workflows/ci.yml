@@ -55,5 +55,9 @@ jobs:
         run: make setup
       - name: Full test gate
         run: make test
-      - name: Evaluation gate
-        run: make eval
+      - name: Offline fixture evaluation (no acquired catalog)
+        run: |
+          python scripts/verify_historical_hashes.py
+          make -C qedge-common eval
+          make portfolio-setup
+          make portfolio-evaluate
