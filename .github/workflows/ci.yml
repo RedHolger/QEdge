@@ -24,7 +24,7 @@ jobs:
 
   cpp:
     name: C++ kernel-lab CTest
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -41,7 +41,7 @@ jobs:
 
   full-macos:
     name: Full setup/test gate
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
